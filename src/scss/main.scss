@@ -1,0 +1,68 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    position: relative;
+    font-family: "Arial", "Microsoft Yahei";
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: #fff;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input,
+textarea {
+    outline: none;
+    resize: none;
+}
+
+.sz18 {
+    font-size: 18px;
+}
+
+.content {
+    min-width: 1140px;
+}
+
+.w1140 {
+    margin: 0 100px;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.tr {
+    text-align: right;
+}
+
+@import "index.scss";
