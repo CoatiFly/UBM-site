@@ -40,7 +40,18 @@ textarea {
     outline: none;
     resize: none;
 }
+img{
+    width: auto;
+}
 
+.page{
+    min-width: 1248px;
+}
+.shell{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
 .sz18 {
     font-size: 18px;
 }
@@ -64,5 +75,16 @@ textarea {
 .tr {
     text-align: right;
 }
-
+.red_bg{
+    background-color: #e50012;
+}
+.blue_bg{
+    background-color: #053a7a;
+}
+.mt20{
+    margin-top: 20px;
+}
+.red{
+    color: #e50012;
+}
 @import "index.scss";
