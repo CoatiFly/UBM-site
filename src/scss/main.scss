@@ -32,6 +32,9 @@ li {
 }
 
 a {
+    display: block;
+    width: 100%;
+    height: 100%;
     text-decoration: none;
 }
 
@@ -86,5 +89,15 @@ img{
 }
 .red{
     color: #e50012;
+}
+.layou_fixed{
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
 }
 @import "index.scss";

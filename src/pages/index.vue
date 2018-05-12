@@ -5,9 +5,40 @@
     <div class="nav_center">
       <ul class="nav_list">
         <li class="list">HOME</li>
-        <li class="list">VISIT</li>
-        <li class="list">EXHIBIT</li>
-        <li class="list">FSA</li>
+        <li class="list second">
+          <span class="pull_down">VISIT</span>
+          <ul class="second_list">
+            <li class="red_bg"></li>
+            <li class="item">Why Visit</li>
+            <li class="item">Register Interest</li>
+            <li class="item">Exhibitiors</li>
+            <li class="item">Products</li>
+            <li class="item">Sessions</li>
+            <li class="item">Speakers</li>
+            <li class="item">Travel & accommodation</li>
+          </ul>          
+        </li>
+        <li class="list second">
+          <span class="pull_down">EXHIBIT</span>
+          <ul class="second_list">
+            <li class="red_bg"></li>
+            <li class="item">Why Exhibit</li>
+            <li class="item">Book a stand</li>
+            <li class="item">Floor plan</li>
+            <li class="item">Exhibitiors</li>
+            <li class="item">Products</li>
+            <li class="item">Become a sponsor</li>
+          </ul>          
+        </li>
+        <li class="list second">
+          <span class="pull_down">FSA</span>
+          <ul class="second_list">
+            <li class="red_bg"></li>
+            <li class="item">Sessions</li>
+            <li class="item">Speakers</li>
+            <li class="item">Awards</li>
+          </ul>
+        </li>
         <li class="list">PRESS</li>
         <li class="list">SUPPORTERS</li>
         <li class="list">CONTACT US</li>
@@ -18,8 +49,7 @@
         <div class="stand">BOOK A STAND</div>  
         <div class="language cur">EN</div>
         <div class="language">CN</div>
-        <div class="logo_list" v-on:click="SwitchLogoList">
-          <i class="icon_arr"></i>
+        <div class="logo_list">
           <ul class="logo_box">
             <li class="list"><img src="../assets/index_07.png" alt=""></li>
             <li class="list"><img src="../assets/index_09.png" alt=""></li>
@@ -48,9 +78,21 @@
       <div class="logo_right">
         <div class="title">"OSCAR" EVENT OF GLOBAL SIGN & ADVERTISING INDUSTRY</div>
         <ul class="logo_list">
-          <li class="item left"><img src="../assets/index_10.png" alt=""></li>
-          <li class="item center"><img src="../assets/index_13.png" alt=""></li>
-          <li class="item right"><img src="../assets/index_16.png" alt=""></li>
+          <li class="item left">
+            <a :href="signChinaUrl" target="_blank">
+              <img src="../assets/index_10.png" alt="">
+            </a>
+          </li>
+          <li class="item center">
+            <a :href="ledChinaUrl" target="_blank">
+              <img src="../assets/index_13.png" alt="">
+            </a>
+          </li>
+          <li class="item right">
+            <a :href="digitalUrl" target="_blank">
+              <img src="../assets/index_16.png" alt="">
+            </a>            
+            </li>
         </ul>
       </div>
     </div>
@@ -115,8 +157,10 @@
           <div class="link_us">
             <p class="title">CONNECT WITH US</p>
             <ul class="link_list">
-              <li class="wechat"></li>
-              <li class="facebook"></li>
+              <li class="wechat" v-on:click="openQRcodeLayou"></li>
+              <li class="facebook">
+                <a :href="facebookUrl" target="_blank"></a>
+              </li>
             </ul>
           </div>         
         </li>
@@ -247,8 +291,10 @@
         </li>        
       </ul>
       <ul class="link_list">
-        <li class="item wechat"></li>
-        <li class="item facebook"></li>
+        <li class="item wechat" v-on:click="openQRcodeLayou"></li>
+        <li class="item facebook">
+          <a :href="facebookUrl" target="_blank"></a>
+        </li>
         <li class="item rss"></li>
       </ul>
     </div>
@@ -258,11 +304,22 @@
   <!-- link 悬浮层 -->
   <div class="layou_box">
     <ul class="list_box">
-      <li class="item wechat"></li>
-      <li class="item facebook"></li>
+      <li class="item wechat" v-on:click="openQRcodeLayou"></li>
+      <li class="item facebook">
+        <a :href="facebookUrl" target="_blank"></a>
+      </li>
     </ul>
   </div>
-
+  <!-- wechat 弹层 -->
+  <div class="layou_fixed" v-if="QRcodeStatus">
+    <div class="wechat_qrcode">
+      <div class="close" v-on:click="closeQRcodeLayou"></div>
+      <div class="qrcode">
+        <img src="../assets/qrcode.png" alt="">
+      </div>
+      <div class="tips">FOLLOW US</div>
+    </div>
+  </div>
 </div>
 
 </template>
@@ -279,14 +336,22 @@ export default {
   name: "Index",
   data() {
     return {
-      logoListStatus: false
+      QRcodeStatus: false,
+      facebookUrl: 'http://new.facebook.com/',
+      signChinaUrl: 'http://www.signchina-sh.com/en-us/',
+      digitalUrl: 'http://www.digitalsignage-sh.com/en-us',
+      ledChinaUrl: 'http://www.ledchina-sh.com/en-us/'
+
     };
   },
   mounted() {
   },
   methods: {
-    SwitchLogoList: function(){
-      this.logoListStatus = !this.logoListStatus;
+    openQRcodeLayou: function(){
+      this.QRcodeStatus = true;
+    },
+    closeQRcodeLayou: function(){
+      this.QRcodeStatus = false;
     }
   }
 };

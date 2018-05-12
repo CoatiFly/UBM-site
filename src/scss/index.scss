@@ -16,12 +16,61 @@
         color: #fff;
         font-size: 14px;
         padding: 15px 0;
-        overflow: hidden;
+        position: relative;
         float: left;
         .list{
             display: block;
             padding: 0 10px;
+            position: relative;
             float: left;
+            cursor: pointer;
+            .second_list{
+                display: none;
+            }
+            .pull_down{
+                padding-right: 14px;
+                position: relative;
+            }
+            .pull_down:after{
+                content: '';
+                width: 8px;
+                height: 4px;
+                position: absolute;
+                right: 3px;
+                top: 6px;
+                z-index: 2;
+                background: url("../assets/index_04.png") center no-repeat;
+            }
+        }
+        .second:hover{
+            .second_list{
+                display: block;
+                width: 186px;
+                padding-bottom: 15px;
+                background-color: #ebebeb;
+                overflow: hidden;
+                position: absolute;
+                top: 37px;
+                left: 0;
+                z-index: 9;
+                .red_bg{
+                    width: 100%;
+                    height: 16px;
+                    margin-bottom: 15px;
+                }
+                .item{
+                    padding: 0 15px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 14px;
+                    color: #000;
+                    text-align: left;
+                    cursor: pointer;
+                }
+                .item:hover{
+                    background-color: #fff;
+                }
+            }
         }
     }
     .right_nav{
@@ -89,6 +138,16 @@
         }
         .logo_list:hover{
             height: auto;
+        }
+        .logo_list:after{
+            content: '';
+            width: 8px;
+            height: 4px;
+            position: absolute;
+            right: 7px;
+            top: 22px;
+            z-index: 2;
+            background: url("../assets/index_05.png") center no-repeat;
         }
     }
 }
@@ -182,18 +241,24 @@
             height: 90px;                  
             overflow: hidden;
             .item{
-                height: 100%;
-                display: flex;
-                justify-content:center; 
-                align-items: center;                  
+                height: 100%;                
                 overflow: hidden;
                 float: left;
+                a{
+                    display: flex;
+                    justify-content:center; 
+                    align-items: center;  
+                }
             }
             .left{
                 width: 70px;
             }
             .center{
                 width: 358px;
+                a{
+                    width: 70px;
+                    margin:  0 auto;
+                }
             }
             .right{
                 width: 200px;
@@ -568,5 +633,40 @@
         .facebook{
             background: url("../assets/index_19.png") center no-repeat;
         }
+    }
+}
+// wechat qrcode
+.wechat_qrcode{
+    width: 420px;
+    height: 420px;
+    padding: 30px;
+    background-color: #fff;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    .close{
+        width: 32px;
+        height: 32px;
+        background: url("../assets/close.png") center no-repeat;
+        float: right;
+        cursor: pointer;
+    }
+    .qrcode{
+        width: 100%;
+        height: 300px;
+        padding-top: 30px;
+        text-align: center;
+        overflow: hidden;
+    }
+    .tips{
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        font-size: 24px;
+        color: #000;
+        text-align: center;
     }
 }
