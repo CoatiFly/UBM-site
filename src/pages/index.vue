@@ -157,7 +157,7 @@
           <div class="link_us">
             <p class="title">CONNECT WITH US</p>
             <ul class="link_list">
-              <li class="wechat" v-on:click="openQRcodeLayou"></li>
+              <li class="wechat" v-on:click="SwitchLayou('QRcodeStatus')"></li>
               <li class="facebook">
                 <a :href="facebookUrl" target="_blank"></a>
               </li>
@@ -291,11 +291,11 @@
         </li>        
       </ul>
       <ul class="link_list">
-        <li class="item wechat" v-on:click="openQRcodeLayou"></li>
+        <li class="item wechat" v-on:click="SwitchLayou('QRcodeStatus')"></li>
         <li class="item facebook">
           <a :href="facebookUrl" target="_blank"></a>
         </li>
-        <li class="item rss"></li>
+        <li class="item rss" v-on:click="SwitchLayou('rssLayouStatus')"></li>
       </ul>
     </div>
     <div class="authentication"></div> 
@@ -304,7 +304,7 @@
   <!-- link 悬浮层 -->
   <div class="layou_box">
     <ul class="list_box">
-      <li class="item wechat" v-on:click="openQRcodeLayou"></li>
+      <li class="item wechat" v-on:click="SwitchLayou('QRcodeStatus')"></li>
       <li class="item facebook">
         <a :href="facebookUrl" target="_blank"></a>
       </li>
@@ -312,14 +312,53 @@
   </div>
   <!-- wechat 弹层 -->
   <div class="layou_fixed" v-if="QRcodeStatus">
-    <div class="wechat_qrcode">
-      <div class="close" v-on:click="closeQRcodeLayou"></div>
+    <div class="wechat_qrcode fixed_pos">
+      <div class="close" v-on:click="SwitchLayou('QRcodeStatus')"></div>
       <div class="qrcode">
         <img src="../assets/qrcode.png" alt="">
       </div>
       <div class="tips">FOLLOW US</div>
     </div>
   </div>
+  <!-- RSS 弹层 -->
+  <div class="layou_fixed" v-if="rssLayouStatus"> 
+    <div class="layou_rss_box fixed_pos">
+      <div class="close" v-on:click="SwitchLayou('rssLayouStatus')"></div>
+      <div class="title">Subscribe the latest information</div>
+      <ul class="list_box">
+        <li class="item">
+          <div class="name">Title<span class="red">*</span></div>
+          <div class="pill_box">
+            <input class="input_box" type="text" v-model="rssForm.sex" placeholder="Please enter your title">
+            <div class="pull_icon" v-on:click="SwitchLayou('sexCheckStatus')"></div>
+            <div class="pull_down" v-if="sexCheckStatus" v-on:mouseleave="SwitchLayou('sexCheckStatus')">
+              <ul class="box">
+                <li class="sex" v-on:click="selectSexName('Mr')">Mr</li>
+                <li class="sex" v-on:click="selectSexName('Mrs')">Mrs</li>
+              </ul>
+            </div>            
+          </div>           
+        </li>
+        <li class="item">
+          <div class="name">Last Name<span class="red">*</span></div>
+          <input class="input_box" type="text" v-model="rssForm.last" placeholder="Please enter your last name">         
+        </li>
+        <li class="item">
+          <div class="name">Given Name<span class="red">*</span></div>
+          <input class="input_box" type="text" v-model="rssForm.given" placeholder="Please enter your given name">
+        </li>
+        <li class="item">
+          <div class="name">Email<span class="red">*</span></div>
+          <input class="input_box" type="text" v-model="rssForm.email" placeholder="Please enter your email">
+        </li>
+        <li class="item">
+          <div class="Submit">Submit</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
 </div>
 
 </template>
@@ -337,6 +376,14 @@ export default {
   data() {
     return {
       QRcodeStatus: false,
+      rssLayouStatus: false,
+      sexCheckStatus: false,
+      rssForm: {
+        sex: 'Mr',
+        last: '',
+        given: '',
+        email: ''
+      },
       facebookUrl: 'http://new.facebook.com/',
       signChinaUrl: 'http://www.signchina-sh.com/en-us/',
       digitalUrl: 'http://www.digitalsignage-sh.com/en-us',
@@ -347,11 +394,14 @@ export default {
   mounted() {
   },
   methods: {
-    openQRcodeLayou: function(){
-      this.QRcodeStatus = true;
+    SwitchLayou: function(name){
+      // 动态切换状态
+      this[name] = !this[name];
     },
-    closeQRcodeLayou: function(){
-      this.QRcodeStatus = false;
+    selectSexName: function(name){
+      // 选择性别
+      this.rssForm.sex = name;
+      this.sexCheckStatus = false;
     }
   }
 };
