@@ -1,0 +1,32 @@
+// contact page scss
+.contact{
+    .text_box{
+        padding-bottom: 0;
+        .fonts_left{
+            text-align: left;
+            line-height: 26px;
+        }
+        .line_26{
+            line-height: 26px;
+        }
+    }
+    .center_box{
+        width: 100%;
+        padding-bottom: 40px;
+        overflow: hidden;
+        .map_box{
+            width: 920px;
+            height: 360px;
+            margin: 50px auto;
+            background-color: #bebebe;
+            overflow: hidden;
+        }
+        .fonts{
+            font-size: 18px;
+            line-height: 26px;
+            color: #000;
+            text-align: left;
+        }
+    }    
+
+}
