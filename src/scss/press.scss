@@ -1,0 +1,90 @@
+// contact page scss
+.press{
+    padding-bottom: 110px;
+    position: relative;
+    .press_left{
+        width: 824px;
+        overflow: hidden;
+        float: left;
+    }
+    .text_box{
+        padding-bottom: 0;
+        .fonts_left{
+            text-align: left;
+            line-height: 26px;
+        }
+        .line_26{
+            line-height: 26px;
+        }
+    }
+    .press_list{
+        width: 100%;
+        padding-top: 26px;
+        overflow: hidden;
+        .item{
+            width: 250px;
+            margin-top: 50px;
+            margin-right: 37px;
+            float: left;
+            overflow: hidden;
+        }
+        .item:nth-of-type(3n+0){
+            margin-right: 0;
+        }
+        .logo_box{
+            width: 100%;
+            height: 100px;
+            background-color: #bebebe;
+            overflow: hidden;            
+        }
+        .fonts_box{
+            width: 100%;
+            margin-top: 16px;
+            color: #000;
+            text-align: left; 
+            overflow: hidden;  
+            .title{
+                font-size: 14px;
+                line-height: 18px;
+            }   
+            .details{
+                margin-top: 6px;
+                font-size: 12px;
+                line-height: 18px;            
+            } 
+            .date{
+                font-size: 12px;
+                line-height: 24px;  
+                color: #727171;
+            }    
+        }
+    }  
+    .press_right{
+        width: 376px;
+        padding-top: 70px;
+        overflow: hidden;
+        float: right;
+        .adver_list{
+            width: 100%;
+            overflow: hidden;
+        }
+        .item{
+            width: 100%;
+            padding-bottom: 30px;
+            overflow: hidden;
+            .logo_box{
+                width: 100%;
+                height: 280px;
+                background-color: #bebebe;
+                overflow: hidden;
+            }   
+            .title{
+                padding-top: 15px;
+                font-size: 18px;
+                line-height: 26px;
+                color: #000;
+            }         
+        }
+    } 
+
+}

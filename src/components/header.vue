@@ -12,7 +12,7 @@
                 <li class="item">Why Visit</li>
                 <li class="item">Register Interest</li>
                 <li class="item">Exhibitiors</li>
-                <li class="item">Products</li>
+                <li class="item" v-on:click="goPage('products')">Products</li>
                 <li class="item">Sessions</li>
                 <li class="item">Speakers</li>
                 <li class="item">Travel & accommodation</li>
@@ -26,7 +26,7 @@
                 <li class="item">Book a stand</li>
                 <li class="item">Floor plan</li>
                 <li class="item">Exhibitiors</li>
-                <li class="item">Products</li>
+                <li class="item" v-on:click="goPage('products')">Products</li>
                 <li class="item">Become a sponsor</li>
             </ul>          
             </li>
@@ -39,7 +39,7 @@
                 <li class="item">Awards</li>
             </ul>
             </li>
-            <li class="list">PRESS</li>
+            <li class="list" v-on:click="goPage('press')">PRESS</li>
             <li class="list">SUPPORTERS</li>
             <li class="list" v-on:click="goPage('contact')">CONTACT US</li>
             <li class="list">GALLERY</li>
