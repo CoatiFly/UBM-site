@@ -30,7 +30,7 @@
           <p class="tips">EXHIBITION AREA</p>
         </li>
       </ul>
-      <p class="title mt20">THE "OSCAR”EVENT IN THE SIGN AND ADVERTISING INDUSTRY.</p>
+      <p class="title mt20">...THE "OSCAR”EVENT IN THE SIGN AND ADVERTISING INDUSTRY.</p>
     </div>
     <div class="with_logo_box">
       <p class="title">IN ASSOCIATION WITH</p>

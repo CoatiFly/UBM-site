@@ -1,0 +1,89 @@
+// speakers page scss
+.speakers{
+    position: relative;
+    padding-bottom: 120px;
+    .text_box{
+        padding-bottom: 50px;
+    }
+    .speakers_list{
+        width: 100%;
+        overflow: hidden;
+        .item{
+            width: 224px;
+            margin-top: 50px;
+            margin-right: 32px;
+            overflow: hidden;
+            float: left;
+            .logo_box{
+                width: 100%;
+                height: 224px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 224px;
+                background-color: #ebebeb;
+                overflow: hidden;
+            }
+            .fonts_box{
+                width: 100%;
+                color: #000;
+                font-size: 16px;
+                overflow: hidden;
+            }
+            .title{
+                margin-top: 12px;
+                height: 18px;
+                line-height: 18px;
+            }
+            .details{
+                font-size: 14px;
+                line-height: 18px;            
+            }
+            .number{
+                font-size: 12px;
+                line-height: 18px;  
+            }  
+            .tips{
+                height: 26px;
+                line-height: 26px; 
+                color: #727171;           
+            }           
+        }
+        .item:nth-of-type(5n+0){
+            margin-right: 0;
+        }
+    }
+}
+.speaker_qrcode{
+    width: 520px;
+    height: 500px;  
+    padding: 30px 40px;
+    background-color: #fff; 
+    overflow: hidden; 
+    .close{
+        width: 32px;
+        height: 32px;
+        background: url("../assets/close.png") center no-repeat;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        z-index: 2;
+        cursor: pointer;
+    }
+    .title{
+        width: 100%;
+        height: 46px;
+        line-height: 46px;
+        color: #000;
+        font-size: 24px;
+        font-weight: 600;
+        overflow: hidden;
+    }    
+    .text{
+        width: 100%;
+        line-height: 24px;
+        font-size: 14px;
+        color: #000;
+        margin-top: 40px;
+    }
+
+}
