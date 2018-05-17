@@ -9,26 +9,15 @@
     </div>
   </div>
   <!-- 内容 -->
-  <div class="page_content products">
+  <div class="page_content supporters">
     <div class="text_box">
-      <p class="title">2018 PRODUCTS</p>
+      <p class="title">2018 SUPPORTERS</p>
     </div>
-     <!-- 搜索组件 -->
-    <div class="search_box">
-      <input class="search_ipt" type="text" v-model="searchName" placeholder="Product Name">
-      <div class="serach_bth">
-        <p class="texts">Search</p>
-      </div>
-    </div>
-    <!-- products 列表 -->
-    <ul class="products_list">
-      <li class="item" v-for="item in items">
+    <!-- supporters 列表 -->
+    <ul class="supporters_list">
+      <li class="item" v-for="item in 20">
         <div class="logo_box">{{item}}</div>
-        <div class="fonts_box">
-          <p class="title line1">Product's name</p>
-          <p class="details line3">Shanghai East Asia United International Trade joint-stock </p>
-          <p class="number">WXZ000016489633</p>
-        </div>          
+        <div class="link line1">www.foodanddrinkex.com</div>          
       </li>
     </ul>
   </div>  
@@ -47,7 +36,6 @@ import myHeader from "../components/header";
 import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
-import weChat from "../components/wechat";
 // import store from "../store";
 // import tokyo from "../js/tool";
 // import getModel from "../models/model";
@@ -56,35 +44,25 @@ import weChat from "../components/wechat";
 // let sendPhoneMsgModel = getModel("sendPhoneMsgModel");
 
 export default {
-  name: "Contact",
+  name: "Supporters",
   data() {
     return {
-      items: [1,2,3,4,5,6,7,8,9,10],
-      searchName: "",
+      index: 0
     };
   },
   components: {
     myHeader,
     myBottom,
     myCommon,
-    mySuspension,
-    weChat
+    mySuspension
   },
   mounted() {
   },
   methods: {
-    openWechatLayou: function(){
-      // 显示微信二维码弹层
-      this.$refs.wechat.show();
-    },
-    SwitchLayou: function(name){
+    SwitchLayou: function(index){
+      this.index = index;
       // 动态切换状态
-      this[name] = !this[name];
-    },
-    selectSexName: function(name){
-      // 选择性别
-      this.rssForm.sex = name;
-      this.sexCheckStatus = false;
+      this.speakerState = !this.speakerState;
     }
   }
 };

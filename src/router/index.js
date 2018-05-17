@@ -8,6 +8,9 @@ import Products from '../pages/products' // 展品列表
 import Visit from '../pages/visit' // 暂时没确定
 import Exhibitiors from '../pages/exhibitiors' // 展商名单
 import Speakers from '../pages/speakers' // 演讲嘉宾
+import Sessions from '../pages/sessions' // 会议日程
+import Travel from '../pages/travel' // 商旅服务
+import Supporters from '../pages/supporters' // 支持机构
 
 Vue.use(Router)
 
@@ -50,6 +53,21 @@ let router = new Router({
       path: '/speakers',
       name: 'Speakers',
       component: Speakers
+    },
+    {
+      path: '/sessions',
+      name: 'Sessions',
+      component: Sessions
+    },
+    {
+      path: '/travel',
+      name: 'Travel',
+      component: Travel
+    },
+    {
+      path: '/supporters',
+      name: 'Supporters',
+      component: Supporters
     }
   ]
 })

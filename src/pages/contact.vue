@@ -36,8 +36,6 @@
   <myBottom></myBottom>
   <!-- 右侧悬浮组件 -->
   <mySuspension></mySuspension>
-  <!-- wechat 弹层组件 -->
-  <weChat ref="wechat"></weChat>
 </div>
 
 </template>
@@ -47,7 +45,6 @@ import myHeader from "../components/header";
 import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
-import weChat from "../components/wechat";
 // import store from "../store";
 // import tokyo from "../js/tool";
 // import getModel from "../models/model";
@@ -66,8 +63,7 @@ export default {
     myHeader,
     myBottom,
     myCommon,
-    mySuspension,
-    weChat
+    mySuspension
   },
   mounted() {
   },

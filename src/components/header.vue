@@ -13,9 +13,9 @@
                 <li class="item">Register Interest</li>
                 <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
                 <li class="item" v-on:click="goPage('products')">Products</li>
-                <li class="item">Sessions</li>
+                <li class="item" v-on:click="goPage('sessions')">Sessions</li>
                 <li class="item" v-on:click="goPage('speakers')">Speakers</li>
-                <li class="item">Travel & accommodation</li>
+                <li class="item" v-on:click="goPage('travel')">Travel & accommodation</li>
             </ul>          
             </li>
             <li class="list second">
@@ -34,13 +34,13 @@
             <span class="pull_down">FSA</span>
             <ul class="second_list">
                 <li class="red_bg"></li>
-                <li class="item">Sessions</li>
+                <li class="item" v-on:click="goPage('sessions')">Sessions</li>
                 <li class="item" v-on:click="goPage('speakers')">Speakers</li>
                 <li class="item">Awards</li>
             </ul>
             </li>
             <li class="list" v-on:click="goPage('press')">PRESS</li>
-            <li class="list">SUPPORTERS</li>
+            <li class="list" v-on:click="goPage('supporters')">SUPPORTERS</li>
             <li class="list" v-on:click="goPage('contact')">CONTACT US</li>
             <li class="list">GALLERY</li>
         </ul>

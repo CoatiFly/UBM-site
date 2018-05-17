@@ -78,8 +78,6 @@
   <myBottom></myBottom>
   <!-- 右侧悬浮组件 -->
   <mySuspension></mySuspension>
-  <!-- wechat 弹层组件 -->
-  <weChat ref="wechat"></weChat>
 </div>
 
 </template>
