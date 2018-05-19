@@ -5,12 +5,12 @@ import Index from '../pages/index' // 首页
 import Contact from '../pages/contact' // 关于我们
 import Press from '../pages/press' // 新闻
 import Products from '../pages/products' // 展品列表
-import Visit from '../pages/visit' // 暂时没确定
 import Exhibitiors from '../pages/exhibitiors' // 展商名单
 import Speakers from '../pages/speakers' // 演讲嘉宾
 import Sessions from '../pages/sessions' // 会议日程
 import Travel from '../pages/travel' // 商旅服务
 import Supporters from '../pages/supporters' // 支持机构
+import Stand from '../pages/stand' // 展位预定
 
 Vue.use(Router)
 
@@ -40,11 +40,6 @@ let router = new Router({
       component: Products
     },
     {
-      path: '/visit',
-      name: 'Visit',
-      component: Visit
-    },
-    {
       path: '/exhibitiors',
       name: 'Exhibitiors',
       component: Exhibitiors
@@ -68,6 +63,11 @@ let router = new Router({
       path: '/supporters',
       name: 'Supporters',
       component: Supporters
+    },
+    {
+      path: '/stand',
+      name: 'Stand',
+      component: Stand
     }
   ]
 })

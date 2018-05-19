@@ -13,7 +13,7 @@
       </ul> 
       <ul class="bth_list">
         <li class="item">
-          <span class="bth blue_bg">BOOK A STAND</span>
+          <span class="bth blue_bg" v-on:click="goPage('stand')">BOOK A STAND</span>
         </li>
         <li class="logo">
           <img src="../assets/index_46.png" alt="">
@@ -59,6 +59,10 @@ export default {
 
   },
   methods: {
+    goPage: function(name) {
+      // 跳转页面
+      tokyo.go(name);
+    },
     openRssLayou: function(){
       this.$refs.rssOrder.show();
     },

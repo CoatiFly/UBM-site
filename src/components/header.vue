@@ -9,7 +9,7 @@
             <span class="pull_down">VISIT</span>
             <ul class="second_list">
                 <li class="red_bg"></li>
-                <li class="item" v-on:click="goPage('visit')">Why Visit</li>
+                <li class="item" v-on:click="goPage('travel')">Why Visit</li>
                 <li class="item">Register Interest</li>
                 <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
                 <li class="item" v-on:click="goPage('products')">Products</li>
@@ -22,8 +22,8 @@
             <span class="pull_down">EXHIBIT</span>
             <ul class="second_list">
                 <li class="red_bg"></li>
-                <li class="item" >Why Exhibit</li>
-                <li class="item">Book a stand</li>
+                <li class="item" v-on:click="goPage('travel')">Why Exhibit</li>
+                <li class="item" v-on:click="goPage('stand')">Book a stand</li>
                 <li class="item">Floor plan</li>
                 <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
                 <li class="item" v-on:click="goPage('products')">Products</li>
@@ -46,7 +46,7 @@
         </ul>
         <div class="right_nav">
             <div class="interesr">REGISTER INTEREST</div>
-            <div class="stand">BOOK A STAND</div>  
+            <div class="stand" v-on:click="goPage('stand')">BOOK A STAND</div>  
             <div class="language cur">EN</div>
             <div class="language">CN</div>
             <div class="logo_list">
