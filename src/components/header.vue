@@ -36,7 +36,7 @@
                 <li class="red_bg"></li>
                 <li class="item" v-on:click="goPage('sessions')">Sessions</li>
                 <li class="item" v-on:click="goPage('speakers')">Speakers</li>
-                <li class="item">Awards</li>
+                <li class="item" v-on:click="goPage('awards')">Awards</li>
             </ul>
             </li>
             <li class="list" v-on:click="goPage('press')">PRESS</li>

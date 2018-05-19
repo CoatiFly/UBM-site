@@ -9,6 +9,7 @@ import Exhibitiors from '../pages/exhibitiors' // 展商名单
 import Speakers from '../pages/speakers' // 演讲嘉宾
 import Sessions from '../pages/sessions' // 会议日程
 import Travel from '../pages/travel' // 商旅服务
+import Awards from '../pages/awards' // 奖项展示
 import Supporters from '../pages/supporters' // 支持机构
 import Stand from '../pages/stand' // 展位预定
 
@@ -68,6 +69,11 @@ let router = new Router({
       path: '/stand',
       name: 'Stand',
       component: Stand
+    },
+    {
+      path: '/awards',
+      name: 'Awards',
+      component: Awards
     }
   ]
 })
