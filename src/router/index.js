@@ -12,6 +12,7 @@ import Travel from '../pages/travel' // 商旅服务
 import Awards from '../pages/awards' // 奖项展示
 import Supporters from '../pages/supporters' // 支持机构
 import Stand from '../pages/stand' // 展位预定
+import Register from '../pages/register' // 注册页面
 
 Vue.use(Router)
 
@@ -74,6 +75,11 @@ let router = new Router({
       path: '/awards',
       name: 'Awards',
       component: Awards
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
     }
   ]
 })

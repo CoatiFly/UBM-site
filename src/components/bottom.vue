@@ -4,12 +4,12 @@
   <div class="page_bottom_box">
     <div class="bottom_center">
       <ul class="nav_list">
-        <li class="item"><span>HOME</span></li>
-        <li class="item long"><span>EXHIBIT</span></li>
-        <li class="item"><span>VISIT</span></li>
-        <li class="item red"><span>FSA</span></li>
-        <li class="item long"><span>TRAVEL</span></li>
-        <li class="item"><span>CONTACT US</span></li>
+        <li class="item"><span v-on:click="goPage('index')">HOME</span></li>
+        <li class="item long"><span v-on:click="goPage('travel')">EXHIBIT</span></li>
+        <li class="item"><span v-on:click="goPage('travel')">VISIT</span></li>
+        <li class="item red"><span v-on:click="goPage('sessions')">FSA</span></li>
+        <li class="item long"><span v-on:click="goPage('travel')">TRAVEL</span></li>
+        <li class="item"><span v-on:click="goPage('contact')">CONTACT US</span></li>
       </ul> 
       <ul class="bth_list">
         <li class="item">
@@ -19,7 +19,7 @@
           <img src="../assets/index_46.png" alt="">
         </li>
         <li class="item">
-          <span class="bth red_bg">REGISTER INTEREST</span>
+          <span class="bth red_bg" v-on:click="goPage('register')">REGISTER INTEREST</span>
         </li>        
       </ul>
       <ul class="link_list">

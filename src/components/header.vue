@@ -10,7 +10,7 @@
             <ul class="second_list">
                 <li class="red_bg"></li>
                 <li class="item" v-on:click="goPage('travel')">Why Visit</li>
-                <li class="item">Register Interest</li>
+                <li class="item" v-on:click="goPage('register')">Register Interest</li>
                 <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
                 <li class="item" v-on:click="goPage('products')">Products</li>
                 <li class="item" v-on:click="goPage('sessions')">Sessions</li>
@@ -45,7 +45,7 @@
             <li class="list">GALLERY</li>
         </ul>
         <div class="right_nav">
-            <div class="interesr">REGISTER INTEREST</div>
+            <div class="interesr" v-on:click="goPage('register')">REGISTER INTEREST</div>
             <div class="stand" v-on:click="goPage('stand')">BOOK A STAND</div>  
             <div class="language cur">EN</div>
             <div class="language">CN</div>
