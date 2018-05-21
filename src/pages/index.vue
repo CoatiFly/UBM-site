@@ -38,24 +38,15 @@
         </li>
         <li class="item">
           <ul class="new_list">
-            <li class="list">
+            <li class="list" v-for="item in newsList">
               <div class="img">
-                <img src="../assets/index_40.png" alt="">
+                <img :src="item.picture" alt="新闻图片">
               </div>
               <div class="text">
-                <p class="title">WHAT’S NEW AT FOOD & DRINK EXPO 2018?</p>
-                <p class="fonts">he latest from the UK’s gastronomic scene hits the NEC show floor Fe NEC show floor From 16-18 April, Food & Drink Expo will return to the NEC in Birmingham ...</p>
+                <p class="title">{{item.caption}}</p>
+                <p class="fonts">{{item.description}}</p>
               </div>
-            </li>
-            <li class="list">
-              <div class="img">
-                <img src="../assets/index_43.png" alt="">
-              </div>
-              <div class="text">
-                <p class="title">WHAT’S NEW AT FOOD & DRINK EXPO 2018?</p>
-                <p class="fonts">he latest from the UK’s gastronomic scene hits the NEC show floor Fe NEC show floor From 16-18 April, Food & Drink Expo will return to the NEC in Birmingham ...</p>
-              </div>
-            </li>            
+            </li>           
           </ul>
         </li>
         <li class="item red_bg">
@@ -78,6 +69,8 @@
   <myBottom></myBottom>
   <!-- 右侧悬浮组件 -->
   <mySuspension></mySuspension>
+  <!-- wechat 弹层组件 -->
+  <weChat ref="wechat"></weChat> 
 </div>
 
 </template>
@@ -88,21 +81,22 @@ import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
 import weChat from "../components/wechat";
-// import store from "../store";
-// import tokyo from "../js/tool";
-// import getModel from "../models/model";
+
+import tokyo from "../common/util";
+import getModel from "../models/model";
 
 // let monitorLoginModel = getModel("monitorLoginModel");
-// let sendPhoneMsgModel = getModel("sendPhoneMsgModel");
+let getNewsListModel = getModel("getNewsListModel");
 
 export default {
   name: "Index",
   data() {
     return {
-      facebookUrl: 'http://new.facebook.com/',
-      signChinaUrl: 'http://www.signchina-sh.com/en-us/',
-      digitalUrl: 'http://www.digitalsignage-sh.com/en-us',
-      ledChinaUrl: 'http://www.ledchina-sh.com/en-us/'
+      facebookUrl: "http://new.facebook.com/",
+      signChinaUrl: "http://www.signchina-sh.com/en-us/",
+      digitalUrl: "http://www.digitalsignage-sh.com/en-us",
+      ledChinaUrl: "http://www.ledchina-sh.com/en-us/",
+      newsList: []
     };
   },
   components: {
@@ -113,16 +107,30 @@ export default {
     weChat
   },
   mounted() {
+    this.getNewsList();
   },
   methods: {
-    openWechatLayou: function(){
+    openWechatLayou: function() {
       // 显示微信二维码弹层
       this.$refs.wechat.show();
+    },
+    getNewsList: function() {
+      // 获取新闻列表
+      let params = {
+        page: 1,
+        cid: '',
+        rownum: 20
+      }
+      getNewsListModel.$post(params).then(function(info) {
+        if (info.status == 1) {
+          this.newsList = info.data.slice(0,2);
+          console.log("新闻列表",info.data);
+        }
+      });
     }
   }
 };
 </script>
 
 <style scoped lang="scss">
-
 </style>

@@ -2,29 +2,18 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 var requestConfig = {
-    default: "cloud",
-    cloud: {
-      prefix: "tech/monitor/",
-      projectUrl: "requestUrl"
-    },
-    vbox: {
-      prefix: "vbox/local/",
-      projectUrl: "vboxRequestUrl"
-    }
+      prefix: "api/SysApi/",
+      projectUrl: "http://139.224.135.176/wwwroot/ubm/index.php/"
   }
   
   var modelsConfig = {
     getConfig(modelName, project) {
       var model = modelsConfig[modelName];
-      var api = model.api || requestConfig.default;
-      var _requestConfig = requestConfig[api];
-      var baseUrl = project[_requestConfig.projectUrl];
-      var url = _requestConfig.prefix + model.url;
+      var baseUrl = requestConfig.projectUrl;
+      var url = requestConfig.prefix + model.url;
       return {
         url: url,
-        baseUrl: baseUrl,
-        api: api,
-        dataType: model.dataType
+        baseUrl: baseUrl
       }
     },
     getModelConfig(modelName) {
@@ -37,29 +26,37 @@ var requestConfig = {
       命名：接口命名 + Model
     */
     ///////////////////////////////////////////
-    monitorLoginModel: {
-      url: "userLogin",
+    getNewsListModel: {
+      // 新闻列表
+      url: "getNewsList",
     },
-    sendPhoneMsgModel: {
-      url: 'sendPhoneMsg',
+    getNavTreeModel: {
+      // 系统导航
+      url: 'getNavTree',
     },
-    getMonitorScreenModel: {
-      url: 'getMonitorScreen'
+    getExhibitionByIdModel: {
+      // 展会信息
+      url: 'getExhibitionById'
     },
-    getFaultScreenModel: {
-      url: 'getFaultScreen'
+    getExhibitorByIdModel: {
+      // 展商信息
+      url: 'getExhibitorById'
     },
-    getAlarmListModel: {
-      url: 'getAlarmList'
+    getProductByIdModel: {
+      // 展品信息
+      url: 'getProductById'
     },
-    getVboxListModel: {
-      url: 'getVboxList'
+    getSpeakerByIdModel: {
+      // 嘉宾信息
+      url: 'getSpeakerById'
     },
-    getVBoxScreenModel: {
-      url: 'getVBoxScreen'
+    getExhibitLinkerListModel: {
+      // 展会链接信息
+      url: 'getExhibitLinkerList'
     },
-    getFlowListModel: {
-      url: 'getFlowList'
+    getExhibitionListModel: {
+      // 全部展会信息
+      url: 'getExhibitionList'
     },
     getFlowListModel: {
       url: 'getFlowList'
