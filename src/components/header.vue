@@ -45,10 +45,10 @@
             <li class="list">GALLERY</li>
         </ul>
         <div class="right_nav">
-            <div class="interesr" v-on:click="goPage('register')">REGISTER INTEREST</div>
-            <div class="stand" v-on:click="goPage('stand')">BOOK A STAND</div>  
-            <div class="language cur">EN</div>
-            <div class="language">CN</div>
+            <div class="interesr" v-on:click="goPage('register')">{{$t("message.register")}}</div>
+            <div class="stand" v-on:click="goPage('stand')">{{$t("message.stand")}}</div>  
+            <div class="language" :class="{cur: language == 'en'}" v-on:click="switchLanguage('en')">{{$t("message.en")}}</div>
+            <div class="language" :class="{cur: language == 'zh'}" v-on:click="switchLanguage('zh')">{{$t("message.zh")}}</div>
             <div class="logo_list">
             <ul class="logo_box">
                 <li class="list"><img src="../assets/index_07.png" alt=""></li>
@@ -102,6 +102,7 @@
 
 <script>
 import tokyo from "../common/util";
+// import Vuex from 'vuex'
 
 export default {
   name: "myHeader",
@@ -109,7 +110,8 @@ export default {
     return {
       signChinaUrl: "http://www.signchina-sh.com/en-us/",
       digitalUrl: "http://www.digitalsignage-sh.com/en-us",
-      ledChinaUrl: "http://www.ledchina-sh.com/en-us/"
+      ledChinaUrl: "http://www.ledchina-sh.com/en-us/",
+      language: 'en'
     };
   },
   mounted() {},
@@ -117,6 +119,12 @@ export default {
     goPage: function(name) {
       // 跳转页面
       tokyo.go(name);
+    },
+    switchLanguage: function(name){
+        // 切换语言
+        this.$store.commit("setLanguage",name);
+        this.$i18n.locale = name;
+        this.language = name;
     }
   }
 };

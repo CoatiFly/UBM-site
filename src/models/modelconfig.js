@@ -3,9 +3,9 @@
 
 var requestConfig = {
       prefix: "api/SysApi/",
-      projectUrl: "http://139.224.135.176/wwwroot/ubm/index.php/"
+      projectUrl: "http:///139.196.107.167/ubm/index.php/"
   }
-  
+
   var modelsConfig = {
     getConfig(modelName, project) {
       var model = modelsConfig[modelName];
@@ -58,8 +58,9 @@ var requestConfig = {
       // 全部展会信息
       url: 'getExhibitionList'
     },
-    getFlowListModel: {
-      url: 'getFlowList'
+    getSlideByGroupModel: {
+      // 广告列表
+      url: 'getSlideByGroup'
     },
     recoveringFaultModel: {
       url: 'recoveringFault'

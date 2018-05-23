@@ -137,5 +137,18 @@ class Tokyo {
             cb(project.project);
         })
     }
+    isPC() {
+        return this.getPlatForm() == "PC";
+    }
+    getPlatForm (){
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "IOS", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+        for (var v = 0; v < Agents.length; v++) {
+          if (userAgentInfo.toLowerCase().indexOf(Agents[v].toLowerCase()) > 0) {
+            return Agents[v];
+          }
+        }
+        return "PC";
+      }
 }
 export default new Tokyo()

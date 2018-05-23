@@ -18,21 +18,23 @@
       </div>
       <!-- press 列表 -->
       <ul class="press_list">
-        <li class="item" v-for="item in items">
-          <div class="logo_box">{{item}}</div>
+        <li class="item" v-for="item in newsList">
+          <div class="logo_box"><img :src="item.picture" alt="新闻图片"></div>
           <div class="fonts_box">
-            <p class="title line2">Food & Drink Expo 2018 to Address Industry ... Co.Ltd</p>
-            <p class="details line3">The UK Food Shows attract buyers and decision makers from across the whole industry, who will converge to ...</p>
-            <p class="date">2018.05.03</p>
+            <p class="title line2">{{language == "en" ? item.caption_english : item.caption}}</p>
+            <p class="details line3">{{language == "en" ? item.description_english : item.description}}</p>
+            <p class="date">{{item.create_time}}</p>
           </div>          
         </li>
       </ul>
     </div>
     <div class="press_right">
       <ul class="adver_list">
-        <li class="item" v-for="item in adItems">
-          <div class="logo_box">{{item}}</div>
-          <p class="title line2">banner wordsbanner wordsbanner wordsbanner wordsbanner wordsbanner ...</p>
+        <li class="item" v-for="item in SliderList">
+          <a class="blank_box" :href="item.linker" target="_blank">
+            <div class="logo_box"><img :src="item.picture" alt="广告图片"></div>
+            <p class="title line2">{{item.caption}}</p>
+          </a>
         </li>
       </ul>
     </div>
@@ -54,19 +56,20 @@ import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
 import weChat from "../components/wechat";
-// import store from "../store";
-// import tokyo from "../js/tool";
-// import getModel from "../models/model";
 
-// let monitorLoginModel = getModel("monitorLoginModel");
-// let sendPhoneMsgModel = getModel("sendPhoneMsgModel");
+import getModel from "../models/model";
+let getNewsListModel = getModel("getNewsListModel");
+let getSlideByGroupModel = getModel("getSlideByGroupModel");
 
 export default {
   name: "Contact",
   data() {
     return {
-      items: [1,2,3,4,5,6,7,8,9,10,11,12],
-      adItems: [1,2,3,4]
+      adItems: [0,1,2,3],
+      SliderList: [],
+      newsList: [],
+      language: '',
+      isPC: '',
     };
   },
   components: {
@@ -76,21 +79,52 @@ export default {
     mySuspension,
     weChat
   },
+  computed: {
+    getUserlanguage() {
+      return this.$store.state.language;
+    }
+  },
+  watch: {
+    getUserlanguage(val) {
+      this.language = val;
+    }
+  },
   mounted() {
+    this.language = this.$store.state.language;
+    this.isPC = this.$store.state.isPC;
+    console.log(this.language,this.isPC);
+    this.init();
   },
   methods: {
-    openWechatLayou: function(){
-      // 显示微信二维码弹层
-      this.$refs.wechat.show();
+    init: function(){
+      this.getNewsList();
+      this.getSliderList();
     },
-    SwitchLayou: function(name){
-      // 动态切换状态
-      this[name] = !this[name];
+    getNewsList: function() {
+      // 获取新闻列表
+      let params = {
+        page: 1,
+        cid: '',
+        rownum: 12
+      }
+      getNewsListModel.$post(params).then((info) => {
+        if (info.status == 1) {
+          this.newsList = info.data.data;
+          console.log("新闻列表",info.data.data);
+        }
+      });
     },
-    selectSexName: function(name){
-      // 选择性别
-      this.rssForm.sex = name;
-      this.sexCheckStatus = false;
+    getSliderList: function(){
+      // 获取广告列表
+      let params = {
+        gid: 1,
+      }
+      getSlideByGroupModel.$post(params).then((info) => {
+        if (info.status == 1) {
+          this.SliderList = info.data;
+          console.log("广告列表",info.data);
+        }
+      });      
     }
   }
 };
