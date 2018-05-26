@@ -1,0 +1,179 @@
+// 展示栏
+.show_list_box{
+    width: 1248px;
+    padding-top: 30px;
+    padding-bottom: 16px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    .title{
+        width: 100%;
+        height: 54px;
+        line-height: 54px;
+        font-size: 30px;
+        color: #000;
+        font-weight: 600;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;         
+    }
+    .show_number{
+        width: 100%;
+        padding-bottom: 44px;
+        overflow: hidden;
+        .number_list{
+            padding: 15px 0 20px;
+            text-align: center;
+            overflow: hidden;
+            .item{
+                width: 65px;
+                color: #99c492;
+                float: left;
+            }
+            .num{
+                width: 100%;
+                height: 68px;
+                line-height: 68px;
+                font-size: 58px;
+            }
+            .tips{
+                height: 28px;
+                line-height: 28px;
+                font-size: 14px;
+                color: #000;
+            }
+            .att{
+                width: 240px;
+                margin-left: 40px;
+                color: #4db3c5;
+            }
+            .exh{
+                width: 215px;
+                color: #e50011;
+            }
+            .spe{
+                width: 185px;
+                color: #ee83ce;
+            }
+            .ses{
+                width: 178px;
+                color: #7979a5;
+            }  
+            .are{
+                width: 266px;
+                color: #053a7a;                
+            }                      
+        }
+        .mar_other{
+            margin-top: 20px;
+        }
+    }
+    .with_logo_box{
+        width: 100%;
+        overflow: hidden;
+        .logo_list{
+            padding: 30px 0 20px;
+            overflow: hidden;
+            .item{
+                width: 196px;
+                height: 78px;
+                margin-right: 12px;
+                margin-bottom: 12px;
+                background-color: #ebebeb;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                float: left;
+            }
+        }
+    }
+}
+// mobile展示栏
+.mobile_show_list_box{
+    width: 100%;
+    padding: .5rem .2rem 0;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    .title{
+        width: 100%;
+        line-height: .32rem;
+        font-size: .26rem;
+        color: #000;
+        font-weight: 600;
+        overflow: hidden;      
+    }
+    .show_number{
+        width: 100%;
+        overflow: hidden;
+        .number_list{
+            width: 100%;
+            overflow: hidden;
+            .item{
+                width: 1.3rem;
+                padding-top: .24rem;
+                color: #99c492;
+                text-align: center;
+                float: left;
+            }
+            .num{
+                width: 100%;
+                height: .68rem;
+                line-height: .68rem;
+                font-size: .42rem;
+            }
+            .tips{
+                height: .28rem;
+                line-height: .28rem;
+                font-size: .24rem;
+                color: #000;
+            }
+            .att{
+                width: 3.4rem;
+                color: #4db3c5;
+            }
+            .exh{
+                width: 2.2rem;
+                color: #e50011;
+            }
+            .spe{
+                color: #ee83ce;
+            }
+            .ses{
+                width: 3.4rem;
+                color: #7979a5;
+            }  
+            .are{
+                width: 2.2rem;
+                color: #053a7a;                
+            }                      
+        }
+        .mar_other{
+            padding: .4rem 0 .3rem;
+        }
+    }
+    .with_logo_box{
+        width: 100%;
+        overflow: hidden;
+        .logo_list{
+            padding: .3rem 0 .2rem;
+            overflow: hidden;
+            .item{
+                width: 2.2rem;
+                height: .88rem;
+                margin-right: .25rem;
+                margin-bottom: .25rem;
+                background-color: #ebebeb;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                float: left;
+            }
+            .item:nth-of-type(3n){
+                margin-right: 0;
+            }
+        }
+    }
+}

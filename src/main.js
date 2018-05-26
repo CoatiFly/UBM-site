@@ -6,13 +6,13 @@ import en from './i18n/en'
 import zh from './i18n/zh'
 import store from './store/index.js'
 import utils from './common/util.js';
-// import ElementUI from 'element-ui'
 
 import('./scss/main.scss');
 
 if(utils.isPC()){
   store.commit("setIsPC",true);
 }else{
+  import('./common/rem.js');
   store.commit("setIsPC",false);
 };
 

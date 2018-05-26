@@ -40,15 +40,13 @@ a {
 
 input,
 textarea {
+    display: block;
     outline: none;
     resize: none;
 }
 img{
     width: auto;
-}
-
-.page{
-    min-width: 1248px;
+    font-size: 0;
 }
 .shell{
     width: 100%;
@@ -58,11 +56,6 @@ img{
 .sz18 {
     font-size: 18px;
 }
-
-.content {
-    min-width: 1140px;
-}
-
 .w1140 {
     margin: 0 100px;
 }
@@ -138,6 +131,11 @@ img{
     bottom: 0;
     right: 0;
 }
+@import "base/nav.scss";
+@import "base/common.scss";
+@import "base/bottom.scss";
+@import "base/wechat.scss";
+@import "base/subscribe.scss";
 @import "index.scss";
 @import "contact.scss";
 @import "press.scss";

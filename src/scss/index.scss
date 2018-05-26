@@ -1,617 +1,311 @@
-// nav
-.top_nav{
-    width: 100%;
-    height: 68px;
-    line-height: 68px;
-    background-color: #e50011;
-    position: relative;
-    .nav_center{
-        width: 1248px;
-        height: 68px;
-        margin: 0 auto;
-    }
-    .nav_list{
-        height: 38px;
-        line-height: 38px;
-        color: #fff;
-        font-size: 14px;
-        padding: 15px 0;
+// PC端样式
+.pc_box{
+    // banner
+    .banner_box{
+        width: 100%;
+        height: 400px;
+        background-color: #e50012;
+        overflow: hidden;
         position: relative;
-        float: left;
-        .list{
-            display: block;
-            padding: 0 10px;
-            position: relative;
-            float: left;
-            cursor: pointer;
-            .second_list{
-                display: none;
-            }
-            .pull_down{
-                padding-right: 14px;
-                position: relative;
-            }
-            .pull_down:after{
-                content: '';
-                width: 8px;
-                height: 4px;
-                position: absolute;
-                right: 3px;
-                top: 6px;
-                z-index: 2;
-                background: url("../assets/index_04.png") center no-repeat;
-            }
-        }
-        .second:hover{
-            .second_list{
-                display: block;
-                width: 186px;
-                padding-bottom: 15px;
-                background-color: #ebebeb;
-                overflow: hidden;
-                position: absolute;
-                top: 37px;
-                left: 0;
-                z-index: 9;
-                .red_bg{
-                    width: 100%;
-                    height: 16px;
-                    margin-bottom: 15px;
-                }
-                .item{
-                    padding: 0 15px;
-                    height: 40px;
-                    line-height: 40px;
-                    font-size: 14px;
-                    color: #000;
-                    text-align: left;
-                    cursor: pointer;
-                }
-                .item:hover{
-                    background-color: #fff;
-                }
-            }
+        .center{
+            width: 1920px;
+            height: 100%;
+            margin-left: -960px;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            z-index: 2;
         }
     }
-    .right_nav{
-        height: 48px;
-        line-height: 48px;
-        font-size: 14px;
-        padding: 10px 0;
-        color: #fff;
-        text-align: center;
-        float: right;
-        .interesr{
-            width: 176px;
-            height: 48px;
-            background-color: #aa010e;
-            margin-left: 10px;
-            cursor: pointer;
-            float: right;
-        }
-        .stand{
-            width: 140px;
-            height: 48px;
-            background-color: #053a7a;
-            margin-left: 10px;
-            cursor: pointer;
-            float: right;
-        }
-        .language{
-            width: 48px;
-            height: 48px;
-            background-color: #3e3a39;
-            margin-left: 10px; 
-            cursor: pointer; 
-            float: right;          
-        }
-        .language.cur{
-            color: #e50011;
-            background-color: #fff;
-        }
-        .logo_list{
-            width: 80px;
-            height: 48px;
-            background-color: #fff;  
+    // 内容
+    .page_content{
+        width: 1248px;
+        overflow: hidden;
+        margin: 0 auto;
+        .text_box{
+            width: 100%;
+            text-align: center;
+            padding: 40px 0 60px;
             overflow: hidden;
-            position: relative;
-            z-index: 9;
-            float: right;   
-            .logo_box{
+            .title{
                 width: 100%;
-                padding: 4px 15px;
-                box-sizing: border-box;
-                .list{
-                    display: block;
-                    width: 100%;
-                    height: 40px;
-                    margin-top: 10px;
+                height: 88px;
+                line-height: 88px;
+                font-size: 36px;
+                font-weight: 800;
+                color: #000;
+            }
+            .fonts{
+                width: 100%;
+                line-height: 32px;
+                font-size: 18px;
+                color: #000;
+            }
+        }
+        .list_block{
+            width: 100%;
+            overflow: hidden;
+            .item{
+                width: 400px;
+                height: 400px;
+                margin-left: 24px;
+                margin-bottom: 24px;
+                float: left;
+                img{
                     cursor: pointer;
-                    img{
-                        width: 100%;
+                }
+            }
+            .item:nth-of-type(3n+1){
+                margin-left: 0;
+            }
+            .open_time,.link_us{
+                width: 100%;
+                padding-top: 90px;
+                color: #fff;
+                text-align: center;
+                overflow: hidden;
+                .title{
+                    font-size: 24px;
+                    height: 88px;
+                    line-height: 88px;
+                }
+                .time_list{
+                    font-size: 18px;
+                    height: 32px;
+                    line-height: 32px;
+                }
+            }
+            .new_list{
+                padding: 0 25px;
+                background-color: #053a7a;
+                overflow: hidden;
+                .list{
+                    width: 100%;
+                    padding: 38px 0;
+                    cursor: pointer;
+                    overflow: hidden;
+                    .img{
+                        width: 120px;
+                        height: 120px;
+                        overflow: hidden;
+                        float: left;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .text{
+                        width: 210px;
+                        color: #fff;
+                        overflow: hidden;
+                        float: right;
+                        .title{
+                            width: 100%;
+                            font-size: 16px;
+                            line-height: 18px;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 2;
+                        }
+                        .fonts{
+                            width: 100%;
+                            font-size: 12px;
+                            line-height: 14px; 
+                            margin-top: 10px;  
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 5;                     
+                        }
                     }
                 }
                 .list:first-child{
-                    margin-top: 0;
+                    border-bottom: 1px dashed #fff; 
                 }
-            }         
-        }
-        .logo_list:hover{
-            height: auto;
-        }
-        .logo_list:after{
-            content: '';
-            width: 8px;
-            height: 4px;
-            position: absolute;
-            right: 7px;
-            top: 22px;
-            z-index: 2;
-            background: url("../assets/index_05.png") center no-repeat;
-        }
-    }
-}
-// logo+倒计时
-.count_logo_box{
-    width: 100%;
-    height: 168px;
-    overflow: hidden;
-    .center_box{
-        width: 1248px;
-        height: 168px;
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
-    }
-    .time_left{
-        width: 620px;
-        height: 128px;
-        padding: 20px 0;
-        text-align: center;
-        overflow: hidden;
-        float: left;
-        .logo{
-            width: 128px;
-            height: 128px;
-            overflow: hidden;
-            float: left;
-        }
-        .title{
-            width: 250px;
-            height: 128px;
-            padding-top: 40px;
-            box-sizing: border-box;
-            text-align: center;
-            overflow: hidden;
-            float: left;
-            .text{
-                font-size: 20px;
-                height: 26px;
-                line-height: 26px;
-                color: #000;
-                font-weight: 600;
             }
-        }
-        .time_count{
-            width: 240px;
-            height: 128px;
-            padding: 47px 0 0 23px;
-            box-sizing: border-box;
-            overflow: hidden;
-            float: left;
-            .time{
-                width: 95px;
-                height: 34px;
-                line-height: 34px;
-                font-size: 34px;
-                color: #000;
-                font-weight: 600;
-                letter-spacing: 10px;
-                text-indent: 8px;
-                border-left: 2px solid #e1e1e1;
-                border-right: 2px solid #ebebeb;
-                float: left;
-            }
-            .day{
-                margin-left: 10px;
-                line-height: 34px;
-                font-size: 18px;
-                color: #000;
-                float: left;
-            }   
-        }
-    }
-    .logo_right{
-        width: 628px;
-        height: 128px;
-        padding: 20px 0;
-        text-align: center;
-        overflow: hidden;
-        float: right;
-        .title{
-            width: 100%;
-            height: 38px;
-            line-height: 38px;
-            font-size: 20px;
-            text-align: left;
-            overflow: hidden;
-        }
-        .logo_list{
-            width: 100%;
-            height: 90px;                  
-            overflow: hidden;
-            .item{
-                height: 100%;                
+            .link_list{
+                width: 198px;
                 overflow: hidden;
-                float: left;
-                a{
-                    display: flex;
-                    justify-content:center; 
-                    align-items: center;  
-                }
-            }
-            .left{
-                width: 70px;
-            }
-            .center{
-                width: 358px;
-                a{
-                    width: 70px;
-                    margin:  0 auto;
-                }
-            }
-            .right{
-                width: 200px;
-                float: right;
-            }
-        }
-    }    
-}
-// banner
-.banner_box{
-    width: 100%;
-    height: 400px;
-    background-color: #e50012;
-    overflow: hidden;
-    position: relative;
-    .center{
-        width: 1920px;
-        height: 100%;
-        margin-left: -960px;
-        position: absolute;
-        left: 50%;
-        top: 0;
-        z-index: 2;
-    }
-}
-// 内容
-.page_content{
-    width: 1248px;
-    overflow: hidden;
-    margin: 0 auto;
-    .text_box{
-        width: 100%;
-        text-align: center;
-        padding: 40px 0 60px;
-        overflow: hidden;
-        .title{
-            width: 100%;
-            height: 88px;
-            line-height: 88px;
-            font-size: 36px;
-            font-weight: 800;
-            color: #000;
-        }
-        .fonts{
-            width: 100%;
-            line-height: 32px;
-            font-size: 18px;
-            color: #000;
-        }
-    }
-    .list_block{
-        width: 100%;
-        overflow: hidden;
-        .item{
-            width: 400px;
-            height: 400px;
-            margin-left: 24px;
-            margin-bottom: 24px;
-            float: left;
-            img{
-                cursor: pointer;
-            }
-        }
-        .item:nth-of-type(3n+1){
-            margin-left: 0;
-        }
-        .open_time,.link_us{
-            width: 100%;
-            padding-top: 90px;
-            color: #fff;
-            text-align: center;
-            overflow: hidden;
-            .title{
-                font-size: 24px;
-                height: 88px;
-                line-height: 88px;
-            }
-            .time_list{
-                font-size: 18px;
-                height: 32px;
-                line-height: 32px;
-            }
-        }
-        .new_list{
-            padding: 0 25px;
-            background-color: #053a7a;
-            overflow: hidden;
-            .list{
-                width: 100%;
-                padding: 38px 0;
-                cursor: pointer;
-                overflow: hidden;
-                .img{
-                    width: 120px;
-                    height: 120px;
+                margin: 0 auto;
+                .wechat{
+                    width: 80px;
+                    height: 80px;
+                    background: url("../assets/index_06.png") center no-repeat;
+                    background-color: #fff;
+                    cursor: pointer;
                     overflow: hidden;
                     float: left;
-                    img{
-                        width: 100%;
-                        height: 100%;
-                    }
                 }
-                .text{
-                    width: 210px;
-                    color: #fff;
+                .facebook{
+                    width: 80px;
+                    height: 80px;
+                    background: url("../assets/index_19.png") center no-repeat;
+                    background-color: #fff;
+                    cursor: pointer;
                     overflow: hidden;
                     float: right;
-                    .title{
-                        width: 100%;
-                        font-size: 16px;
-                        line-height: 18px;
-                        display: -webkit-box;
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 2;
-                    }
-                    .fonts{
-                        width: 100%;
-                        font-size: 12px;
-                        line-height: 14px; 
-                        margin-top: 10px;  
-                        display: -webkit-box;
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 5;                     
-                    }
-                }
+                }           
             }
-            .list:first-child{
-                border-bottom: 1px dashed #fff; 
-            }
-        }
-        .link_list{
-            width: 198px;
-            overflow: hidden;
-            margin: 0 auto;
-            .wechat{
-                width: 80px;
-                height: 80px;
-                background: url("../assets/index_06.png") center no-repeat;
-                background-color: #fff;
-                cursor: pointer;
-                overflow: hidden;
-                float: left;
-            }
-            .facebook{
-                width: 80px;
-                height: 80px;
-                background: url("../assets/index_19.png") center no-repeat;
-                background-color: #fff;
-                cursor: pointer;
-                overflow: hidden;
-                float: right;
-            }           
         }
     }
 }
-// 展示栏
-.show_list_box{
-    width: 1248px;
-    padding-top: 30px;
-    padding-bottom: 16px;
-    overflow: hidden;
-    position: relative;
-    margin: 0 auto;
-    .title{
-        width: 100;
-        height: 54px;
-        line-height: 54px;
-        font-size: 30px;
-        color: #000;
-        font-weight: 600;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;         
-    }
-    .show_number{
+// 移动端样式
+.mobile_box{
+    // banner
+    .banner_box{
         width: 100%;
-        padding-bottom: 44px;
+        height: 4rem;
+        background-color: #e50012;
         overflow: hidden;
-        .number_list{
-            padding: 15px 0 20px;
-            text-align: center;
-            overflow: hidden;
-            .item{
-                width: 65px;
-                color: #99c492;
-                float: left;
-            }
-            .num{
-                width: 100%;
-                height: 68px;
-                line-height: 68px;
-                font-size: 58px;
-            }
-            .tips{
-                height: 28px;
-                line-height: 28px;
-                font-size: 14px;
-                color: #000;
-            }
-            .att{
-                width: 240px;
-                margin-left: 40px;
-                color: #4db3c5;
-            }
-            .exh{
-                width: 215px;
-                color: #e50011;
-            }
-            .spe{
-                width: 185px;
-                color: #ee83ce;
-            }
-            .ses{
-                width: 178px;
-                color: #7979a5;
-            }  
-            .are{
-                width: 266px;
-                color: #053a7a;                
-            }                      
+        position: relative;
+        .center{
+            width: 100%;
+            height: 100%;            
+        }
+        img{
+            width: 100%;
+            height: 100%;
         }
     }
-    .with_logo_box{
+    // 内容
+    .page_content{
         width: 100%;
         overflow: hidden;
-        .logo_list{
-            padding: 30px 0 20px;
+        .text_box{
+            width: 100%;
+            text-align: center;
+            padding: .6rem .2rem .6rem;
+            box-sizing: border-box;
+            overflow: hidden;
+            .title{
+                width: 100%;
+                height: .6rem;
+                line-height: .6rem;
+                font-size: .36rem;
+                font-weight: 800;
+                color: #000;
+                margin-bottom: .35rem;
+            }
+            .fonts{
+                width: 100%;
+                line-height: .32rem;
+                font-size: .2rem;
+                color: #000;
+            }
+        }
+        .list_block{
+            width: 100%;
+            padding: .2rem;
+            box-sizing: border-box;
             overflow: hidden;
             .item{
-                width: 196px;
-                height: 78px;
-                margin-right: 12px;
-                margin-bottom: 12px;
-                background-color: #ebebeb;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                overflow: hidden;
+                width: 2.2rem;
+                height: 2.2rem;
+                margin-left: .25rem;
+                margin-bottom: .25rem;
                 float: left;
+                img{
+                    width: 100%;
+                }
+            }
+            .item:first-child{
+                margin-left: 0;
+            }
+            .mobile_full{
+                width: 100%;
+                margin-left: 0;
+                height: 7.1rem;
+            }
+            .open_time,.link_us{
+                width: 100%;
+                padding-top: 1.7rem;
+                color: #fff;
+                text-align: center;
+                overflow: hidden;
+                .title{
+                    font-size: .36rem;
+                    height: 1.42rem;
+                    line-height: 1.42rem;
+                }
+                .time_list{
+                    font-size: .28rem;
+                    height: .56rem;
+                    line-height: .56rem;
+                }
+            }
+            .new_list{
+                padding: 0 .4rem;
+                background-color: #053a7a;
+                overflow: hidden;
+                .list{
+                    width: 100%;
+                    padding: .7rem 0;
+                    overflow: hidden;
+                    .img{
+                        width: 2.15rem;
+                        height: 2.15rem;
+                        overflow: hidden;
+                        float: left;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .text{
+                        width: 3.9rem;
+                        color: #fff;
+                        overflow: hidden;
+                        float: right;
+                        .title{
+                            width: 100%;
+                            font-size: .28rem;
+                            line-height: .32rem;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 2;
+                        }
+                        .fonts{
+                            width: 100%;
+                            font-size: .24rem;
+                            line-height: .25rem; 
+                            margin-top: .2rem;  
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 5;                     
+                        }
+                    }
+                }
+                .list:first-child{
+                    border-bottom: 1px dashed #fff; 
+                }
+            }
+            .link_list{
+                width: 3.52rem;
+                height: 1.43rem;
+                overflow: hidden;
+                margin: 0 auto;
+                .wechat{
+                    width: 1.43rem;
+                    height: 100%;
+                    background: url("../assets/m-wechat.png") center no-repeat;
+                    background-color: #fff;
+                    background-size: 60%;
+                    overflow: hidden;
+                    float: left;
+                }
+                .facebook{
+                    width: 1.43rem;
+                    height: 100%;
+                    background: url("../assets/m-facebook.png") center no-repeat;
+                    background-color: #fff;
+                    background-size: 40%;
+                    overflow: hidden;
+                    float: right;
+                }           
             }
         }
     }
 }
 
-// 底栏
-.page_bottom_box{
-    width: 100%;
-    padding: 46px 0 60px;
-    background-color: #ebebeb;
-    overflow: hidden;
-    .bottom_center{
-        width: 702px;
-        margin: 0 auto;
-    }
-    .nav_list{
-        width: 100%;
-        text-align: center;
-        overflow: hidden;
-        .item{
-            float: left;
-            width: 176px;
-            height: 52px;
-            line-height: 52px;
-            font-size: 14px;
-            color: #000;
-            font-weight: 600;
-            span{
-                cursor: pointer;
-            }
-        }
-        .long{
-            width: 350px;
-        }
-        .red{
-            color: #e50012;
-        }
-    }
-    .bth_list{
-        width: 100%;
-        height: 100px;;
-        padding: 36px 0 46px;
-        text-align: center;
-        overflow: hidden;
-        .item{
-            float: left;
-            width: 176px;
-            height: 100%;
-        }
-        .logo{
-            float: left;
-            width: 350px;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;            
-        }
-        .bth{
-            display: block;
-            width: 100%;
-            height:48px;
-            line-height: 48px;
-            font-size: 14px;
-            color: #fff;
-            font-weight: 600;  
-            margin-top: 36px;   
-            cursor: pointer;       
-        }                    
-    }
-    .link_list{
-        width: 260px;
-        height: 60px;
-        overflow: hidden;
-        margin: 0 auto;
-        .item{
-            width: 60px;
-            height: 60px;
-            overflow: hidden;
-            float: left;
-            margin-right: 40px;
-            cursor: pointer;
-        }
-        .item:last-child{
-            margin-right: 0;
-        }
-        .wechat{
-            background: url("../assets/index_50.png") center no-repeat;
-            background-color: #fff;
-        }
-        .facebook{
-            background: url("../assets/index_53.png") center no-repeat;
-            background-color: #fff;
-        }
-        .rss{
-            background: url("../assets/index_55.png") center no-repeat;
-            background-color: #fff;
-        }            
-    }
-    .authentication{
-        width: 100%;
-        height: 44px;
-        margin-top: 50px;
-        background: url("../assets/index_61.png") center no-repeat;
-        overflow: hidden;
-    }
-    .reference{
-        width: 100%;
-        height: 52px;
-        line-height: 52px;
-        font-size: 14px;
-        color: #939393;
-        text-align: center;
-    }
-}
 // 悬浮层
 .layou_box{
     position: fixed;
@@ -632,141 +326,6 @@
         }
         .facebook{
             background: url("../assets/index_19.png") center no-repeat;
-        }
-    }
-}
-// wechat qrcode
-.wechat_qrcode{
-    width: 420px;
-    height: 420px;
-    padding: 30px;
-    background-color: #fff;
-    .close{
-        width: 32px;
-        height: 32px;
-        background: url("../assets/close.png") center no-repeat;
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        z-index: 2;
-        cursor: pointer;
-    }
-    .qrcode{
-        width: 100%;
-        height: 300px;
-        padding-top: 30px;
-        text-align: center;
-        overflow: hidden;
-    }
-    .tips{
-        width: 100%;
-        height: 60px;
-        line-height: 60px;
-        font-size: 24px;
-        color: #000;
-        text-align: center;
-    }
-}
-
-// 订阅弹层
-.layou_rss_box{
-    width: 540px;
-    height: 680px;
-    padding: 30px 40px;
-    background-color: #fff;
-    .close{
-        width: 27px;
-        height: 27px;
-        background: url("../assets/close.png") center no-repeat;
-        background-size: 27px;
-        position: absolute;
-        top: 30px;
-        right: 40px;
-        z-index: 2;
-        cursor: pointer;
-    } 
-    .title{
-        width: 100%;
-        height: 46px;
-        line-height: 46px;
-        padding-top: 27px;
-        font-size: 24px;
-        color: #000;
-        font-weight: 600;
-        overflow: hidden;
-    } 
-    .list_box{
-        width: 100%;
-        padding-top: 28px;
-        overflow: hidden;
-        .item{
-            padding-top: 6px;
-            position: relative;
-            .name{
-                width: 100%;
-                height: 50px;
-                line-height: 50px;
-                font-size: 24px;
-                text-align: left;
-            }
-            .input_box{
-                width: 100%;
-                height: 56px;
-                line-height: 56px;
-                text-indent: 7px;
-                font-size: 20px;
-                color: #000;
-                border: 1px solid #b5b5b5;
-                box-sizing: border-box;
-            }
-            .input_box:focus{
-                border: 1px solid #409eff;
-            }
-            .pill_box{
-                position: relative;
-                .pull_icon{
-                    width: 30px;
-                    height: 20px;
-                    background: url("../assets/down.png") center no-repeat;
-                    position: absolute;
-                    top: 18px;
-                    right: 30px;
-                    z-index: 3;
-                }                
-            }
-            .pull_down{
-                width: 100%;
-                overflow: hidden;
-                position: absolute;
-                border: 1px solid #b5b5b5;
-                box-sizing: border-box;
-                background-color: #fff;
-                top: 50px;
-                left: 0;
-                z-index: 2;
-                .sex{
-                    width: 100%;
-                    height: 36px;
-                    line-height: 36px;
-                    text-indent: 7px;
-                    font-size: 20px;
-                    color: #333;                    
-                }
-                .sex:hover{
-                    background-color: #ebebeb;
-                }
-            }
-            .Submit{
-                width: 100%;
-                height: 56px;
-                line-height: 56px;
-                color: #fff;
-                font-size: 20px;
-                text-align: center;
-                background-color: #aa010e;
-                margin-top: 47px;
-                cursor: pointer;
-            }
         }
     }
 }

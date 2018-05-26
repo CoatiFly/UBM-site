@@ -1,16 +1,15 @@
 <template>
 <div class="out-side">
   <!-- RSS 弹层 -->
-  <div class="layou_fixed" v-if="rssLayouStatus"> 
-    <div class="layou_rss_box fixed_pos">
+  <div class="layou_fixed" v-if="rssLayouStatus" @touchmove.prevent> 
+    <div class="fixed_pos" :class="isPC ? 'layou_rss_box' : 'mobile_layou_rss_box'">
       <div class="close" v-on:click="SwitchLayou('rssLayouStatus')"></div>
       <div class="title">Subscribe the latest information</div>
       <ul class="list_box">
         <li class="item">
           <div class="name">Title<span class="red">*</span></div>
           <div class="pill_box">
-            <input class="input_box" type="text" v-model="rssForm.sex" placeholder="Please enter your title">
-            <div class="pull_icon" v-on:click="SwitchLayou('sexCheckStatus')"></div>
+            <p class="input_box pull_icon" v-on:click="SwitchLayou('sexCheckStatus')">{{rssForm.sex}}</p>
             <div class="pull_down" v-if="sexCheckStatus" v-on:mouseleave="SwitchLayou('sexCheckStatus')">
               <ul class="box">
                 <li class="sex" v-on:click="selectSexName('Mr')">Mr</li>
@@ -47,6 +46,7 @@ export default {
   name: "subscribe",
   data() {
     return {
+      isPC: '',
       rssLayouStatus: false,
       sexCheckStatus: false,
       rssForm: {
@@ -58,7 +58,7 @@ export default {
     };
   },
   mounted() {
-
+    this.isPC = this.$store.state.isPC;
   },
   methods: {
     show: function(){

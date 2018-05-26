@@ -1,7 +1,7 @@
 <template>
 <div class="out-side">
   <!-- 展示栏 -->
-  <div class="show_list_box">
+  <div :class="isPC ? 'show_list_box' : 'mobile_show_list_box'">
     <div class="show_number">
       <p class="title">THE SHOW COVERING THE SIGN & ADVERTISING SUPPLY CHAIN EXPECTING...</p>
       <ul class="number_list">
@@ -30,17 +30,11 @@
           <p class="tips">EXHIBITION AREA</p>
         </li>
       </ul>
-      <p class="title mt20">...THE "OSCAR”EVENT IN THE SIGN AND ADVERTISING INDUSTRY.</p>
+      <p class="title mar_other">...THE "OSCAR”EVENT IN THE SIGN AND ADVERTISING INDUSTRY.</p>
     </div>
     <div class="with_logo_box">
       <p class="title">IN ASSOCIATION WITH</p>
       <ul class="logo_list">
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
         <li class="item"></li>
         <li class="item"></li>
         <li class="item"></li>
@@ -58,12 +52,6 @@
         <li class="item"></li>
         <li class="item"></li>
         <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
       </ul>    
     </div>
     <div class="with_logo_box">
@@ -75,23 +63,11 @@
         <li class="item"></li>
         <li class="item"></li>
         <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
       </ul>    
     </div> 
     <div class="with_logo_box">
       <p class="title">MEMBER OF</p>
       <ul class="logo_list">
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
         <li class="item"></li>
         <li class="item"></li>
         <li class="item"></li>
@@ -111,24 +87,14 @@ export default {
   name: "myCommon",
   data() {
     return {
-      QRcodeStatus: false,
-      rssLayouStatus: false,
-      sexCheckStatus: false
+      isPC: ''
     };
   },
   mounted() {
-
+    this.isPC = this.$store.state.isPC;
   },
   methods: {
-    SwitchLayou: function(name){
-      // 动态切换状态
-      this[name] = !this[name];
-    },
-    selectSexName: function(name){
-      // 选择性别
-      this.rssForm.sex = name;
-      this.sexCheckStatus = false;
-    }
+
   }
 };
 </script>

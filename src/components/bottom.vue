@@ -1,7 +1,7 @@
 <template>
 <div class="out-side">
   <!-- 底栏 -->
-  <div class="page_bottom_box">
+  <div :class="isPC ? 'page_bottom_box' : 'mobile_page_bottom_box'">
     <div class="bottom_center">
       <ul class="nav_list">
         <li class="item"><span v-on:click="goPage('index')">HOME</span></li>
@@ -18,7 +18,7 @@
         <li class="logo">
           <img src="../assets/index_46.png" alt="">
         </li>
-        <li class="item">
+        <li class="item red_right">
           <span class="bth red_bg" v-on:click="goPage('register')">REGISTER INTEREST</span>
         </li>        
       </ul>
@@ -31,7 +31,11 @@
       </ul>
     </div>
     <div class="authentication"></div> 
-    <div class="reference">隐私政策 | Copyright 2011 by UBM Trust Co Ltd (All Rights Reserved) 粤ICP备16120933号-2 粤公网安备 44010602002114号</div>    
+    <div class="reference" v-if="isPC">隐私政策 | Copyright 2011 by UBM Trust Co Ltd (All Rights Reserved) 粤ICP备16120933号-2 粤公网安备 44010602002114号</div>    
+    <div class="reference" v-else>
+      <p class="fonts">隐私政策 | Copyright 2011 by UBM Trust Co Ltd (All Rights Reserved) </p>
+      <p class="fonts">粤ICP备16120933号-2 粤公网安备 44010602002114号</p>
+    </div>    
   </div> 
   <!-- RSS 弹层组件 -->
   <subScribe ref="rssOrder"></subScribe>   
@@ -41,6 +45,7 @@
 </template>
 
 <script>
+import tokyo from "../common/util";
 import subScribe from "../components/subscribe";
 import weChat from "../components/wechat";
 
@@ -48,7 +53,8 @@ export default {
   name: "myBottom",
   data() {
     return {
-      facebookUrl: 'http://new.facebook.com/'
+      facebookUrl: 'http://new.facebook.com/',
+      isPC: ''
     };
   },
   components: {
@@ -56,7 +62,7 @@ export default {
     weChat
   },
   mounted() {
-
+    this.isPC = this.$store.state.isPC;
   },
   methods: {
     goPage: function(name) {
@@ -67,6 +73,7 @@ export default {
       this.$refs.rssOrder.show();
     },
     openWechatLayou: function(){
+      // 打开微信二维码弹层
       this.$refs.wechat.show();
     },
     SwitchLayou: function(name){

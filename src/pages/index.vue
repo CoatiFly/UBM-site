@@ -2,73 +2,80 @@
 <div class="page">
   <!-- 顶部导航组件 -->
   <myHeader></myHeader>
-  <!-- banner -->
-  <div class="banner_box">
-    <div class="center">
-      <img src="../assets/index_26.png" alt="">
+  <div :class="isPC ? 'pc_box' : 'mobile_box'">
+    <!-- banner -->
+    <div class="banner_box">
+      <div class="center" v-if="isPC">
+        <img src="../assets/index_26.png" alt="">
+      </div>
+      <div class="center" v-else>
+        <img src="../assets/banner750.png" alt="">
+      </div>
+    </div>
+    <!-- 内容 -->
+    <div class="page_content">
+      <div class="text_box">
+        <p class="title">WELCOME TO THE SIGN CHINA</p>
+        <p class="fonts"><span class="bold">SIGN CHINA</span> is a one-stop platform for the global sign community to source the latest model of inkjet printer, laser engraver, light box, traditional signage, digital signage, advertising display, <span class="bold">LED</span> illuminant, <span class="bold">LED</span> display, testing device and control system.</p>
+        <p class="fonts mt20">International buyers and industry professionals gather here annually to look for Original Equipment Manufacturers (<span class="bold">OEM</span>) or solution providers for outdoor advertising, high-end conferencing or interactive digital signage.</p>
+      </div>
+      <div class="list_block">
+        <ul class="shell">
+          <li class="item">
+            <img src="../assets/index_29.png" alt="">
+          </li>
+          <li class="item">
+            <img src="../assets/index_31.png" alt="">
+          </li>
+          <li class="item">
+            <img src="../assets/index_34.png" alt="">
+          </li>
+          <li class="item red_bg mobile_full">
+            <div class="open_time">
+              <p class="title">OPENING TIMES</p>
+              <ul class="time_box">
+                <li class="time_list">Monday 30th March 2020: 10am – 5pm</li>
+                <li class="time_list">Tuesday 31st March 2020: 10am – 5pm</li>
+                <li class="time_list">Wednesday 1st April 2020: 10am – 4pm</li>
+              </ul>
+            </div>
+          </li>
+          <li class="item mobile_full">
+            <ul class="new_list">
+              <li class="list" v-for="item in newsList">
+                <div class="img">
+                  <img :src="item.picture" alt="新闻图片">
+                </div>
+                <div class="text">
+                  <p class="title">{{language == "en" ? item.caption_english : item.caption}}</p>
+                  <p class="fonts">{{language == "en" ? item.description_english : item.description}}</p>
+                </div>
+              </li>           
+            </ul>
+          </li>
+          <li class="item red_bg mobile_full">
+            <div class="link_us">
+              <p class="title">CONNECT WITH US</p>
+              <ul class="link_list">
+                <li class="wechat" v-on:click="openWechatLayou"></li>
+                <li class="facebook">
+                  <a :href="facebookUrl" target="_blank"></a>
+                </li>
+              </ul>
+            </div>         
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-  <!-- 内容 -->
-  <div class="page_content">
-    <div class="text_box">
-      <p class="title">WELCOME TO THE SIGN CHINA</p>
-      <p class="fonts"><span class="bold">SIGN CHINA</span> is a one-stop platform for the global sign community to source the latest model of inkjet printer, laser engraver, light box, traditional signage, digital signage, advertising display, <span class="bold">LED</span> illuminant, <span class="bold">LED</span> display, testing device and control system.</p>
-      <p class="fonts mt20">International buyers and industry professionals gather here annually to look for Original Equipment Manufacturers (<span class="bold">OEM</span>) or solution providers for outdoor advertising, high-end conferencing or interactive digital signage.</p>
-    </div>
-    <div class="list_block">
-      <ul class="shell">
-        <li class="item">
-          <img src="../assets/index_29.png" alt="">
-        </li>
-        <li class="item">
-          <img src="../assets/index_31.png" alt="">
-        </li>
-        <li class="item">
-          <img src="../assets/index_34.png" alt="">
-        </li>
-        <li class="item red_bg">
-          <div class="open_time">
-            <p class="title">OPENING TIMES</p>
-            <ul class="time_box">
-              <li class="time_list">Monday 30th March 2020: 10am – 5pm</li>
-              <li class="time_list">Tuesday 31st March 2020: 10am – 5pm</li>
-              <li class="time_list">Wednesday 1st April 2020: 10am – 4pm</li>
-            </ul>
-          </div>
-        </li>
-        <li class="item">
-          <ul class="new_list">
-            <li class="list" v-for="item in newsList">
-              <div class="img">
-                <img :src="item.picture" alt="新闻图片">
-              </div>
-              <div class="text">
-                <p class="title">{{language == "en" ? item.caption_english : item.caption}}</p>
-                <p class="fonts">{{language == "en" ? item.description_english : item.description}}</p>
-              </div>
-            </li>           
-          </ul>
-        </li>
-        <li class="item red_bg">
-          <div class="link_us">
-            <p class="title">CONNECT WITH US</p>
-            <ul class="link_list">
-              <li class="wechat" v-on:click="openWechatLayou"></li>
-              <li class="facebook">
-                <a :href="facebookUrl" target="_blank"></a>
-              </li>
-            </ul>
-          </div>         
-        </li>
-      </ul>
-    </div>
-  </div>  
+  <div v-if="isPC">
+    <!-- 右侧悬浮组件 -->
+    <mySuspension></mySuspension> 
+  </div>
   <!-- 公共部分组件 -->
   <myCommon></myCommon>  
   <!-- 底部页脚组件 -->
   <myBottom></myBottom>
-  <!-- 右侧悬浮组件 -->
-  <mySuspension></mySuspension>
   <!-- wechat 弹层组件 -->
   <weChat ref="wechat"></weChat> 
 </div>
@@ -84,7 +91,6 @@ import weChat from "../components/wechat";
 
 import tokyo from "../common/util";
 import getModel from "../models/model";
-// let monitorLoginModel = getModel("monitorLoginModel");
 let getNewsListModel = getModel("getNewsListModel");
 
 export default {
