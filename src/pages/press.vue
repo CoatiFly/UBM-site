@@ -70,21 +70,19 @@ import myBanner from "../components/banner";
 import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
-import weChat from "../components/wechat";
 
 import getModel from "../models/model";
 let getNewsListModel = getModel("getNewsListModel");
 let getSlideByGroupModel = getModel("getSlideByGroupModel");
 
 export default {
-  name: "Contact",
+  name: "Press",
   data() {
     return {
-      adItems: [0,1,2,3],
-      SliderList: [],
-      newsList: [],
       language: '',
-      isPC: '',
+      isPC: '',     
+      SliderList: [],
+      newsList: []
     };
   },
   components: {
@@ -92,8 +90,7 @@ export default {
     myBanner,
     myBottom,
     myCommon,
-    mySuspension,
-    weChat
+    mySuspension
   },
   computed: {
     getUserlanguage() {

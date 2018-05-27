@@ -3,109 +3,126 @@
   <!-- 顶部导航组件 -->
   <myHeader></myHeader>
   <!-- banner -->
-  <div class="banner_box">
-    <div class="center">
-      <img src="../assets/index_26.png" alt="">
-    </div>
-  </div>
-  <!-- 内容 -->
-  <div class="page_content travel">
-    <div class="trave_left">
-      <div class="text_box">
-        <p class="title">FOOD & DRINK EXPO 2018 IS NOW CLOSED</p>
-        <p class="fonts mt30">Providing the number one route to the UK food and drink market. Join the UK’s most progressive food and drink professionals on 30th March- 1st April 2020 for five shows covering the complete supply chain. Food & Drink Expo will run alongside Foodex, The Ingredients Show, National Convenience Show and Farm Shop & Deli Show. The UK Food Shows attract buyers and decision makers from across the whole industry, who will converge to uncover the hottest trends, latest product launches and the industry’s vision for </p>
-      </div>
-      <div class="center_box">
-        <div class="bth_register">
-          <a :href="pcUrl" class="block" target="_blank" v-if="isPc">REGISTER</a>
-          <a :href="mobileUrl" class="block" target="_blank" v-if="!isPc">REGISTER</a>
+  <myBanner></myBanner>
+  <!-- page center -->
+  <div :class="isPC ? 'pc_box' : 'mobile_box'">
+    <!-- 内容 -->
+    <div class="page_content travel">
+      <div class="trave_left">
+        <div class="text_box">
+          <p class="title">REGISTER INTEREST</p>
+          <p class="fonts mt30">Providing the number one route to the UK food and drink market. Join the UK’s most progressive food and drink professionals on 30th March- 1st April 2020 for five shows covering the complete supply chain. Food & Drink Expo will run alongside Foodex, The Ingredients Show, National Convenience Show and Farm Shop & Deli Show. The UK Food Shows attract buyers and decision makers from across the whole industry, who will converge to uncover the hottest trends, latest product launches and the industry’s vision for </p>
         </div>
-      </div>    
-    </div>
-    <div class="press_right">
-      <ul class="adver_list">
-        <li class="item" v-for="item in adItems">
-          <div class="logo_box">{{item}}</div>
-          <p class="title line2">banner wordsbanner wordsbanner wordsbanner wordsbanner wordsbanner ...</p>
-        </li>
-      </ul>
+        <div class="center_box">
+          <div class="bth_register">
+            <a :href="pcUrl" class="block" target="_blank" v-if="isPC">REGISTER</a>
+            <a :href="mobileUrl" class="block" target="_blank" v-if="!isPC">REGISTER</a>
+          </div>
+        </div>    
+      </div>
+      <!-- 广告列表 -->
+      <div class="press_right" v-if="isPC">
+        <ul class="adver_list">
+          <li class="item" v-for="item in SliderList">
+            <a class="blank_box" :href="item.linker" target="_blank">
+              <div class="logo_box"><img :src="item.picture" alt="广告图片"></div>
+              <p class="title line2">{{item.caption}}</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- 广告列表 -->
+      <div class="press_right" v-else>
+        <div class="over_x">
+          <ul class="adver_list" :style="{width: SliderList.length * 2.24 + 0.2 + 'rem'}">
+            <li class="item" v-for="item in SliderList">
+              <a class="blank_box" :href="item.linker" target="_blank">
+                <div class="logo_box"><img :src="item.picture" alt="广告图片"></div>
+                <p class="title line2">{{item.caption}}</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>  
     </div>  
-  </div>  
+  </div> 
   <!-- 公共部分组件 -->
   <myCommon></myCommon>  
   <!-- 底部页脚组件 -->
   <myBottom></myBottom>
-  <!-- 右侧悬浮组件 -->
-  <mySuspension></mySuspension>
+  <div v-if="isPC">
+    <!-- 右侧悬浮组件 -->
+    <mySuspension></mySuspension> 
+  </div>
 </div>
 
 </template>
 
 <script>
 import myHeader from "../components/header";
+import myBanner from "../components/banner";
 import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
-// import store from "../store";
-// import tokyo from "../js/tool";
-// import getModel from "../models/model";
 
-// let monitorLoginModel = getModel("monitorLoginModel");
-// let sendPhoneMsgModel = getModel("sendPhoneMsgModel");
+import getModel from "../models/model";
+let getSlideByGroupModel = getModel("getSlideByGroupModel");
 
 export default {
-  name: "Awards",
+  name: "Register",
   data() {
     return {
-      isPc: true,
-      adItems: [1, 2],
+      language: '',
+      isPC: '',  
+      SliderList: [],
       pcUrl: 'http://www.ubmtrust.com?class=pc',
       mobileUrl: 'http://www.ubmtrust.com?class=mobile'
     };
   },
   components: {
     myHeader,
+    myBanner,
     myBottom,
     myCommon,
     mySuspension
   },
+  computed: {
+    getUserlanguage() {
+      return this.$store.state.language;
+    }
+  },
+  watch: {
+    getUserlanguage(val) {
+      this.language = val;
+    }
+  },
   mounted() {
-    this.checkIsPc();
+    this.language = this.$store.state.language;
+    this.isPC = this.$store.state.isPC;
+    console.log(this.language,this.isPC);
+    this.getSliderList();
   },
   methods: {
-    checkIsPc: function() {
-      // 判断当前环境
-      console.log(this.isPc);
-     
-    },
+    getSliderList: function(){
+      // 获取广告列表
+      let params = {
+        gid: 1,
+      }
+      getSlideByGroupModel.$post(params).then((info) => {
+        if (info.status == 1) {
+          if(this.isPC){
+            this.SliderList = info.data.slice(0,2);
+          }else{
+            this.SliderList = info.data;
+          }
+          console.log("广告列表",info.data);
+        }
+      });      
+    }
   }
 };
 </script>
 
 <style scoped lang="scss">
-.page_content .text_box .title {
-  font-size: 30px;
-}
-.bth_register {
-  width: 380px;
-  height: 70px;
-  line-height: 70px;
-  font-size: 24px;
-  color: #fff;
-  background-color: #aa010e;
-  text-align: center;
-  cursor: pointer;
-  overflow: hidden;
-  margin: 0 auto;
-  .block{
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    overflow: hidden;
-  }
-}
-.travel .center_box{
-  margin-top: 80px;
-}
+
 </style>

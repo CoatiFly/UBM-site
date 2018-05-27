@@ -24,12 +24,12 @@
       </div>
       <!-- visit 列表 -->
       <ul class="visit_list">
-        <li class="item" v-for="item in items">
-          <div class="logo_box">{{item}}</div>
+        <li class="item" v-for="item in expoList">
+          <div class="logo_box"><img :src="item.exhibitor_picture_url" alt="图片"></div>
           <div class="fonts_box">
-            <p class="title line2">Shanghai East Asia United International Trade joint-stock</p>
-            <p class="number">WXZ000016489633</p>
-            <p class="tips line2">Digital Print Equipment & Accessory, Heat Transfer Production</p>
+            <p class="title line2">{{language == "en" ? item.company_name_english : item.company_name_chinese}}</p>
+            <p class="number">{{item.position_no}}</p>
+            <p class="tips line2">{{language == "en" ? item.exhibitor_introduction_english : item.exhibitor_introduction_chinese}}</p>
           </div>          
         </li>
       </ul>
@@ -54,13 +54,9 @@ import myBanner from "../components/banner";
 import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
-import weChat from "../components/wechat";
-// import store from "../store";
-// import tokyo from "../js/tool";
-// import getModel from "../models/model";
 
-// let monitorLoginModel = getModel("monitorLoginModel");
-// let sendPhoneMsgModel = getModel("sendPhoneMsgModel");
+import getModel from "../models/model";
+let getExhibitorListModel = getModel("getExhibitorListModel");
 
 export default {
   name: "Exhibitiors",
@@ -68,7 +64,7 @@ export default {
     return {
       isPC: '',
       language: '',
-      items: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+      expoList: [],
       searchName: "",
       componyName: '',
       exhibitNumber: ''
@@ -79,8 +75,7 @@ export default {
     myBanner,
     myBottom,
     myCommon,
-    mySuspension,
-    weChat
+    mySuspension
   },
   computed: {
     getUserlanguage() {
@@ -96,9 +91,26 @@ export default {
     this.language = this.$store.state.language;
     this.isPC = this.$store.state.isPC;
     console.log(this.language,this.isPC);
+    this.getExhibitorList();
   },
   methods: {
-
+    getExhibitorList: function(){
+      // 获取展会信息列表
+      let params = {
+        eid: '',
+        cid: '',
+        name: this.componyName,
+        pno: this.exhibitNumber,
+        page: '1',
+        rownum: 10
+      }
+      getExhibitorListModel.$post(params).then((info) => {
+        if (info.status == 1) {
+          this.expoList = info.data.data;
+          console.log("展会信息列表",info.data.data);
+        }
+      });      
+    }
   }
 };
 </script>

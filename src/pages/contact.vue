@@ -60,10 +60,8 @@ import myBanner from "../components/banner";
 import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
-// import store from "../store";
-// import tokyo from "../js/tool";
-// import getModel from "../models/model";
 
+// import getModel from "../models/model";
 // let monitorLoginModel = getModel("monitorLoginModel");
 // let sendPhoneMsgModel = getModel("sendPhoneMsgModel");
 

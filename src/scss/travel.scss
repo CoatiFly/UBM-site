@@ -1,66 +1,181 @@
 // contact page scss
-.travel{
-    overflow: hidden;
-    .trave_left{
-        width: 824px;
-        padding-bottom: 70px;
+.pc_box{
+    .travel{
         overflow: hidden;
-        float: left;
-    }
-    .text_box{
-        width: 100%;
-        padding-bottom: 0;
-        .fonts_left{
-            text-align: left;
-            line-height: 26px;
-        }
-        .line_26{
-            line-height: 26px;
-        }
-    }
-    .center_box{
-        width: 100%;
-        padding-bottom: 40px;
-        overflow: hidden;
-        .map_box{
-            width: 100%;
-            height: 410px;
-            margin: 30px 0;
-            background-color: #bebebe;
+        .trave_left{
+            width: 824px;
+            padding-bottom: 70px;
             overflow: hidden;
+            float: left;
         }
-        .fonts{
-            font-size: 18px;
-            line-height: 26px;
-            color: #000;
-            text-align: left;
-        }
-    }    
-    .press_right{
-        width: 376px;
-        padding-top: 70px;
-        overflow: hidden;
-        float: right;
-        .adver_list{
+        .text_box{
             width: 100%;
-            overflow: hidden;
+            padding-bottom: 0;
         }
-        .item{
+        .center_box{
             width: 100%;
-            padding-bottom: 30px;
+            padding-bottom: 40px;
             overflow: hidden;
-            .logo_box{
+            .fonts_list_pc{
                 width: 100%;
-                height: 280px;
+                line-height: 32px;
+                font-size: 18px;
+                color: #000;  
+                .line_26{
+                    line-height: 26px;
+                }  
+                .fonts{
+                    text-align: center;
+                }  
+                .fonts_left{
+                    text-align: left;
+                    line-height: 26px;
+                }                          
+            }           
+            .map_box{
+                width: 100%;
+                height: 410px;
+                margin: 30px 0;
                 background-color: #bebebe;
                 overflow: hidden;
-            }   
-            .title{
-                padding-top: 15px;
+            }
+            .fonts{
                 font-size: 18px;
                 line-height: 26px;
                 color: #000;
-            }         
-        }
-    } 
+                text-align: left;
+            }
+        }    
+        .press_right{
+            width: 376px;
+            padding-top: 70px;
+            overflow: hidden;
+            float: right;
+            .adver_list{
+                width: 100%;
+                overflow: hidden;
+            }
+            .item{
+                width: 100%;
+                padding-bottom: 30px;
+                overflow: hidden;
+                .logo_box{
+                    width: 100%;
+                    height: 280px;
+                    background-color: #bebebe;
+                    overflow: hidden;
+                }   
+                .title{
+                    padding-top: 15px;
+                    font-size: 18px;
+                    line-height: 26px;
+                    color: #000;
+                }         
+            }
+        } 
+    }
 }
+// mobile
+.mobile_box{
+    .travel{
+        position: relative;
+        overflow: hidden;
+        .trave_left{
+            width: 100%;
+            margin-top: 2.65rem;
+            border-top: 1px solid #ddd;
+            overflow: hidden;
+        }
+        .text_box{
+            width: 100%;
+            padding-bottom: 0;
+            .fonts_left{
+                text-align: left;
+                line-height: 26px;
+            }
+            .line_26{
+                line-height: 26px;
+            }
+        }
+        .center_box{
+            width: 100%;
+            padding: .4rem .2rem .8rem;
+            box-sizing: border-box;
+            overflow: hidden;
+            .fonts_list_mobile{
+                width: 100%;
+                font-size: .26rem;
+                line-height: .34rem;
+                .fonts{
+                    text-align: center;
+                }
+                .margin{
+                    margin: .65rem 0 .35rem;
+                }
+                .mt30{
+                    margin-top: .3rem;
+                }
+            }          
+            .map_box{
+                width: 100%;
+                height: 3.5rem;
+                margin: .6rem 0 .3rem;
+                background-color: #bebebe;
+                overflow: hidden;
+            }
+            .texts{
+                font-size: .26rem;
+                line-height: .34rem;
+                color: #000;
+                text-align: left;
+            }
+        }    
+        .press_right{
+            width: 100%;
+            height: 2.6rem;
+            padding-top: .2rem;
+            padding-left: .2rem;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            .over_x{
+                width: 100%;
+                overflow-x: scroll;
+            }
+            .adver_list{
+                overflow: hidden;
+                height: 2.8rem;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                display: block
+            }
+            .item{
+                width: 2rem;
+                height: 2.1rem;
+                margin-right: .24rem;
+                float: left;
+                .logo_box{
+                    width: 2rem;
+                    height: 1.6rem;
+                    background-color: #bebebe;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                    }
+                }   
+                .title{
+                    padding-top: .2rem;
+                    font-size: .24rem;
+                    line-height: .28rem;
+                    color: #000;
+                }         
+            }
+            .item:last-child{
+                margin-right: 0;
+            }
+        } 
+    }
+}
+

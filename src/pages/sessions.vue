@@ -67,7 +67,7 @@
       </div>
     </div>  
     <!-- introduction 弹层 -->
-    <div class="layou_fixed" v-if="speakerState">
+    <div class="layou_fixed" v-if="speakerState" @touchmove.prevent>
       <div class="speaker_qrcode fixed_pos">
         <div class="close" v-on:click="SwitchLayou"></div>
         <div class="title">Introduction{{index}}</div>
@@ -94,10 +94,8 @@ import myBanner from "../components/banner";
 import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
-// import store from "../store";
-// import tokyo from "../js/tool";
-// import getModel from "../models/model";
 
+// import getModel from "../models/model";
 // let monitorLoginModel = getModel("monitorLoginModel");
 // let sendPhoneMsgModel = getModel("sendPhoneMsgModel");
 

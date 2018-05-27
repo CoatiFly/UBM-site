@@ -55,18 +55,24 @@ var requestConfig = {
       url: 'getExhibitLinkerList'
     },
     getExhibitionListModel: {
-      // 全部展会信息
+      // 展会信息
       url: 'getExhibitionList'
+    },
+    getExhibitorListModel: {
+      // 全部展商信息
+      url: 'getExhibitorList'
     },
     getSlideByGroupModel: {
       // 广告列表
       url: 'getSlideByGroup'
     },
-    recoveringFaultModel: {
-      url: 'recoveringFault'
+    getProductListModel: {
+      // 全部展品列表
+      url: 'getProductList'
     },
-    recoveredFaultModel: {
-      url: 'recoveredFault'
+    getSpeakerListModel: {
+      // 嘉宾列表
+      url: 'getSpeakerList'
     }
   
   }
