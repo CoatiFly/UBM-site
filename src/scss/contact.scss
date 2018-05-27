@@ -1,32 +1,87 @@
 // contact page scss
-.contact{
-    .text_box{
-        padding-bottom: 0;
-        .fonts_left{
-            text-align: left;
-            line-height: 26px;
+.pc_box{
+    .contact{
+        .text_box{
+            padding-bottom: 0;
         }
-        .line_26{
-            line-height: 26px;
-        }
-    }
-    .center_box{
-        width: 100%;
-        padding-bottom: 40px;
-        overflow: hidden;
-        .map_box{
-            width: 920px;
-            height: 360px;
-            margin: 50px auto;
-            background-color: #bebebe;
+        .center_box{
+            width: 100%;
+            padding-bottom: 100px;
             overflow: hidden;
+            .fonts_list_mobile{
+                display: none;
+            }
+            .fonts_list_pc{
+                width: 100%;
+                line-height: 32px;
+                font-size: 18px;
+                color: #000;  
+                .line_26{
+                    line-height: 26px;
+                }  
+                .fonts{
+                    text-align: center;
+                }  
+                .fonts_left{
+                    text-align: left;
+                    line-height: 26px;
+                }                          
+            }
+            .map_box{
+                width: 920px;
+                height: 360px;
+                margin: 50px auto;
+                background-color: #bebebe;
+                overflow: hidden;
+            }
+            .texts{
+                font-size: 18px;
+                line-height: 26px;
+                color: #000;
+                text-align: left;
+            }
+        }    
+    
+    }
+}
+.mobile_box{
+    .contact{
+        .text_box{
+            padding-bottom: 0;
         }
-        .fonts{
-            font-size: 18px;
-            line-height: 26px;
-            color: #000;
-            text-align: left;
-        }
+        .center_box{
+            width: 100%;
+            padding: .4rem .2rem 1.5rem;
+            box-sizing: border-box;
+            overflow: hidden;
+            .fonts_list_pc{
+                display: none;                   
+            }  
+            .fonts_list_mobile{
+                width: 100%;
+                font-size: .26rem;
+                line-height: .34rem;
+                .fonts{
+                    text-align: center;
+                }
+                .margin{
+                    margin: .65rem 0 .35rem;
+                }
+            }          
+            .map_box{
+                width: 100%;
+                height: 3.5rem;
+                margin: .6rem 0 .3rem;
+                background-color: #bebebe;
+                overflow: hidden;
+            }
+            .texts{
+                font-size: .26rem;
+                line-height: .34rem;
+                color: #000;
+                text-align: left;
+            }
+        }    
+    
     }    
-
 }

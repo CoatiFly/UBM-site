@@ -1,22 +1,5 @@
 // PC端样式
 .pc_box{
-    // banner
-    .banner_box{
-        width: 100%;
-        height: 400px;
-        background-color: #e50012;
-        overflow: hidden;
-        position: relative;
-        .center{
-            width: 1920px;
-            height: 100%;
-            margin-left: -960px;
-            position: absolute;
-            left: 50%;
-            top: 0;
-            z-index: 2;
-        }
-    }
     // 内容
     .page_content{
         width: 1248px;
@@ -150,22 +133,6 @@
 }
 // 移动端样式
 .mobile_box{
-    // banner
-    .banner_box{
-        width: 100%;
-        height: 4rem;
-        background-color: #e50012;
-        overflow: hidden;
-        position: relative;
-        .center{
-            width: 100%;
-            height: 100%;            
-        }
-        img{
-            width: 100%;
-            height: 100%;
-        }
-    }
     // 内容
     .page_content{
         width: 100%;
@@ -178,7 +145,6 @@
             overflow: hidden;
             .title{
                 width: 100%;
-                height: .6rem;
                 line-height: .6rem;
                 font-size: .36rem;
                 font-weight: 800;
@@ -190,6 +156,9 @@
                 line-height: .32rem;
                 font-size: .2rem;
                 color: #000;
+            }
+            .mt20{
+                margin-top: .2rem;
             }
         }
         .list_block{

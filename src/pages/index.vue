@@ -2,16 +2,10 @@
 <div class="page">
   <!-- 顶部导航组件 -->
   <myHeader></myHeader>
+  <!-- banner -->
+  <myBanner></myBanner>
+  <!-- page center -->
   <div :class="isPC ? 'pc_box' : 'mobile_box'">
-    <!-- banner -->
-    <div class="banner_box">
-      <div class="center" v-if="isPC">
-        <img src="../assets/index_26.png" alt="">
-      </div>
-      <div class="center" v-else>
-        <img src="../assets/banner750.png" alt="">
-      </div>
-    </div>
     <!-- 内容 -->
     <div class="page_content">
       <div class="text_box">
@@ -84,6 +78,7 @@
 
 <script>
 import myHeader from "../components/header";
+import myBanner from "../components/banner";
 import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
@@ -108,6 +103,7 @@ export default {
   },
   components: {
     myHeader,
+    myBanner,
     myBottom,
     myCommon,
     mySuspension,
