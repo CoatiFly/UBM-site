@@ -53,37 +53,3 @@
         }
     }
 }
-.speaker_qrcode{
-    width: 520px;
-    height: 500px;  
-    padding: 30px 40px;
-    background-color: #fff; 
-    overflow: hidden; 
-    .close{
-        width: 32px;
-        height: 32px;
-        background: url("../assets/close.png") center no-repeat;
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        z-index: 2;
-        cursor: pointer;
-    }
-    .title{
-        width: 100%;
-        height: 46px;
-        line-height: 46px;
-        color: #000;
-        font-size: 24px;
-        font-weight: 600;
-        overflow: hidden;
-    }    
-    .text{
-        width: 100%;
-        line-height: 24px;
-        font-size: 14px;
-        color: #000;
-        margin-top: 40px;
-    }
-
-}

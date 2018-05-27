@@ -1,135 +1,284 @@
 // contact page scss
-.products{
-    position: relative;
-    padding-bottom: 70px;
-    .text_box{
-        padding-bottom: 50px;
-    }
-    .search_box{
-        width: 100%;
-        font-size: 20px;
-        color: #000;
-        overflow: hidden;
-        .duble_input{
-            width: 1086px;
-            margin-left: 80px;
-            margin-bottom: 20px;
+.pc_box{
+    .products{
+        position: relative;
+        padding-bottom: 70px;
+        .text_box{
+            padding-bottom: 50px;
+        }
+        .search_box{
+            width: 100%;
+            font-size: 20px;
+            color: #000;
             overflow: hidden;
-            .text_ipt{
-                width: 526px;
+            .duble_input{
+                width: 1086px;
+                margin-left: 80px;
+                margin-bottom: 20px;
+                overflow: hidden;
+                .text_ipt{
+                    width: 526px;
+                    height: 58px;
+                    line-height: 58px;
+                    border: 1px solid #b5b5b6;
+                    text-indent: 10px;
+                    overflow: hidden;
+                }
+            }
+            .search_ipt{
+                width: 1084px;
                 height: 58px;
                 line-height: 58px;
                 border: 1px solid #b5b5b6;
+                margin-left: 80px;
                 text-indent: 10px;
                 overflow: hidden;
             }
-        }
-        .search_ipt{
-            width: 1084px;
-            height: 58px;
-            line-height: 58px;
-            border: 1px solid #b5b5b6;
-            margin-left: 80px;
-            text-indent: 10px;
-            overflow: hidden;
-        }
-        .serach_bth{
-            width: 530px;
-            height: 68px;
-            background-color: #aa010e;
-            overflow: hidden;
-            margin: 0 auto;
-            margin-top: 20px;
-            cursor: pointer;
-            .texts{
-                width: 140px;
-                height: 100%;
-                font-size: 24px;
-                line-height: 68px;
-                color: #fff;
-                text-align: center;
-                background: url(../assets/pro_03.png) left center no-repeat;
+            .serach_bth{
+                width: 530px;
+                height: 68px;
+                background-color: #aa010e;
+                overflow: hidden;
                 margin: 0 auto;
+                margin-top: 20px;
+                cursor: pointer;
+                .texts{
+                    width: 140px;
+                    height: 100%;
+                    font-size: 24px;
+                    line-height: 68px;
+                    color: #fff;
+                    text-align: center;
+                    background: url(../assets/pro_03.png) left center no-repeat;
+                    margin: 0 auto;
+                }
             }
         }
-    }
-    .products_list{
-        width: 100%;
-        overflow: hidden;
-        .item{
-            width: 224px;
-            margin-top: 70px;
-            margin-right: 32px;
+        .products_list{
+            width: 100%;
             overflow: hidden;
-            float: left;
-            .logo_box{
-                width: 100%;
-                height: 224px;
-                background-color: #bebebe;
+            .item{
+                width: 224px;
+                margin-top: 70px;
+                margin-right: 32px;
                 overflow: hidden;
+                float: left;
+                .logo_box{
+                    width: 100%;
+                    height: 224px;
+                    background-color: #bebebe;
+                    overflow: hidden;
+                }
+                .fonts_box{
+                    width: 100%;
+                    color: #000;
+                    font-size: 16px;
+                    overflow: hidden;
+                }
+                .title{
+                    margin-top: 12px;
+                    height: 24px;
+                    line-height: 24px;
+                }
+                .details{
+                    font-size: 14px;
+                    line-height: 18px;            
+                }
+                .number{
+                    font-size: 12px;
+                    line-height: 18px;  
+                }             
             }
-            .fonts_box{
-                width: 100%;
-                color: #000;
-                font-size: 16px;
-                overflow: hidden;
+            .item:nth-of-type(5n+0){
+                margin-right: 0;
             }
-            .title{
-                margin-top: 12px;
-                height: 24px;
-                line-height: 24px;
-            }
-            .details{
-                font-size: 14px;
-                line-height: 18px;            
-            }
-            .number{
-                font-size: 12px;
-                line-height: 18px;  
-            }             
         }
-        .item:nth-of-type(5n+0){
-            margin-right: 0;
-        }
-    }
-    .visit_list{
-        width: 100%;
-        overflow: hidden;
-        .item{
-            width: 224px;
-            margin-top: 70px;
-            margin-right: 32px;
+        .visit_list{
+            width: 100%;
             overflow: hidden;
-            float: left;
-            .logo_box{
-                width: 100%;
-                height: 90px;
-                background-color: #bebebe;
+            .item{
+                width: 224px;
+                margin-top: 70px;
+                margin-right: 32px;
                 overflow: hidden;
+                float: left;
+                .logo_box{
+                    width: 100%;
+                    height: 90px;
+                    background-color: #bebebe;
+                    overflow: hidden;
+                }
+                .fonts_box{
+                    width: 100%;
+                    color: #000;
+                    font-size: 14px;
+                    overflow: hidden;
+                }
+                .title{
+                    margin-top: 12px;
+                    line-height: 18px;
+                }
+                .tips{
+                    font-size: 12px;
+                    line-height: 18px; 
+                    color: #727171;           
+                }
+                .number{
+                    font-size: 12px;
+                    line-height: 24px;  
+                }             
             }
-            .fonts_box{
-                width: 100%;
-                color: #000;
-                font-size: 14px;
-                overflow: hidden;
+            .item:nth-of-type(5n+0){
+                margin-right: 0;
             }
-            .title{
-                margin-top: 12px;
-                line-height: 18px;
-            }
-            .tips{
-                font-size: 12px;
-                line-height: 18px; 
-                color: #727171;           
-            }
-            .number{
-                font-size: 12px;
-                line-height: 24px;  
-            }             
         }
-        .item:nth-of-type(5n+0){
-            margin-right: 0;
-        }
+    
     }
-
+}
+// mobile
+.mobile_box{
+    .products{
+        position: relative;
+        padding: 0 .2rem .9rem;
+        box-sizing: border-box;
+        .text_box{
+            padding-bottom: 0;
+        }
+        .search_box{
+            width: 100%;
+            font-size: .26rem;
+            color: #000;
+            overflow: hidden;
+            .duble_input{
+                width: 100%;
+                overflow: hidden;
+                .text_ipt{
+                    width: 100%;
+                    height: .68rem;
+                    line-height: .68rem;
+                    border: 1px solid #b5b5b6;
+                    text-indent: 10px;
+                    margin-bottom: .35rem;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                }
+            }
+            .search_ipt{
+                width: 100%;
+                height: .68rem;
+                line-height: .68rem;
+                border: 1px solid #b5b5b6;
+                text-indent: 10px;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .serach_bth{
+                width: 100%;
+                height: .78rem;
+                background-color: #aa010e;
+                overflow: hidden;
+                margin-top: .4rem;
+                .texts{
+                    width: 1.6rem;
+                    height: 100%;
+                    font-size: .3rem;
+                    line-height: .78rem;
+                    color: #fff;
+                    text-align: center;
+                    background: url(../assets/pro_03.png) left center no-repeat;
+                    background-size: .26rem;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .products_list{
+            width: 100%;
+            padding-top: .1rem;
+            overflow: hidden;
+            .item{
+                width: 50%;
+                margin-top: .7rem;
+                padding-right: .15rem;
+                box-sizing: border-box;
+                overflow: hidden;
+                float: left;
+                .logo_box{
+                    width: 100%;
+                    height: 3.4rem;
+                    line-height: 3.4rem;
+                    text-align: center;
+                    background-color: #bebebe;
+                    overflow: hidden;
+                }
+                .fonts_box{
+                    width: 100%;
+                    color: #000;
+                    font-size: .26rem;
+                    overflow: hidden;
+                }
+                .title{
+                    margin-top: .15rem;
+                    height: .32rem;
+                    line-height: .32rem; 
+                }
+                .details{
+                    font-size: .24rem;
+                    line-height: .28rem; 
+                    margin: .1rem 0;           
+                }
+                .number{
+                    font-size: .22rem;
+                    line-height: .26rem;   
+                }             
+            }
+            .item:nth-of-type(2n+0){
+                padding-left: .15rem;
+                padding-right: 0;
+            }
+        }
+        .visit_list{
+            width: 100%;
+            overflow: hidden;
+            .item{
+                width: 50%;
+                margin-top: .7rem;
+                padding-right: .15rem;
+                box-sizing: border-box;
+                overflow: hidden;
+                float: left;
+                .logo_box{
+                    width: 100%;
+                    height: 1.36rem;
+                    line-height: 1.36rem;
+                    text-align: center;
+                    background-color: #bebebe;
+                    overflow: hidden;
+                }
+                .fonts_box{
+                    width: 100%;
+                    color: #000;
+                    font-size: .24rem;
+                    overflow: hidden;
+                }
+                .title{
+                    margin-top: .15rem;
+                    line-height: .3rem;
+                }
+                .tips{
+                    font-size: .22rem;
+                    line-height: .24rem; 
+                    color: #727171;           
+                }
+                .number{
+                    font-size: .22rem;
+                    line-height: .44rem;  
+                }             
+            }
+            .item:nth-of-type(2n+0){
+                padding-left: .15rem;
+                padding-right: 0;
+            }
+        }
+    
+    }
 }

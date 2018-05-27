@@ -98,7 +98,7 @@
         </div>
     </div>    
 </div>
-<div class="mobile_box" v-else>
+<div class="mobile_nav_box" v-else>
     <!-- mobile 顶部导航栏 -->
     <div class="mobile_nav">
         <div class="nav_bth" v-on:click="switchNavPopup"></div>
