@@ -14,7 +14,7 @@
       <!-- 搜索组件 -->
       <div class="search_box">
         <input class="search_ipt" type="text" v-model="searchName" placeholder="Product Name">
-        <div class="serach_bth">
+        <div class="serach_bth" v-on:click="getProductList">
           <p class="texts">Search</p>
         </div>
       </div>
@@ -90,7 +90,7 @@ export default {
     getProductList: function(){
       // 获取展品列表
       let params = {
-        name: this.searchName,
+        name: this.searchName + "",
         page: '1',
         rownum: 10
       }

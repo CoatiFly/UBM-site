@@ -209,7 +209,6 @@
 <script>
 import tokyo from "../common/util";
 import weChat from "../components/wechat";
-// import Vuex from 'vuex'
 
 export default {
   name: "myHeader",

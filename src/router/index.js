@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import Index from '../pages/index' // 首页
 import Contact from '../pages/contact' // 关于我们
-import Press from '../pages/press' // 新闻
+import Press from '../pages/press' // 新闻列表
 import Products from '../pages/products' // 展品列表
 import Exhibitiors from '../pages/exhibitiors' // 展商名单
 import Speakers from '../pages/speakers' // 演讲嘉宾
@@ -13,6 +13,7 @@ import Awards from '../pages/awards' // 奖项展示
 import Supporters from '../pages/supporters' // 支持机构
 import Stand from '../pages/stand' // 展位预定
 import Register from '../pages/register' // 注册页面
+import News from '../pages/news' // 新闻详情
 
 Vue.use(Router)
 
@@ -80,6 +81,11 @@ let router = new Router({
       path: '/register',
       name: 'Register',
       component: Register
+    },
+    {
+      path: '/news/:newsId',
+      name: 'News',
+      component: News
     }
   ]
 })

@@ -17,12 +17,14 @@
         <!-- press 列表 -->
         <ul class="press_list">
           <li class="item" v-for="item in newsList">
-            <div class="logo_box"><img :src="item.picture" alt="新闻图片"></div>
-            <div class="fonts_box">
-              <p class="title line2">{{language == "en" ? item.caption_english : item.caption}}</p>
-              <p class="details line3">{{language == "en" ? item.description_english : item.description}}</p>
-              <p class="date">{{item.create_time}}</p>
-            </div>          
+            <div class="news_wall" v-on:click="goDetailsPage(item.id)">
+              <div class="logo_box"><img :src="item.picture" alt="新闻图片"></div>
+              <div class="fonts_box">
+                <p class="title line2">{{language == "en" ? item.caption_english : item.caption}}</p>
+                <p class="details line3">{{language == "en" ? item.description_english : item.description}}</p>
+                <p class="date">{{item.create_time}}</p>
+              </div> 
+            </div>
           </li>
         </ul>
       </div>
@@ -71,6 +73,7 @@ import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
 
+import tokyo from "../common/util";
 import getModel from "../models/model";
 let getNewsListModel = getModel("getNewsListModel");
 let getSlideByGroupModel = getModel("getSlideByGroupModel");
@@ -112,6 +115,10 @@ export default {
     init: function(){
       this.getNewsList();
       this.getSliderList();
+    },
+    goDetailsPage: function(id){
+      // 跳转新闻详情
+      tokyo.go('news/'+ id);
     },
     getNewsList: function() {
       // 获取新闻列表

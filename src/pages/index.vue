@@ -15,13 +15,13 @@
       </div>
       <div class="list_block">
         <ul class="shell">
-          <li class="item">
+          <li class="item" v-on:click="goPage('travel')">
             <img src="../assets/index_29.png" alt="">
           </li>
-          <li class="item">
+          <li class="item" v-on:click="goPage('travel')">
             <img src="../assets/index_31.png" alt="">
           </li>
-          <li class="item">
+          <li class="item" v-on:click="goPage('sessions')">
             <img src="../assets/index_34.png" alt="">
           </li>
           <li class="item red_bg mobile_full">
@@ -126,6 +126,10 @@ export default {
     this.getNewsList();
   },
   methods: {
+    goPage: function(name) {
+      // 跳转页面
+      tokyo.go(name);
+    },
     openWechatLayou: function() {
       // 显示微信二维码弹层
       this.$refs.wechat.show();

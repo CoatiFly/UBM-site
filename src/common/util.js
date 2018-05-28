@@ -2,9 +2,9 @@ import Vue from 'vue'
 import router from '../router/index'
 class Tokyo {
     // 跳转页面
-    go(path, option) {
+    go(path) {
         router.push("/" + path);
-    }
+      }
     //localStorage 操作
     setLocalItem(key, val) {
         if (val instanceof Object) {
