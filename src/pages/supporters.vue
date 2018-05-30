@@ -13,9 +13,10 @@
       </div>
       <!-- supporters 列表 -->
       <ul class="supporters_list">
-        <li class="item" v-for="item in 20">
-          <div class="logo_box">{{item}}</div>
-          <div class="link line1">www.foodanddrinkex.com</div>          
+        <li class="item" v-for="item in supporters">
+          <a class="logo_link" :href="item.url" target="_blank"></a>
+          <div class="logo_box" v-bind:style="{backgroundImage: 'url(' + item.logo + ')'}"></div>
+          <div class="link line1">{{item.url}}</div>          
         </li>
       </ul>
     </div>  
@@ -39,9 +40,8 @@ import myCommon from "../components/common";
 import myBottom from "../components/bottom";
 import mySuspension from "../components/suspension";
 
-// import getModel from "../models/model";
-// let monitorLoginModel = getModel("monitorLoginModel");
-// let sendPhoneMsgModel = getModel("sendPhoneMsgModel");
+import getModel from "../models/model";
+let getSystemLinkerListModel = getModel("getSystemLinkerListModel");
 
 export default {
   name: "Supporters",
@@ -49,7 +49,7 @@ export default {
     return {
       language: '',
       isPC: '',     
-      index: 0
+      supporters: {} 
     };
   },
   components: {
@@ -72,13 +72,19 @@ export default {
   mounted() {
     this.language = this.$store.state.language;
     this.isPC = this.$store.state.isPC;
+    this.getSupporters();
     console.log(this.language,this.isPC);
   },
   methods: {
-    SwitchLayou: function(index){
-      this.index = index;
-      // 动态切换状态
-      this.speakerState = !this.speakerState;
+    getSupporters: function() {
+      // 获取友情链接列表
+      let params = {};
+      getSystemLinkerListModel.$post(params).then(info => {
+        if (info.status == 1) {
+          this.supporters = info.data;
+          console.log("友情链接", info.data);
+        }
+      });
     }
   }
 };

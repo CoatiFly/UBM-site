@@ -17,7 +17,6 @@
           <input type="text" class="text_ipt fl" v-model="componyName" placeholder="Compony Name">
           <input type="text" class="text_ipt fr" v-model="exhibitNumber" placeholder="Exhibit Number">
         </div>
-        <!-- <input class="search_ipt" type="select" v-model="searchName" placeholder="Pre-Press/Software/Design"> -->
         <select class="search_ipt" v-model="selected">
           <option v-for="option in typeList" v-bind:value="option.value">
             {{ language == "en" ? option.english : option.chinese }}
@@ -30,7 +29,7 @@
       <!-- visit 列表 -->
       <ul class="visit_list">
         <li class="item" v-for="item in expoList">
-          <div class="logo_box"><img :src="item.exhibitor_picture_url" alt="图片"></div>
+          <div class="logo_box" v-bind:style="{backgroundImage: 'url(' + item.exhibitor_picture_url + ')'}"></div>
           <div class="fonts_box">
             <p class="title line2">{{language == "en" ? item.company_name_english : item.company_name_chinese}}</p>
             <p class="number">{{item.position_no}}</p>

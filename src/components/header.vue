@@ -71,7 +71,7 @@
                     <p class="text">19-21 SEP.</p>
                 </div>
                 <div class="time_count">
-                    <p class="time"><v-countup :end-value="countNum"></v-countup></p>
+                    <p class="time">152</p>
                     <p class="day">DAYS</p>
                 </div>
             </div>
@@ -177,7 +177,7 @@
             </div>
         </div> 
         <div class="time_number">
-            <p class="time"><v-countup :end-value="countNum"></v-countup></p>
+            <p class="time">152</p>
             <p class="day">DAYS</p>
         </div>       
         <div class="logo_bottom">

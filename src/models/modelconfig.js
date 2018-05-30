@@ -73,8 +73,19 @@ var requestConfig = {
     getSpeakerListModel: {
       // 嘉宾列表
       url: 'getSpeakerList'
-    }
-  
+    },
+    getNewsByIdModel: {
+      // 新闻详情
+      url: 'getNewsById'
+    },
+    getSystemLinkerListModel: {
+      // 友情链接
+      url: 'getSystemLinkerList'
+    },  
+    getEnumListModel: {
+      // 首页设置
+      url: 'getEnumList'
+    }     
   }
   
   export default modelsConfig
