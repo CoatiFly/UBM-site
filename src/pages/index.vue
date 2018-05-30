@@ -36,7 +36,7 @@
           </li>
           <li class="item mobile_full">
             <ul class="new_list">
-              <li class="list" v-for="item in newsList">
+              <li class="list" v-for="item in newsList" :key="item.id">
                 <div class="img">
                   <img :src="item.picture" alt="新闻图片">
                 </div>
