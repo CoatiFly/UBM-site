@@ -333,9 +333,9 @@ export default {
     resetOrder: function() {
       // 重置表单
       let obj = this.stand;
-      for (const item in obj) {
+      for (const key in obj) {
         if (obj.hasOwnProperty(item)) {
-          item = '';
+          obj[key] = ''
         }
       };
       this.stand = obj;
