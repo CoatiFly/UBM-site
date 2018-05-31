@@ -4,40 +4,41 @@
     <div class="top_nav">
         <div class="nav_center">
             <ul class="nav_list">
+                <!-- <li class="list" v-for="item in navList" :key="item.id" v-on:click="goPage(item.page)">{{language == "en" ? item.title_english : item.title}}</li> -->
                 <li class="list" v-on:click="goPage('index')">HOME</li>
                 <li class="list second">
-                <span class="pull_down">VISIT</span>
-                <ul class="second_list">
-                    <li class="red_bg"></li>
-                    <li class="item" v-on:click="goPage('travel')">Why Visit</li>
-                    <li class="item" v-on:click="goPage('register')">Register Interest</li>
-                    <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
-                    <li class="item" v-on:click="goPage('products')">Products</li>
-                    <li class="item" v-on:click="goPage('sessions')">Sessions</li>
-                    <li class="item" v-on:click="goPage('speakers')">Speakers</li>
-                    <li class="item" v-on:click="goPage('travel')">Travel & accommodation</li>
-                </ul>          
+                    <span class="pull_down">VISIT</span>
+                    <ul class="second_list">
+                        <li class="red_bg"></li>
+                        <li class="item" v-on:click="goPage('travel')">Why Visit</li>
+                        <li class="item" v-on:click="goPage('register')">Register Interest</li>
+                        <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
+                        <li class="item" v-on:click="goPage('products')">Products</li>
+                        <li class="item" v-on:click="goPage('sessions')">Sessions</li>
+                        <li class="item" v-on:click="goPage('speakers')">Speakers</li>
+                        <li class="item" v-on:click="goPage('travel')">Travel & accommodation</li>
+                    </ul>          
                 </li>
                 <li class="list second">
-                <span class="pull_down">EXHIBIT</span>
-                <ul class="second_list">
-                    <li class="red_bg"></li>
-                    <li class="item" v-on:click="goPage('travel')">Why Exhibit</li>
-                    <li class="item" v-on:click="goPage('stand')">Book a stand</li>
-                    <li class="item">Floor plan</li>
-                    <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
-                    <li class="item" v-on:click="goPage('products')">Products</li>
-                    <li class="item">Become a sponsor</li>
-                </ul>          
+                    <span class="pull_down">EXHIBIT</span>
+                    <ul class="second_list">
+                        <li class="red_bg"></li>
+                        <li class="item" v-on:click="goPage('travel')">Why Exhibit</li>
+                        <li class="item" v-on:click="goPage('stand')">Book a stand</li>
+                        <li class="item">Floor plan</li>
+                        <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
+                        <li class="item" v-on:click="goPage('products')">Products</li>
+                        <li class="item">Become a sponsor</li>
+                    </ul>          
                 </li>
                 <li class="list second">
-                <span class="pull_down">FSA</span>
-                <ul class="second_list">
-                    <li class="red_bg"></li>
-                    <li class="item" v-on:click="goPage('sessions')">Sessions</li>
-                    <li class="item" v-on:click="goPage('speakers')">Speakers</li>
-                    <li class="item" v-on:click="goPage('awards')">Awards</li>
-                </ul>
+                    <span class="pull_down">FSA</span>
+                    <ul class="second_list">
+                        <li class="red_bg"></li>
+                        <li class="item" v-on:click="goPage('sessions')">Sessions</li>
+                        <li class="item" v-on:click="goPage('speakers')">Speakers</li>
+                        <li class="item" v-on:click="goPage('awards')">Awards</li>
+                    </ul>
                 </li>
                 <li class="list" v-on:click="goPage('press')">PRESS</li>
                 <li class="list" v-on:click="goPage('supporters')">SUPPORTERS</li>
@@ -209,6 +210,8 @@
 <script>
 import tokyo from "../common/util";
 import weChat from "../components/wechat";
+import getModel from "../models/model";
+let getNavTreeModel = getModel("getNavTreeModel");
 
 export default {
   name: "myHeader",
@@ -217,52 +220,63 @@ export default {
       signChinaUrl: "http://www.signchina-sh.com/en-us/",
       digitalUrl: "http://www.digitalsignage-sh.com/en-us",
       ledChinaUrl: "http://www.ledchina-sh.com/en-us/",
-      facebookUrl: 'http://new.facebook.com/',
+      facebookUrl: "http://new.facebook.com/",
+      navList: [],
       countNum: 152,
       navPopupState: false,
-      secondState: '',
-      language: 'en',
-      isPC: ''
+      secondState: "",
+      language: "en",
+      isPC: ""
     };
   },
-    components: {
+  components: {
     weChat
   },
   mounted() {
     this.language = this.$store.state.language;
     this.isPC = this.$store.state.isPC;
+    this.getNavList();
   },
   methods: {
     goPage: function(name) {
       // 跳转页面
       tokyo.go(name);
     },
-    switchLanguage: function(name){
-        // 切换语言
-        this.$store.commit("setLanguage",name);
-        this.$i18n.locale = name;
-        this.language = name;
+    switchLanguage: function(name) {
+      // 切换语言
+      this.$store.commit("setLanguage", name);
+      this.$i18n.locale = name;
+      this.language = name;
     },
-    openNavList: function(name){
-        // mobile 打开二级菜单
-        if(this.secondState == name){
-            this.secondState = '';
-        }else{
-            this.secondState = name;
-        }
+    openNavList: function(name) {
+      // mobile 打开二级菜单
+      if (this.secondState == name) {
+        this.secondState = "";
+      } else {
+        this.secondState = name;
+      }
     },
-    openWechatLayou: function(){
+    openWechatLayou: function() {
       // 打开微信二维码弹层
       this.$refs.wechat.show();
     },
-    switchNavPopup: function(){
-        // 导航切换
-        this.navPopupState = !this.navPopupState;
+    switchNavPopup: function() {
+      // 导航切换
+      this.navPopupState = !this.navPopupState;
+    },
+    getNavList: function() {
+      // 获取导航树
+      let params = {};
+      getNavTreeModel.$post(params).then(info => {
+        if (info.status == 1) {
+          this.navList = info.data;
+          console.log("导航树", info.data);
+        }
+      });
     }
   }
 };
 </script>
 
 <style scoped>
-
 </style>

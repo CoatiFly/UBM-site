@@ -1,9 +1,5 @@
 <template>
 <div class="page">
-  <!-- 顶部导航组件 -->
-  <myHeader></myHeader>
-  <!-- banner -->
-  <myBanner></myBanner>
   <!-- page center -->
   <div :class="isPC ? 'pc_box' : 'mobile_box'">
     <!-- 内容 -->
@@ -16,7 +12,7 @@
         </div>
         <!-- press 列表 -->
         <ul class="press_list">
-          <li class="item" v-for="item in newsList">
+          <li class="item" v-for="item in newsList" :key="item.id">
             <div class="news_wall" v-on:click="goDetailsPage(item.id)">
               <div class="logo_box"><img :src="item.picture" alt="新闻图片"></div>
               <div class="fonts_box">
@@ -31,7 +27,7 @@
       <!-- 广告列表 -->
       <div class="press_right" v-if="isPC">
         <ul class="adver_list">
-          <li class="item" v-for="item in SliderList">
+          <li class="item" v-for="item in SliderList" :key="item.id">
             <a class="blank_box" :href="item.linker" target="_blank">
               <div class="logo_box"><img :src="item.picture" alt="广告图片"></div>
               <p class="title line2">{{item.caption}}</p>
@@ -43,7 +39,7 @@
       <div class="press_right" v-else>
         <div class="over_x">
           <ul class="adver_list" :style="{width: SliderList.length * 2.24 + 0.2 + 'rem'}">
-            <li class="item" v-for="item in SliderList">
+            <li class="item" v-for="item in SliderList" :key="item.id">
               <a class="blank_box" :href="item.linker" target="_blank">
                 <div class="logo_box"><img :src="item.picture" alt="广告图片"></div>
                 <p class="title line2">{{item.caption}}</p>
@@ -54,24 +50,11 @@
       </div>
     </div> 
  </div> 
-  <!-- 公共部分组件 -->
-  <myCommon></myCommon>  
-  <!-- 底部页脚组件 -->
-  <myBottom></myBottom>
-  <div v-if="isPC">
-    <!-- 右侧悬浮组件 -->
-    <mySuspension></mySuspension> 
-  </div>
 </div>
 
 </template>
 
 <script>
-import myHeader from "../components/header";
-import myBanner from "../components/banner";
-import myCommon from "../components/common";
-import myBottom from "../components/bottom";
-import mySuspension from "../components/suspension";
 
 import tokyo from "../common/util";
 import getModel from "../models/model";
@@ -89,11 +72,7 @@ export default {
     };
   },
   components: {
-    myHeader,
-    myBanner,
-    myBottom,
-    myCommon,
-    mySuspension
+    
   },
   computed: {
     getUserlanguage() {

@@ -1,9 +1,5 @@
 <template>
 <div class="page">
-  <!-- 顶部导航组件 -->
-  <myHeader></myHeader>
-  <!-- banner -->
-  <myBanner></myBanner>
   <!-- page center -->
   <div :class="isPC ? 'pc_box' : 'mobile_box'">
     <!-- 内容 -->
@@ -43,24 +39,13 @@
       </div>
     </div>
   </div>
-  <!-- 公共部分组件 -->
-  <myCommon></myCommon>  
-  <!-- 底部页脚组件 -->
-  <myBottom></myBottom>
-  <div v-if="isPC">
-    <!-- 右侧悬浮组件 -->
-    <mySuspension></mySuspension> 
-  </div>
+
+
 </div>
 
 </template>
 
 <script>
-import myHeader from "../components/header";
-import myBanner from "../components/banner";
-import myCommon from "../components/common";
-import myBottom from "../components/bottom";
-import mySuspension from "../components/suspension";
 
 import getModel from "../models/model";
 let getSpeakerListModel = getModel("getSpeakerListModel");
@@ -78,11 +63,7 @@ export default {
     };
   },
   components: {
-    myHeader,
-    myBanner,
-    myBottom,
-    myCommon,
-    mySuspension
+
   },
   computed: {
     getUserlanguage() {

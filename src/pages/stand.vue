@@ -1,9 +1,5 @@
 <template>
 <div class="page">
-  <!-- 顶部导航组件 -->
-  <myHeader></myHeader>
-  <!-- banner -->
-  <myBanner></myBanner>
   <!-- page center -->
   <div :class="isPC ? 'pc_box' : 'mobile_box'">
     <div class="page_content stand">
@@ -197,33 +193,21 @@
         </div>
         <!-- 按钮列表 -->
         <div class="bth_list">
-          <span class="bth submit">Submit</span>
-          <span class="bth reset">Reset</span>
+          <span class="bth submit" v-on:click="submitOrder">Submit</span>
+          <span class="bth reset" v-on:click="resetOrder">Reset</span>
         </div>      
       </div>
     </div> 
   </div> 
-  <!-- 公共部分组件 -->
-  <myCommon></myCommon>  
-  <!-- 底部页脚组件 -->
-  <myBottom></myBottom>
-  <div v-if="isPC">
-    <!-- 右侧悬浮组件 -->
-    <mySuspension></mySuspension> 
-  </div>
+
+
 </div>
 </template>
 
 <script>
-import myHeader from "../components/header";
-import myBanner from "../components/banner";
-import myCommon from "../components/common";
-import myBottom from "../components/bottom";
-import mySuspension from "../components/suspension";
 
-// import getModel from "../models/model";
-// let monitorLoginModel = getModel("monitorLoginModel");
-// let sendPhoneMsgModel = getModel("sendPhoneMsgModel");
+import getModel from "../models/model";
+let submitOrderFormModel = getModel("submitOrderFormModel");
 
 export default {
   name: "Stand",
@@ -255,11 +239,7 @@ export default {
     };
   },
   components: {
-    myHeader,
-    myBanner,
-    myBottom,
-    myCommon,
-    mySuspension
+
   },
   computed: {
     getUserlanguage() {
@@ -320,6 +300,45 @@ export default {
     switchBooth: function(type){
       // 切换target booth
       this.boothClassType = type;
+    },
+    submitOrder: function(){
+      // 提交表单
+      let params = {
+        company_name: this.stand.name,
+        contact_person: this.stand.person,
+        phone: this.stand.phone,
+        mobile: this.stand.mobile,
+        email: this.stand.email,
+        web_site: this.stand.website,
+        fax: this.stand.fax,
+        product_category: '',
+        target_client: '',
+        target_booth_type: '',
+        booth_number: '',
+        booth_length: '',
+        booth_width: ''    
+      };
+
+      if(this.language == 'en'){
+        params.language_version = 'english';
+      }else{
+        params.language_version = 'chinese';
+      };
+      submitOrderFormModel.$post(params).then(info => {
+        if (info.status == 1) {
+          console.log("提交成功");
+        }
+      });
+    },
+    resetOrder: function() {
+      // 重置表单
+      let obj = this.stand;
+      for (const item in obj) {
+        if (obj.hasOwnProperty(item)) {
+          item = '';
+        }
+      };
+      this.stand = obj;
     }
 
   }
