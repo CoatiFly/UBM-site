@@ -9,7 +9,7 @@
       </div>
       <!-- supporters 列表 -->
       <ul class="supporters_list">
-        <li class="item" v-for="item in supporters">
+        <li class="item" v-for="item in supporters" :key="item.id">
           <a class="logo_link" :href="item.url" target="_blank"></a>
           <div class="logo_box" v-bind:style="{backgroundImage: 'url(' + item.logo + ')'}"></div>
           <div class="link line1">{{item.url}}</div>          

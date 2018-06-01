@@ -44,54 +44,10 @@
         <div class="product_box">
           <p class="title">Product Category</p>
           <ul class="check_list">
-            <li class="item">
-              <span :class="proClassType(0)"  v-on:click="switchProduct(0)"></span>
-              <span class="text">Pre-Press/Software/Design</span>
-            </li>
-            <li class="item">
-              <span :class="proClassType(1)" v-on:click="switchProduct(1)"></span>
-              <span class="text">Digital Print Equipment & Accessory, Printing Substrates</span>
-            </li>  
-            <li class="item">
-              <span :class="proClassType(2)" v-on:click="switchProduct(2)"></span>
-              <span class="text">Digital Print Equipment & Accessory, Heat Transfer Production</span>
-            </li>  
-            <li class="item">
-              <span :class="proClassType(3)" v-on:click="switchProduct(3)"></span>
-              <span class="text">Ink Systems</span>
-            </li>  
-            <li class="item">
-              <span :class="proClassType(4)" v-on:click="switchProduct(4)"></span>
-              <span class="text">Printing Substrates</span>
+            <li class="item" v-for="(item,index) in product_type" :key="item.value">
+              <span :class="proClassType(index)"  v-on:click="switchProduct(index)"></span>
+              <span class="text">{{item.name}}</span>
             </li> 
-            <li class="item">
-              <span :class="proClassType(5)" v-on:click="switchProduct(5)"></span>
-              <span class="text">Laser Cutting Machines / Engraving Machines / Accessory</span>
-            </li>  
-            <li class="item">
-              <span :class="proClassType(6)" v-on:click="switchProduct(6)"></span>
-              <span class="text">Signage & Light Box</span>
-            </li> 
-            <li class="item">
-              <span :class="proClassType(7)" v-on:click="switchProduct(7)"></span>
-              <span class="text">Display System</span>
-            </li>  
-            <li class="item">
-              <span :class="proClassType(8)" v-on:click="switchProduct(8)"></span>
-              <span class="text">Other Pop Product</span>
-            </li> 
-            <li class="item">
-              <span :class="proClassType(9)" v-on:click="switchProduct(9)"></span>
-              <span class="text">Books / Software / Gift</span>
-            </li>  
-            <li class="item">
-              <span :class="proClassType(10)" v-on:click="switchProduct(10)"></span>
-              <span class="text">Media / Association</span>
-            </li> 
-            <li class="item">
-              <span :class="proClassType(11)" v-on:click="switchProduct(11)"></span>
-              <span class="text">Others, please specify.</span>
-            </li>  
             <li class="item" v-show="proOthersState">
               <input type="text" v-model="proOthers">
             </li>                                                 
@@ -101,62 +57,10 @@
         <div class="product_box">
           <p class="title">Your Target Clients</p>
           <ul class="check_list">
-            <li class="item">
-              <span :class="cliClassType(0)"  v-on:click="switchClients(0)"></span>
-              <span class="text">Large Scale Enterprise & Other Advertisers</span>
-            </li>
-            <li class="item">
-              <span :class="cliClassType(1)" v-on:click="switchClients(1)"></span>
-              <span class="text">Shopping Mall/Hotel/Property Management</span>
-            </li>  
-            <li class="item">
-              <span :class="cliClassType(2)" v-on:click="switchClients(2)"></span>
-              <span class="text">Individual Advertiser</span>
-            </li>  
-            <li class="item">
-              <span :class="cliClassType(3)" v-on:click="switchClients(3)"></span>
-              <span class="text">Agent/ Distributor/ Trading Company</span>
-            </li>  
-            <li class="item">
-              <span :class="cliClassType(4)" v-on:click="switchClients(4)"></span>
-              <span class="text">Public Relations & Media Company</span>
-            </li> 
-            <li class="item">
-              <span :class="cliClassType(5)" v-on:click="switchClients(5)"></span>
-              <span class="text">Sign Manufacturer (Advertisement & Signage Design / Fabrication / Materials / Production Company)</span>
-            </li>  
-            <li class="item">
-              <span :class="cliClassType(6)" v-on:click="switchClients(6)"></span>
-              <span class="text">Associations/ University/ Research Institute</span>
-            </li> 
-            <li class="item">
-              <span :class="cliClassType(7)" v-on:click="switchClients(7)"></span>
-              <span class="text">Airport/Port/Highway/Railway Station/Bus Station/Transit Hub</span>
-            </li>  
-            <li class="item">
-              <span :class="cliClassType(8)" v-on:click="switchClients(8)"></span>
-              <span class="text">System Integrators</span>
-            </li> 
-            <li class="item">
-              <span :class="cliClassType(9)" v-on:click="switchClients(9)"></span>
-              <span class="text">Architectural and Decorative Lighting/ Urban Landscape Illumination / Garden Design Company</span>
-            </li>  
-            <li class="item">
-              <span :class="cliClassType(10)" v-on:click="switchClients(10)"></span>
-              <span class="text">Retail</span>
-            </li> 
-            <li class="item">
-              <span :class="cliClassType(11)" v-on:click="switchClients(11)"></span>
-              <span class="text">Municipal Traffic Administration/ Public Works/ Governmental Procurement Department</span>
-            </li>  
-            <li class="item">
-              <span :class="cliClassType(12)" v-on:click="switchClients(12)"></span>
-              <span class="text">Stage/ KTV/ Entertainment/ Recreational Facility Operators / Film, Television, Animation Company</span>
-            </li>  
-            <li class="item">
-              <span :class="cliClassType(13)" v-on:click="switchClients(13)"></span>
-              <span class="text">Others, please specify</span>
-            </li>           
+            <li class="item" v-for="(item,index) in target_type" :key="item.value">
+              <span :class="cliClassType(index)"  v-on:click="switchClients(index)"></span>
+              <span class="text">{{item.name}}</span>
+            </li>         
             <li class="item" v-show="cliOthersState">
               <input type="text" v-model="cliOthers">
             </li>                                                 
@@ -166,27 +70,23 @@
         <div class="booth_box">
           <p class="title">Your Target Booth Type</p>
           <ul class="check_list">
-            <li class="item">
-              <span class="unselected" :class="{selected: boothClassType == 0}" v-on:click="switchBooth(0)"></span>
-              <span class="text">Deluxe Shell Stand</span>
-            </li>
-            <li class="item">
-              <span class="unselected" :class="{selected: boothClassType == 1}" v-on:click="switchBooth(1)"></span>
-              <span class="text">Raw Space Stand</span>
-            </li>                                                
+            <li class="item" v-for="(item,index) in booth_type" :key="item.id">
+              <span class="unselected" :class="{selected: boothClassType == index}" v-on:click="switchBooth(index)"></span>
+              <span class="text">{{language == "en" ? item.en_name : item.cn_name}}</span>
+            </li>                                               
           </ul>
           <ul class="input_list">
             <li class="item">
               <p class="title">Number of booth(s) you need</p>
-              <input type="text" v-model="booth.number">
+              <input type="text" v-model="stand.number">
             </li>
             <li class="item">
               <p class="title">Length (m)</p>
-              <input type="text" v-model="booth.length">
+              <input type="text" v-model="stand.length">
             </li>
             <li class="item">
               <p class="title">Width (m)</p>
-              <input type="text" v-model="booth.width">
+              <input type="text" v-model="stand.width">
             </li>                
           </ul>
           <p class="tips">Remarks: please fill in the above information in detail and submit it after confirmation. We will contact you as soon as possible. Thank you!</p>       
@@ -205,16 +105,17 @@
 </template>
 
 <script>
-
+import { MessageBox } from 'mint-ui';
 import getModel from "../models/model";
 let submitOrderFormModel = getModel("submitOrderFormModel");
+let getEnumListModel = getModel("getEnumListModel");
 
 export default {
   name: "Stand",
   data() {
     return {
-      isPC: '',
-      language: '',
+      isPC: "",
+      language: "",
       stand: {
         name: "",
         person: "",
@@ -223,24 +124,26 @@ export default {
         email: "",
         website: "",
         fax: "",
+        number: "",
+        length: "",
+        width: ""
       },
       productState: [],
       proOthersState: false,
       proOthers: "",
       cliductState: [],
       cliOthersState: false,
-      cliOthers: "",      
+      cliOthers: "",
       boothClassType: 0,
-      booth: {
-        number: '',
-        length: '',
-        width: ''
-      }
+      product_type: [],
+      target_type: [],
+      booth_type: [
+        { cn_name: "豪华标准展台", en_name: "Deluxe Shell Stand", id: 0 },
+        { cn_name: "光地展台", en_name: "IN ASSOCIATION WITH", id: 1 }
+      ]
     };
   },
-  components: {
-
-  },
+  components: {},
   computed: {
     getUserlanguage() {
       return this.$store.state.language;
@@ -254,54 +157,88 @@ export default {
   mounted() {
     this.language = this.$store.state.language;
     this.isPC = this.$store.state.isPC;
-    console.log(this.language,this.isPC);
+    console.log(this.language, this.isPC);
+    this.init();
   },
   methods: {
+    init: function() {
+      this.getProductConfig();
+      this.getTargetConfig();
+    },
+    getProductConfig: function() {
+      // 获取配置数据
+      let params = {
+        name: "ExhibitorCategory"
+      };
+      getEnumListModel.$post(params).then(info => {
+        if (info.status == 1) {
+          this.product_type = info.data;
+          console.log("产品类型：", info.data);
+        }
+      });
+    },
+    getTargetConfig: function() {
+      // 获取配置数据
+      let params = {
+        name: "TargetClientCategory"
+      };
+      getEnumListModel.$post(params).then(info => {
+        if (info.status == 1) {
+          this.target_type = info.data;
+          console.log("目标客户：", info.data);
+        }
+      });
+    },
     proClassType: function(index) {
       // 产品select 类判断
-      if(!!this.productState[index]){
+      if (!!this.productState[index]) {
         return "selected";
-      }else{
+      } else {
         return "unselected";
       }
     },
-    switchProduct: function(index){
+    switchProduct: function(index) {
       // 切换选中状态
-      if(!!this.productState[index]){
+      console.log(index);
+      if (!!this.productState[index]) {
         this.$set(this.productState, index, 0);
-      }else{
+      } else {
         this.$set(this.productState, index, 1);
-      };
+      }
       // others open input
-      if(index == 11){
+      let count = this.product_type.length;
+      if (index == count) {
         this.proOthersState = !this.proOthersState;
-      };
+      }
+      console.log(this.product_type.length);
+      console.log(this.productState);
     },
     cliClassType: function(index) {
       // 目标select 类判断
-      if(!!this.cliductState[index]){
+      if (!!this.cliductState[index]) {
         return "selected";
-      }else{
+      } else {
         return "unselected";
       }
     },
-    switchClients: function(index){
+    switchClients: function(index) {
       // 切换目标选中状态
-      if(!!this.cliductState[index]){
+      if (!!this.cliductState[index]) {
         this.$set(this.cliductState, index, 0);
-      }else{
+      } else {
         this.$set(this.cliductState, index, 1);
-      };
+      }
       // others open input
-      if(index == 13){
+      let count = this.target_type.length;
+      if (index == count) {
         this.cliOthersState = !this.cliOthersState;
-      };
-    },    
-    switchBooth: function(type){
+      }
+    },
+    switchBooth: function(type) {
       // 切换target booth
       this.boothClassType = type;
     },
-    submitOrder: function(){
+    submitOrder: function() {
       // 提交表单
       let params = {
         company_name: this.stand.name,
@@ -311,36 +248,93 @@ export default {
         email: this.stand.email,
         web_site: this.stand.website,
         fax: this.stand.fax,
-        product_category: '',
-        target_client: '',
-        target_booth_type: '',
-        booth_number: '',
-        booth_length: '',
-        booth_width: ''    
+        booth_number: this.stand.number,
+        booth_length: this.stand.length,
+        booth_width: this.stand.width
       };
 
-      if(this.language == 'en'){
-        params.language_version = 'english';
-      }else{
-        params.language_version = 'chinese';
-      };
+      if (this.language == "en") {
+        params.language_version = "english";
+        params.target_booth_type = booth_type[this.boothClassType].en_name;
+        params.product_category = this.jionString('product', 'en');
+        params.target_client = this.jionString('target', 'en');
+      } else {
+        params.language_version = "chinese";
+        params.target_booth_type = booth_type[this.boothClassType].cn_name;
+        params.product_category = this.jionString('product', 'cn');
+        params.target_client = this.jionString('target', 'cn');
+      }
       submitOrderFormModel.$post(params).then(info => {
         if (info.status == 1) {
           console.log("提交成功");
         }
       });
     },
-    resetOrder: function() {
-      // 重置表单
-      let obj = this.stand;
-      for (const key in obj) {
-        if (obj.hasOwnProperty(item)) {
-          obj[key] = ''
-        }
-      };
-      this.stand = obj;
-    }
+    jionString: function(name, language){
+      // 连接选项字符串
+      let str = '', source = '',select = '',ohter = '';
 
+      if(name == 'product'){
+        source = this.product_type;
+        select = this.productState;
+        ohter = this.proOthers;
+      }else{
+        source = this.target_type;
+        select = this.cliductState;
+        ohter = this.cliOthers;        
+      };    
+
+      if(language == 'en'){
+        select.forEach(item => {
+          str += source[item].en_name + ",";
+        });
+      }else{
+        select.forEach(item => {
+           str += source[item].en_name + ",";
+        });
+      };
+
+      return str + ohter;
+    },
+    resetOrder: function() {
+      // 重置表
+      let that = this;
+      MessageBox.confirm("",{
+        title: "",
+        message: this.language == 'en' ? 'Confirm the reset form？' : '确认重置表单？',
+        confirmButtonText: this.language == 'en' ? 'Confirm' : '确认',
+        cancelButtonText: this.language == 'en' ? 'Cancel' : '取消'
+      }).then(action => {
+        if (action == "confirm") {
+          that.cleanForm();
+        }
+      }).catch(err => {
+        if (err == "cancel") {
+          console.log('取消操作~');
+        }
+      });
+
+    },
+    cleanForm:function(){
+      // 执行清理表单工作
+      this.stand = this.initObject(this.stand);
+      this.productState = [];
+      this.proOthersState = false;
+      this.proOthers = "";
+      this.cliductState = [];
+      this.cliOthersState = false;
+      this.cliOthers = "";
+      this.boothClassType = 0;
+    },
+    initObject: function(obj){
+      // 初始化对象
+      for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          obj[key] = "";
+        }
+      }
+      return obj;
+    }
   }
 };
 </script>

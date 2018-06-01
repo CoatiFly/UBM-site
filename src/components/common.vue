@@ -32,50 +32,16 @@
       </ul>
       <p class="title mar_other">...THE "OSCAR”EVENT IN THE SIGN AND ADVERTISING INDUSTRY.</p>
     </div>
-    <div class="with_logo_box">
-      <p class="title">IN ASSOCIATION WITH</p>
-      <ul class="logo_list">
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
+    <div class="with_logo_box" v-for="option in EnumList" :key="option.cate_id">
+      <p class="title">{{language == "en" ? option.cate_ename : option.cate_cname}}</p>
+      <ul class="logo_list" v-if="option.data">
+        <li class="item" v-for="item in option.data" :key="item.id">
+          <a :href="item.url" target="_blank" class="bg_box" v-bind:style="{backgroundImage: 'url(' + item.logo + ')'}">
+          </a>
+        </li>
       </ul>    
     </div>
-    <div class="with_logo_box">
-      <p class="title">SUPPORTED BY</p>
-      <ul class="logo_list">
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-      </ul>    
-    </div>
-    <div class="with_logo_box">
-      <p class="title">CHARITY PARTNER</p>
-      <ul class="logo_list">
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-      </ul>    
-    </div> 
-    <div class="with_logo_box">
-      <p class="title">MEMBER OF</p>
-      <ul class="logo_list">
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-      </ul>    
-    </div>           
+          
   </div>
 </div>
 </template>
@@ -89,10 +55,12 @@ export default {
   data() {
     return {
       isPC: '',
+      language: '',
       EnumList: {}
     };
   },
   mounted() {
+    this.language = this.$store.state.language;
     this.isPC = this.$store.state.isPC;
     this.getEnumList();
   },

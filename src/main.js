@@ -2,14 +2,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import countup from 'vue-countupjs'
+import MintUI from 'mint-ui'
 import VueI18n from 'vue-i18n'
 import en from './i18n/en'
 import zh from './i18n/zh'
 import store from './store/index.js'
 import utils from './common/util.js';
-
+import 'mint-ui/lib/style.css'
 import ('./scss/main.scss');
 
+Vue.use(MintUI);
 Vue.use(countup);
 
 if (utils.isPC()) {
