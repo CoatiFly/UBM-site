@@ -45,8 +45,8 @@
           <p class="title">Product Category</p>
           <ul class="check_list">
             <li class="item" v-for="(item,index) in product_type" :key="item.value">
-              <span :class="proClassType(index)"  v-on:click="switchProduct(index)"></span>
-              <span class="text">{{item.name}}</span>
+              <span :class="[item.isSelected ? 'selected' : 'unselected']"  v-on:click="switchProduct(item,index)"></span>
+              <span class="text">{{language == "en" ? item.ename : item.name}}</span>
             </li> 
             <li class="item" v-show="proOthersState">
               <input type="text" v-model="proOthers">
@@ -58,8 +58,8 @@
           <p class="title">Your Target Clients</p>
           <ul class="check_list">
             <li class="item" v-for="(item,index) in target_type" :key="item.value">
-              <span :class="cliClassType(index)"  v-on:click="switchClients(index)"></span>
-              <span class="text">{{item.name}}</span>
+              <span :class="[item.isSelected ? 'selected' : 'unselected']"  v-on:click="switchClients(item,index)"></span>
+              <span class="text">{{language == "en" ? item.ename.replace("amp;",'') : item.name}}</span>
             </li>         
             <li class="item" v-show="cliOthersState">
               <input type="text" v-model="cliOthers">
@@ -72,7 +72,7 @@
           <ul class="check_list">
             <li class="item" v-for="(item,index) in booth_type" :key="item.id">
               <span class="unselected" :class="{selected: boothClassType == index}" v-on:click="switchBooth(index)"></span>
-              <span class="text">{{language == "en" ? item.en_name : item.cn_name}}</span>
+              <span class="text">{{language == "en" ? item.en_name.replace("amp;",'') : item.cn_name}}</span>
             </li>                                               
           </ul>
           <ul class="input_list">
@@ -105,7 +105,7 @@
 </template>
 
 <script>
-import { MessageBox } from 'mint-ui';
+import { MessageBox } from "mint-ui";
 import getModel from "../models/model";
 let submitOrderFormModel = getModel("submitOrderFormModel");
 let getEnumListModel = getModel("getEnumListModel");
@@ -128,10 +128,8 @@ export default {
         length: "",
         width: ""
       },
-      productState: [],
       proOthersState: false,
       proOthers: "",
-      cliductState: [],
       cliOthersState: false,
       cliOthers: "",
       boothClassType: 0,
@@ -189,47 +187,20 @@ export default {
         }
       });
     },
-    proClassType: function(index) {
-      // 产品select 类判断
-      if (!!this.productState[index]) {
-        return "selected";
-      } else {
-        return "unselected";
-      }
-    },
-    switchProduct: function(index) {
-      // 切换选中状态
-      console.log(index);
-      if (!!this.productState[index]) {
-        this.$set(this.productState, index, 0);
-      } else {
-        this.$set(this.productState, index, 1);
-      }
+    switchProduct: function(item, index) {
+      // 产品切换选中状态
+      this.$set(item, "isSelected", !item.isSelected);
       // others open input
-      let count = this.product_type.length;
+      let count = this.product_type.length - 1;
       if (index == count) {
         this.proOthersState = !this.proOthersState;
       }
-      console.log(this.product_type.length);
-      console.log(this.productState);
     },
-    cliClassType: function(index) {
-      // 目标select 类判断
-      if (!!this.cliductState[index]) {
-        return "selected";
-      } else {
-        return "unselected";
-      }
-    },
-    switchClients: function(index) {
-      // 切换目标选中状态
-      if (!!this.cliductState[index]) {
-        this.$set(this.cliductState, index, 0);
-      } else {
-        this.$set(this.cliductState, index, 1);
-      }
+    switchClients: function(item, index) {
+      // 目标切换选中状态
+      this.$set(item, "isSelected", !item.isSelected);
       // others open input
-      let count = this.target_type.length;
+      let count = this.target_type.length - 1;
       if (index == count) {
         this.cliOthersState = !this.cliOthersState;
       }
@@ -255,14 +226,14 @@ export default {
 
       if (this.language == "en") {
         params.language_version = "english";
-        params.target_booth_type = booth_type[this.boothClassType].en_name;
-        params.product_category = this.jionString('product', 'en');
-        params.target_client = this.jionString('target', 'en');
+        params.target_booth_type = this.booth_type[this.boothClassType].en_name;
+        params.product_category = this.jionString("product", "en");
+        params.target_client = this.jionString("target", "en");
       } else {
         params.language_version = "chinese";
-        params.target_booth_type = booth_type[this.boothClassType].cn_name;
-        params.product_category = this.jionString('product', 'cn');
-        params.target_client = this.jionString('target', 'cn');
+        params.target_booth_type = this.booth_type[this.boothClassType].cn_name;
+        params.product_category = this.jionString("product", "cn");
+        params.target_client = this.jionString("target", "cn");
       }
       submitOrderFormModel.$post(params).then(info => {
         if (info.status == 1) {
@@ -270,63 +241,66 @@ export default {
         }
       });
     },
-    jionString: function(name, language){
+    jionString: function(name, language) {
       // 连接选项字符串
-      let str = '', source = '',select = '',ohter = '';
+      let str = "",
+        source = "",
+        ohter = "";
 
-      if(name == 'product'){
+      if (name == "product") {
         source = this.product_type;
-        select = this.productState;
-        ohter = this.proOthers;
-      }else{
+        ohter = this.proOthers ? "," + this.proOthers : "";
+      } else {
         source = this.target_type;
-        select = this.cliductState;
-        ohter = this.cliOthers;        
-      };    
+        ohter = this.cliOthers ? "," + this.cliOthers : "";
+      }
 
-      if(language == 'en'){
-        select.forEach(item => {
-          str += source[item].en_name + ",";
+      if (language == "en") {
+        source.forEach(item => {
+          if (item.isSelected) {
+            str += item.ename + ",";
+          }
         });
-      }else{
-        select.forEach(item => {
-           str += source[item].en_name + ",";
+      } else {
+        source.forEach(item => {
+          if (item.isSelected) {
+            str += item.name + ",";
+          }
         });
-      };
+      }
 
-      return str + ohter;
+      return str.substring(0,str.length - 1) + ohter;
     },
     resetOrder: function() {
       // 重置表
       let that = this;
-      MessageBox.confirm("",{
+      MessageBox.confirm("", {
         title: "",
-        message: this.language == 'en' ? 'Confirm the reset form？' : '确认重置表单？',
-        confirmButtonText: this.language == 'en' ? 'Confirm' : '确认',
-        cancelButtonText: this.language == 'en' ? 'Cancel' : '取消'
-      }).then(action => {
-        if (action == "confirm") {
-          that.cleanForm();
-        }
-      }).catch(err => {
-        if (err == "cancel") {
-          console.log('取消操作~');
-        }
-      });
-
+        message: this.language == "en" ? "Confirm the reset form？" : "确认重置表单？",
+        confirmButtonText: this.language == "en" ? "Confirm" : "确认",
+        cancelButtonText: this.language == "en" ? "Cancel" : "取消"
+      })
+        .then(action => {
+          if (action == "confirm") {
+            that.cleanForm();
+          }
+        })
+        .catch(err => {
+          if (err == "cancel") {
+            console.log("取消操作~");
+          }
+        });
     },
-    cleanForm:function(){
+    cleanForm: function() {
       // 执行清理表单工作
       this.stand = this.initObject(this.stand);
-      this.productState = [];
       this.proOthersState = false;
       this.proOthers = "";
-      this.cliductState = [];
       this.cliOthersState = false;
       this.cliOthers = "";
       this.boothClassType = 0;
     },
-    initObject: function(obj){
+    initObject: function(obj) {
       // 初始化对象
       for (const key in obj) {
         if (obj.hasOwnProperty(key)) {

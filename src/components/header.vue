@@ -4,46 +4,16 @@
     <div class="top_nav">
         <div class="nav_center">
             <ul class="nav_list">
-                <!-- <li class="list" v-for="item in navList" :key="item.id" v-on:click="goPage(item.page)">{{language == "en" ? item.title_english : item.title}}</li> -->
-                <li class="list" v-on:click="goPage('index')">HOME</li>
-                <li class="list second">
-                    <span class="pull_down">VISIT</span>
-                    <ul class="second_list">
-                        <li class="red_bg"></li>
-                        <li class="item" v-on:click="goPage('travel')">Why Visit</li>
-                        <li class="item" v-on:click="goPage('register')">Register Interest</li>
-                        <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
-                        <li class="item" v-on:click="goPage('products')">Products</li>
-                        <li class="item" v-on:click="goPage('sessions')">Sessions</li>
-                        <li class="item" v-on:click="goPage('speakers')">Speakers</li>
-                        <li class="item" v-on:click="goPage('travel')">Travel & accommodation</li>
-                    </ul>          
+                <li class="list" v-for="item in navList" :key="item.id" :class="{second: !!item._child}">
+                    <div class="bth" v-if="item._child">
+                        <span class="pull_down">{{language == "en" ? item.title_english : item.title}}</span>
+                        <ul class="second_list">
+                            <li class="red_bg"></li>
+                            <li class="item" v-for="option in item._child" :key="option.id" v-on:click="goPage(option.page)">{{language == "en" ? option.title_english.replace("amp;",'') : option.title}}</li>
+                        </ul>  
+                    </div>
+                    <div class="bth" v-else v-on:click="goPage(item.page)">{{language == "en" ? item.title_english : item.title}}</div>
                 </li>
-                <li class="list second">
-                    <span class="pull_down">EXHIBIT</span>
-                    <ul class="second_list">
-                        <li class="red_bg"></li>
-                        <li class="item" v-on:click="goPage('travel')">Why Exhibit</li>
-                        <li class="item" v-on:click="goPage('stand')">Book a stand</li>
-                        <li class="item">Floor plan</li>
-                        <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
-                        <li class="item" v-on:click="goPage('products')">Products</li>
-                        <li class="item">Become a sponsor</li>
-                    </ul>          
-                </li>
-                <li class="list second">
-                    <span class="pull_down">FSA</span>
-                    <ul class="second_list">
-                        <li class="red_bg"></li>
-                        <li class="item" v-on:click="goPage('sessions')">Sessions</li>
-                        <li class="item" v-on:click="goPage('speakers')">Speakers</li>
-                        <li class="item" v-on:click="goPage('awards')">Awards</li>
-                    </ul>
-                </li>
-                <li class="list" v-on:click="goPage('press')">PRESS</li>
-                <li class="list" v-on:click="goPage('supporters')">SUPPORTERS</li>
-                <li class="list" v-on:click="goPage('contact')">CONTACT US</li>
-                <li class="list">GALLERY</li>
             </ul>
             <div class="right_nav">
                 <div class="interesr" v-on:click="goPage('register')">{{$t("message.register")}}</div>
@@ -113,43 +83,18 @@
     <!-- nav 弹层 -->
     <div class="nav_list_popup" v-if="navPopupState" @touchmove.prevent>
         <ul class="nav_list">
-            <li class="list" v-on:click="goPage('index')">HOME</li>
-            <li class="list second" :class="{cur: secondState == 'visit'}" v-on:click="openNavList('visit')"><span class="pull_down">VISIT</span></li>
-            <li class="list_box" v-if="secondState == 'visit'">
-                <ul class="second_list">
-                    <li class="item" v-on:click="goPage('travel')">Why Visit</li>
-                    <li class="item" v-on:click="goPage('register')">Register Interest</li>
-                    <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
-                    <li class="item" v-on:click="goPage('products')">Products</li>
-                    <li class="item" v-on:click="goPage('sessions')">Sessions</li>
-                    <li class="item" v-on:click="goPage('speakers')">Speakers</li>
-                    <li class="item" v-on:click="goPage('travel')">Travel & accommodation</li>
-                </ul>
+            <li class="list" v-for="item in navList" :key="item.id" :class="{second: !!item._child}">
+                <div class="bth" :class="{cur: secondState == item.page}" v-if="item._child">
+                    <div class="mobile_bth" v-on:click="openNavList(item.page)">
+                        <span class="pull_down">{{language == "en" ? item.title_english : item.title}}</span>
+                    </div>
+                    <ul class="second_list" v-if="secondState == item.page">
+                        <li class="item" v-for="option in item._child" :key="option.id" v-on:click="goPage(option.page)">{{language == "en" ? option.title_english.replace("amp;",'') : option.title}}</li>
+                    </ul>  
+                </div>
+                <div class="bth" v-else v-on:click="goPage(item.page)">{{language == "en" ? item.title_english : item.title}}</div>
             </li>
-            <li class="list second" :class="{cur: secondState == 'exhibit'}" v-on:click="openNavList('exhibit')"><span class="pull_down">EXHIBIT</span></li>
-            <li class="list_box" v-if="secondState == 'exhibit'">
-                <ul class="second_list">
-                    <li class="item" v-on:click="goPage('travel')">Why Exhibit</li>
-                    <li class="item" v-on:click="goPage('stand')">Book a stand</li>
-                    <li class="item">Floor plan</li>
-                    <li class="item" v-on:click="goPage('exhibitiors')">Exhibitiors</li>
-                    <li class="item" v-on:click="goPage('products')">Products</li>
-                    <li class="item">Become a sponsor</li>
-                </ul>  
-            </li>
-            <li class="list second" :class="{cur: secondState == 'fsa'}" v-on:click="openNavList('fsa')"><span class="pull_down">FSA</span></li>
-            <li class="list_box" v-if="secondState == 'fsa'">
-                <ul class="second_list">
-                    <li class="item" v-on:click="goPage('sessions')">Sessions</li>
-                    <li class="item" v-on:click="goPage('speakers')">Speakers</li>
-                    <li class="item" v-on:click="goPage('awards')">Awards</li>
-                </ul>                
-            </li>
-            <li class="list" v-on:click="goPage('press')">PRESS</li>
-            <li class="list" v-on:click="goPage('supporters')">SUPPORTERS</li>
-            <li class="list" v-on:click="goPage('contact')">CONTACT US</li>
-            <li class="list">GALLERY</li>
-        </ul> 
+        </ul>
          <!-- more -->
          <div class="other_list">
              <div class="bth_list">
@@ -240,6 +185,7 @@ export default {
   methods: {
     goPage: function(name) {
       // 跳转页面
+      this.navPopupState = false;
       tokyo.go(name);
     },
     switchLanguage: function(name) {
@@ -249,6 +195,7 @@ export default {
       this.language = name;
     },
     openNavList: function(name) {
+        console.log(name);
       // mobile 打开二级菜单
       if (this.secondState == name) {
         this.secondState = "";
