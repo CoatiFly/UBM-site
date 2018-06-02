@@ -4,45 +4,45 @@
   <div :class="isPC ? 'pc_box' : 'mobile_box'">
     <div class="page_content stand">
       <div class="text_box">
-        <p class="title">EXHIBIT AT FOOD & DRINK EXPO 2020</p>
-        <p class="fonts">To find out more about taking part in the 2020 event, please complete the form below, and we will be in contact with you, shortly.</p>
-        <p class="fonts mt20">Fields marked with * are mandatory</p>
+        <p class="title">{{$t("stand.title")}}</p>
+        <p class="fonts">{{$t("stand.second")}}</p>
+        <p class="fonts mt20">{{$t("stand.three")}}<span class="red"> * </span>{{$t("stand.four")}}</p>
       </div>
       <div class="center_box">
         <!-- 基础信息 -->
         <ul class="input_list">
           <li class="item">
-            <p class="title">Company Name<i class="red">*</i></p>
+            <p class="title">{{$t("stand.company")}}<i class="red">*</i></p>
             <input type="text" v-model="stand.name">
           </li>
           <li class="item">
-            <p class="title">Contact Person<i class="red">*</i></p>
+            <p class="title">{{$t("stand.contact")}}<i class="red">*</i></p>
             <input type="text" v-model="stand.person">
           </li>
           <li class="item">
-            <p class="title">Phone<i class="red">*</i></p>
-            <input type="text" v-model="stand.phone">
+            <p class="title">{{$t("stand.phone")}}<i class="red">*</i></p>
+            <input type="number" v-model="stand.phone">
           </li>
           <li class="item">
-            <p class="title">Mobile<i class="red">*</i></p>
-            <input type="text" v-model="stand.mobile">
+            <p class="title">{{$t("stand.mobile")}}<i class="red">*</i></p>
+            <input type="number" v-model="stand.mobile" maxlength="11">
           </li>
           <li class="item">
-            <p class="title">Email<i class="red">*</i></p>
+            <p class="title">{{$t("stand.email")}}<i class="red">*</i></p>
             <input type="text" v-model="stand.email">
           </li>
           <li class="item">
-            <p class="title">Website<i class="red">*</i></p>
+            <p class="title">{{$t("stand.website")}}<i class="red">*</i></p>
             <input type="text" v-model="stand.website">
           </li>
           <li class="item">
-            <p class="title">Fax</p>
-            <input type="text" v-model="stand.fax">
+            <p class="title">{{$t("stand.fax")}}</p>
+            <input type="number" v-model="stand.fax">
           </li>
         </ul>
         <!-- 产品种类 -->
         <div class="product_box">
-          <p class="title">Product Category</p>
+          <p class="title">{{$t("stand.categoryTitle")}}</p>
           <ul class="check_list">
             <li class="item" v-for="(item,index) in product_type" :key="item.value">
               <span :class="[item.isSelected ? 'selected' : 'unselected']"  v-on:click="switchProduct(item,index)"></span>
@@ -55,7 +55,7 @@
         </div>
         <!-- 目标客户 -->
         <div class="product_box">
-          <p class="title">Your Target Clients</p>
+          <p class="title">{{$t("stand.clientsTitle")}}</p>
           <ul class="check_list">
             <li class="item" v-for="(item,index) in target_type" :key="item.value">
               <span :class="[item.isSelected ? 'selected' : 'unselected']"  v-on:click="switchClients(item,index)"></span>
@@ -68,7 +68,7 @@
         </div>      
         <!-- 展台种类 -->
         <div class="booth_box">
-          <p class="title">Your Target Booth Type</p>
+          <p class="title">{{$t("stand.tarTitle")}}</p>
           <ul class="check_list">
             <li class="item" v-for="(item,index) in booth_type" :key="item.id">
               <span class="unselected" :class="{selected: boothClassType == index}" v-on:click="switchBooth(index)"></span>
@@ -77,24 +77,24 @@
           </ul>
           <ul class="input_list">
             <li class="item">
-              <p class="title">Number of booth(s) you need</p>
+              <p class="title">{{$t("stand.booth")}}</p>
               <input type="text" v-model="stand.number">
             </li>
             <li class="item">
-              <p class="title">Length (m)</p>
+              <p class="title">{{$t("stand.length")}}</p>
               <input type="text" v-model="stand.length">
             </li>
             <li class="item">
-              <p class="title">Width (m)</p>
+              <p class="title">{{$t("stand.width")}}</p>
               <input type="text" v-model="stand.width">
             </li>                
           </ul>
-          <p class="tips">Remarks: please fill in the above information in detail and submit it after confirmation. We will contact you as soon as possible. Thank you!</p>       
+          <p class="tips">{{$t("stand.tips")}}</p>       
         </div>
         <!-- 按钮列表 -->
         <div class="bth_list">
-          <span class="bth submit" v-on:click="submitOrder">Submit</span>
-          <span class="bth reset" v-on:click="resetOrder">Reset</span>
+          <span class="bth submit" v-on:click="checkOrderConter">{{$t("stand.submit")}}</span>
+          <span class="bth reset" v-on:click="resetOrder">{{$t("stand.reset")}}</span>
         </div>      
       </div>
     </div> 
@@ -107,6 +107,7 @@
 <script>
 import { MessageBox } from "mint-ui";
 import getModel from "../models/model";
+import tokyo from "../common/util";
 let submitOrderFormModel = getModel("submitOrderFormModel");
 let getEnumListModel = getModel("getEnumListModel");
 
@@ -209,6 +210,34 @@ export default {
       // 切换target booth
       this.boothClassType = type;
     },
+    checkOrderConter: function(){
+      // 检查提交表单是否为空
+      let params = {
+            title: "",
+            confirmButtonText: this.language == "en" ? "Confirm" : "确认",
+          };
+      if(!this.stand.name.replace(/\s+/g, "")){
+          params.message = this.language == "en" ? "The company name cannot be empty." : "公司名称不能为空!";
+          MessageBox(params);
+      }else if(!this.stand.person.replace(/\s+/g, "")){
+          params.message = this.language == "en" ? "The name cannot be empty." : "姓名不能为空!"
+          MessageBox(params);
+      }else if(!this.stand.phone.replace(/\s+/g, "")){
+          params.message = this.language == "en" ? "The phone number cannot be empty." : "电话号码不能为空!"
+          MessageBox(params);
+      }else if(!this.stand.mobile.replace(/\s+/g, "")){
+          params.message = this.language == "en" ? "Cell phone Numbers cannot be empty." : "手机号码不能为空!"
+          MessageBox(params);
+      }else if(!this.stand.email.replace(/\s+/g, "")){
+          params.message = this.language == "en" ? "Email cannot not by empty." : "电子邮箱不能为空!"
+          MessageBox(params);
+      }else if(!this.stand.website.replace(/\s+/g, "")){
+          params.message = this.language == "en" ? "website cannot not by empty." : "网址不能为空!"
+          MessageBox(params);
+      }else{
+        this.submitOrder();
+      }
+    },
     submitOrder: function() {
       // 提交表单
       let params = {
@@ -237,6 +266,8 @@ export default {
       }
       submitOrderFormModel.$post(params).then(info => {
         if (info.status == 1) {
+          let message = this.language == "en" ? "Your reservation has been successfully submitted." : "您的预订已成功提交，我们会尽快与您联络，谢谢！"
+          MessageBox('', message);
           console.log("提交成功");
         }
       });

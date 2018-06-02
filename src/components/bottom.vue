@@ -4,22 +4,22 @@
   <div :class="isPC ? 'page_bottom_box' : 'mobile_page_bottom_box'">
     <div class="bottom_center">
       <ul class="nav_list">
-        <li class="item"><span v-on:click="goPage('index')">HOME</span></li>
-        <li class="item long"><span v-on:click="goPage('travel')">EXHIBIT</span></li>
-        <li class="item"><span v-on:click="goPage('travel')">VISIT</span></li>
-        <li class="item red"><span v-on:click="goPage('sessions')">FSA</span></li>
-        <li class="item long"><span v-on:click="goPage('travel')">TRAVEL</span></li>
-        <li class="item"><span v-on:click="goPage('contact')">CONTACT US</span></li>
+        <li class="item"><span v-on:click="goPage('index')">{{$t("footing.home")}}</span></li>
+        <li class="item long"><span v-on:click="goPage('travel')">{{$t("footing.exhibit")}}</span></li>
+        <li class="item"><span v-on:click="goPage('travel')">{{$t("footing.visit")}}</span></li>
+        <li class="item red"><span v-on:click="goPage('sessions')">{{$t("footing.fsa")}}</span></li>
+        <li class="item long"><span v-on:click="goPage('travel')">{{$t("footing.travel")}}</span></li>
+        <li class="item"><span v-on:click="goPage('contact')">{{$t("footing.contact")}}</span></li>
       </ul> 
       <ul class="bth_list">
         <li class="item">
-          <span class="bth blue_bg" v-on:click="goPage('stand')">BOOK A STAND</span>
+          <span class="bth blue_bg" v-on:click="goPage('stand')">{{$t("header.stand")}}</span>
         </li>
         <li class="logo">
           <img src="../assets/index_46.png" alt="">
         </li>
         <li class="item red_right">
-          <span class="bth red_bg" v-on:click="goPage('register')">REGISTER INTEREST</span>
+          <span class="bth red_bg" v-on:click="goPage('register')">{{$t("header.register")}}</span>
         </li>        
       </ul>
       <ul class="link_list">
@@ -31,10 +31,10 @@
       </ul>
     </div>
     <div class="authentication"></div> 
-    <div class="reference" v-if="isPC">隐私政策 | Copyright 2011 by UBM Trust Co Ltd (All Rights Reserved) 粤ICP备16120933号-2 粤公网安备 44010602002114号</div>    
+    <div class="reference" v-if="isPC">{{$t("footing.copyright")}}{{$t("footing.records")}}</div>    
     <div class="reference" v-else>
-      <p class="fonts">隐私政策 | Copyright 2011 by UBM Trust Co Ltd (All Rights Reserved) </p>
-      <p class="fonts">粤ICP备16120933号-2 粤公网安备 44010602002114号</p>
+      <p class="fonts">{{$t("footing.copyright")}}</p>
+      <p class="fonts">{{$t("footing.records")}}</p>
     </div>    
   </div> 
   <!-- RSS 弹层组件 -->

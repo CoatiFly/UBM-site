@@ -3,34 +3,38 @@
   <!-- 展示栏 -->
   <div :class="isPC ? 'show_list_box' : 'mobile_show_list_box'">
     <div class="show_number">
-      <p class="title">THE SHOW COVERING THE SIGN & ADVERTISING SUPPLY CHAIN EXPECTING...</p>
+      <p class="title">{{$t("common.topTitle")}}</p>
       <ul class="number_list">
         <li class="item day">
           <p class="num"><v-countup :end-value="3"></v-countup></p>
-          <p class="tips">DAYS</p>
+          <p class="tips">{{$t("common.day")}}</p>
         </li>
         <li class="item att">
           <p class="num"><v-countup :end-value="32650"></v-countup></p>
-          <p class="tips">ATTENDEES</p>
+          <p class="tips">{{$t("common.present")}}</p>
         </li>
         <li class="item exh">
           <p class="num"><v-countup :end-value="1200"></v-countup></p>
-          <p class="tips">EXHIBITORS</p>
+          <p class="tips">{{$t("common.exhibitor")}}</p>
         </li>
         <li class="item spe">
           <p class="num"><v-countup :end-value="53"></v-countup></p>
-          <p class="tips">SPEAKERS</p>
+          <p class="tips">{{$t("common.guest")}}</p>
         </li>
         <li class="item ses">
           <p class="num"><v-countup :end-value="60"></v-countup></p>
-          <p class="tips">SESSIONS</p>
+          <p class="tips">{{$t("common.show")}}</p>
         </li>
-        <li class="item are">
+        <li class="item are" v-if="language == 'en'">
           <p class="num"><v-countup :end-value="42000"></v-countup></p>
-          <p class="tips">EXHIBITION AREA</p>
+          <p class="tips">{{$t("common.number")}}</p>
+        </li>
+        <li class="item are" v-else>
+          <p class="num"><v-countup :end-value="100000"></v-countup></p>
+          <p class="tips">{{$t("common.number")}}</p>
         </li>
       </ul>
-      <p class="title mar_other">...THE "OSCAR”EVENT IN THE SIGN AND ADVERTISING INDUSTRY.</p>
+      <p class="title mar_other">{{$t("common.botTitle")}}</p>
     </div>
     <div class="with_logo_box" v-for="option in EnumList" :key="option.cate_id">
       <p class="title">{{language == "en" ? option.cate_ename : option.cate_cname}}</p>
@@ -41,7 +45,7 @@
         </li>
       </ul>    
     </div>
-          
+
   </div>
 </div>
 </template>
@@ -58,6 +62,16 @@ export default {
       language: '',
       EnumList: {}
     };
+  },
+  computed: {
+    getUserlanguage() {
+      return this.$store.state.language;
+    }
+  },
+  watch: {
+    getUserlanguage(val) {
+      this.language = val;
+    }
   },
   mounted() {
     this.language = this.$store.state.language;

@@ -7,7 +7,7 @@
       <div class="qrcode">
         <img src="../assets/qrcode.png" alt="">
       </div>
-      <div class="tips">FOLLOW US</div>
+      <div class="tips">{{$t("wechat.text")}}</div>
     </div>
   </div>   
 </div>

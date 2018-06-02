@@ -41,6 +41,32 @@
             .item:nth-of-type(3n+1){
                 margin-left: 0;
             }
+            .title_list{
+                line-height: 400px;
+                font-size: 36px;
+                text-align: center;
+                font-weight: 600;
+                color: #fff;
+                overflow: hidden;
+            }
+            .visit{
+                background-image: url(../assets/index_29.png);
+                background-position: left top;
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+            .exhibit{
+                background-image: url(../assets/index_30.png);
+                background-position: left top;
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+            .fsa{
+                background-image: url(../assets/index_31.png);
+                background-position: left top;
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }                   
             .open_time,.link_us{
                 width: 100%;
                 padding-top: 90px;
@@ -179,6 +205,31 @@
             .item:first-child{
                 margin-left: 0;
             }
+            .title_list{
+                line-height: 2.2rem;
+                font-size: .36rem;
+                color: #fff;
+                text-align: center;
+                overflow: hidden;
+            } 
+            .visit{
+                background-image: url(../assets/index_29.png);
+                background-position: left top;
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+            .exhibit{
+                background-image: url(../assets/index_30.png);
+                background-position: left top;
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+            .fsa{
+                background-image: url(../assets/index_31.png);
+                background-position: left top;
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }                        
             .mobile_full{
                 width: 100%;
                 margin-left: 0;

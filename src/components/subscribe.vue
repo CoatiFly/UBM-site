@@ -4,34 +4,33 @@
   <div class="layou_fixed" v-if="rssLayouStatus" @touchmove.prevent> 
     <div class="fixed_pos" :class="isPC ? 'layou_rss_box' : 'mobile_layou_rss_box'">
       <div class="close" v-on:click="SwitchLayou('rssLayouStatus')"></div>
-      <div class="title">Subscribe the latest information</div>
+      <div class="title">{{$t("subscribe.title")}}</div>
       <ul class="list_box">
         <li class="item">
-          <div class="name">Title<span class="red">*</span></div>
+          <div class="name">{{$t("subscribe.sex")}}<span class="red">*</span></div>
           <div class="pill_box">
             <p class="input_box pull_icon" v-on:click="SwitchLayou('sexCheckStatus')">{{rssForm.sex}}</p>
             <div class="pull_down" v-if="sexCheckStatus" v-on:mouseleave="SwitchLayou('sexCheckStatus')">
-              <ul class="box">
-                <li class="sex" v-on:click="selectSexName('Mr')">Mr</li>
-                <li class="sex" v-on:click="selectSexName('Mrs')">Mrs</li>
+              <ul class="box" v-for="(item,index) in SexName">
+                <li class="sex" v-on:click="selectSexName(index)">{{language == "en" ? item.ename : item.cname}}</li>
               </ul>
             </div>            
           </div>           
         </li>
         <li class="item">
-          <div class="name">Last Name<span class="red">*</span></div>
-          <input class="input_box" type="text" v-model="rssForm.last" placeholder="Please enter your last name">         
+          <div class="name">{{$t("subscribe.last")}}<span class="red">*</span></div>
+          <input class="input_box" type="text" v-model="rssForm.last">         
         </li>
         <li class="item">
-          <div class="name">Given Name<span class="red">*</span></div>
-          <input class="input_box" type="text" v-model="rssForm.given" placeholder="Please enter your given name">
+          <div class="name">{{$t("subscribe.given")}}<span class="red">*</span></div>
+          <input class="input_box" type="text" v-model="rssForm.given" >
         </li>
         <li class="item">
-          <div class="name">Email<span class="red">*</span></div>
-          <input class="input_box" type="text" v-model="rssForm.email" placeholder="Please enter your email">
+          <div class="name">{{$t("subscribe.email")}}<span class="red">*</span></div>
+          <input class="input_box" type="text" v-model="rssForm.email">
         </li>
         <li class="item">
-          <div class="Submit">Submit</div>
+          <div class="Submit" v-on:click="checkOrderConter">{{$t("subscribe.button")}}</div>
         </li>
       </ul>
     </div>
@@ -40,15 +39,19 @@
 </template>
 
 <script>
-
+import { MessageBox } from "mint-ui";
+import getModel from "../models/model";
+let submitOrderFormModel = getModel("submitOrderFormModel");
 
 export default {
   name: "subscribe",
   data() {
     return {
       isPC: '',
+      language: '',
       rssLayouStatus: false,
       sexCheckStatus: false,
+      SexName: [{ename: 'Mr',cname: '先生'},{ename: 'Mrs',cname: '女士'}],
       rssForm: {
         sex: 'Mr',
         last: '',
@@ -59,6 +62,8 @@ export default {
   },
   mounted() {
     this.isPC = this.$store.state.isPC;
+    this.language = this.$store.state.language;
+    this.selectSexName(0);
   },
   methods: {
     show: function(){
@@ -71,10 +76,58 @@ export default {
       // 动态切换状态
       this[name] = !this[name];
     },
-    selectSexName: function(name){
+    selectSexName: function(index){
       // 选择性别
-      this.rssForm.sex = name;
+      if (this.language == "en") {
+        this.rssForm.sex = this.SexName[index].ename;
+      }else{
+        this.rssForm.sex = this.SexName[index].cname;        
+      };      
       this.sexCheckStatus = false;
+    },
+    checkOrderConter: function(){
+      // 检查提交表单是否为空
+      let params = {
+            title: "",
+            confirmButtonText: this.language == "en" ? "Confirm" : "确认",
+          };
+      if(!this.rssForm.last.replace(/\s+/g, "")){
+          params.message = this.language == "en" ? "Last names cannot be empty." : "姓氏不能为空!";
+          MessageBox(params);
+      }else if(!this.rssForm.given.replace(/\s+/g, "")){
+          params.message = this.language == "en" ? "given name cannot be empty." : "名称不能为空!"
+          MessageBox(params);
+      }else if(!this.rssForm.email.replace(/\s+/g, "")){
+          params.message = this.language == "en" ? "Email cannot not by empty." : "电子邮箱不能为空!"
+          MessageBox(params);
+      }else{
+        this.submitSubscribe();
+      }
+    },
+    submitSubscribe: function(){
+      // 订阅表单
+      let that = this;
+      let params = {
+        title: this.rssForm.sex,
+        last_name: this.rssForm.last,
+        given_name: this.rssForm.given,
+        email: this.rssForm.email,
+      };
+
+      if (this.language == "en") {
+        params.language_version = "english";
+      }else{
+        params.language_version = "chinese";     
+      };
+
+      submitOrderFormModel.$post(params).then(info => {
+        if (info.status == 1) {
+          that.rssLayouStatus = false;
+          let message = this.language == "en" ? "Your reservation has been successfully submitted." : "您的订阅已成功提交！"
+          MessageBox('', message);
+          console.log("提交成功");
+        }
+      });      
     }
   }
 };

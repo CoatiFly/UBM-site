@@ -16,10 +16,10 @@
                 </li>
             </ul>
             <div class="right_nav">
-                <div class="interesr" v-on:click="goPage('register')">{{$t("message.register")}}</div>
-                <div class="stand" v-on:click="goPage('stand')">{{$t("message.stand")}}</div>  
-                <div class="language" :class="{cur: language == 'en'}" v-on:click="switchLanguage('en')">{{$t("message.en")}}</div>
-                <div class="language" :class="{cur: language == 'zh'}" v-on:click="switchLanguage('zh')">{{$t("message.zh")}}</div>
+                <div class="interesr" v-on:click="goPage('register')">{{$t("header.register")}}</div>
+                <div class="stand" v-on:click="goPage('stand')">{{$t("header.stand")}}</div>  
+                <div class="language" :class="{cur: language == 'en'}" v-on:click="switchLanguage('en')">{{$t("header.en")}}</div>
+                <div class="language" :class="{cur: language == 'zh'}" v-on:click="switchLanguage('zh')">{{$t("header.zh")}}</div>
                 <div class="logo_list">
                     <ul class="logo_box">
                         <li class="list"><img src="../assets/index_07.png" alt=""></li>
@@ -38,16 +38,16 @@
                     <img src="../assets/index_03.png" alt="">
                 </div>
                 <div class="title">
-                    <p class="text">SNIEC SHANGHAI</p>
-                    <p class="text">19-21 SEP.</p>
+                    <p class="text">{{$t("header.site")}}</p>
+                    <p class="text">{{$t("header.date")}}</p>
                 </div>
                 <div class="time_count">
                     <p class="time">152</p>
-                    <p class="day">DAYS</p>
+                    <p class="day">{{$t("header.day")}}</p>
                 </div>
             </div>
             <div class="logo_right">
-                <div class="title">"OSCAR" EVENT OF GLOBAL ADVERTISING & SIGN INDUSTRY</div>
+                <div class="title">{{$t("header.title")}}</div>
                 <ul class="logo_list">
                 <li class="item left">
                     <a :href="signChinaUrl" target="_blank">
@@ -74,10 +74,10 @@
     <div class="mobile_nav">
         <div class="nav_bth" v-on:click="switchNavPopup"></div>
         <div class="right_nav">
-            <div class="stand" v-on:click="goPage('stand')">{{$t("message.stand")}}</div>  
-            <div class="interesr" v-on:click="goPage('register')">{{$t("message.register")}}</div>
-            <div class="language" :class="{cur: language == 'zh'}" v-on:click="switchLanguage('zh')">{{$t("message.zh")}}</div>
-            <div class="language" :class="{cur: language == 'en'}" v-on:click="switchLanguage('en')">{{$t("message.en")}}</div>
+            <div class="stand" v-on:click="goPage('stand')">{{$t("header.stand")}}</div>  
+            <div class="interesr" v-on:click="goPage('register')">{{$t("header.register")}}</div>
+            <div class="language" :class="{cur: language == 'zh'}" v-on:click="switchLanguage('zh')">{{$t("header.zh")}}</div>
+            <div class="language" :class="{cur: language == 'en'}" v-on:click="switchLanguage('en')">{{$t("header.en")}}</div>
         </div>           
     </div> 
     <!-- nav 弹层 -->
@@ -98,8 +98,8 @@
          <!-- more -->
          <div class="other_list">
              <div class="bth_list">
-                <div class="stand bth" v-on:click="goPage('stand')">{{$t("message.stand")}}</div>  
-                <div class="interesr bth" v-on:click="goPage('register')">{{$t("message.register")}}</div>
+                <div class="stand bth" v-on:click="goPage('stand')">{{$t("header.stand")}}</div>  
+                <div class="interesr bth" v-on:click="goPage('register')">{{$t("header.register")}}</div>
              </div>
              <div class="popup_list">
                 <li class="item wechat" v-on:click="openWechatLayou"></li>
@@ -118,16 +118,16 @@
                 <img src="../assets/index_03.png" alt="">
             </div>
             <div class="title">
-                <p class="text">SNIEC SHANGHAI</p>
-                <p class="text">19-21 SEP.</p>
+                <p class="text">{{$t("header.site")}}</p>
+                <p class="text">{{$t("header.date")}}</p>
             </div>
         </div> 
         <div class="time_number">
             <p class="time">152</p>
-            <p class="day">DAYS</p>
+            <p class="day">{{$t("header.day")}}</p>
         </div>       
         <div class="logo_bottom">
-            <div class="title">"OSCAR" EVENT OF GLOBAL ADVERTISING & SIGN INDUSTRY</div>
+            <div class="title">{{$t("header.title")}}</div>
             <ul class="logo_list">
                 <li class="item left">
                     <a :href="signChinaUrl" target="_blank">

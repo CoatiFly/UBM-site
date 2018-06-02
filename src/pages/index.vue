@@ -5,28 +5,22 @@
     <!-- 内容 -->
     <div class="page_content">
       <div class="text_box">
-        <p class="title">WELCOME TO THE SIGN CHINA</p>
-        <p class="fonts"><span class="bold">SIGN CHINA</span> is a one-stop platform for the global sign community to source the latest model of inkjet printer, laser engraver, light box, traditional signage, digital signage, advertising display, <span class="bold">LED</span> illuminant, <span class="bold">LED</span> display, testing device and control system.</p>
-        <p class="fonts mt20">International buyers and industry professionals gather here annually to look for Original Equipment Manufacturers (<span class="bold">OEM</span>) or solution providers for outdoor advertising, high-end conferencing or interactive digital signage.</p>
+        <p class="title">{{$t("index.title")}}</p>
+        <p class="fonts">{{$t("index.second")}}</p>
+        <p class="fonts mt20">{{$t("index.three")}}</p>
       </div>
       <div class="list_block">
         <ul class="shell">
-          <li class="item" v-on:click="goPage('travel')">
-            <img src="../assets/index_29.png" alt="">
-          </li>
-          <li class="item" v-on:click="goPage('travel')">
-            <img src="../assets/index_31.png" alt="">
-          </li>
-          <li class="item" v-on:click="goPage('sessions')">
-            <img src="../assets/index_34.png" alt="">
-          </li>
+          <li class="item title_list visit" v-on:click="goPage('travel')">{{$t("index.visit")}}</li>
+          <li class="item title_list exhibit" v-on:click="goPage('travel')">{{$t("index.exhibit")}}</li>
+          <li class="item title_list fsa" v-on:click="goPage('sessions')">{{$t("index.fsa")}}</li>
           <li class="item red_bg mobile_full">
             <div class="open_time">
-              <p class="title">OPENING TIMES</p>
+              <p class="title">{{$t("index.times")}}</p>
               <ul class="time_box">
-                <li class="time_list">Monday 30th March 2020: 10am – 5pm</li>
-                <li class="time_list">Tuesday 31st March 2020: 10am – 5pm</li>
-                <li class="time_list">Wednesday 1st April 2020: 10am – 4pm</li>
+                <li class="time_list">{{$t("index.times1")}}</li>
+                <li class="time_list">{{$t("index.times2")}}</li>
+                <li class="time_list">{{$t("index.times3")}}</li>
               </ul>
             </div>
           </li>
@@ -43,7 +37,7 @@
           </li>
           <li class="item red_bg mobile_full">
             <div class="link_us">
-              <p class="title">CONNECT WITH US</p>
+              <p class="title">{{$t("index.connect")}}</p>
               <ul class="link_list">
                 <li class="wechat" v-on:click="openWechatLayou"></li>
                 <li class="facebook">
