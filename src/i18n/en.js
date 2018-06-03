@@ -172,4 +172,16 @@ module.exports={
     // 精彩时刻
     title: "2018 GALLERY"
   },
+  booth: {
+    // 展位图
+    title: "FLOOR PLAN",
+    second: "Providing the number one route to the UK food and drink market. Join the UK’s most progressive food and drink professionals on 30th March- 1st April 2020 for five shows covering the complete supply chain. Food & Drink Expo will run alongside Foodex, The Ingredients Show, National Convenience Show and Farm Shop & Deli Show. The UK Food Shows attract buyers and decision makers from across the whole industry, who will converge to uncover the hottest trends, latest product launches and the industry’s vision for the future.",
+    tips: "Click to view the PDF document"   
+  },
+  sponsor: {
+    // 成为赞助商
+    title: "BECOM A SPONSOR",
+    second: "Providing the number one route to the UK food and drink market. Join the UK’s most progressive food and drink professionals on 30th March- 1st April 2020 for five shows covering the complete supply chain. Food & Drink Expo will run alongside Foodex, The Ingredients Show, National Convenience Show and Farm Shop & Deli Show. The UK Food Shows attract buyers and decision makers from across the whole industry, who will converge to uncover the hottest trends, latest product launches and the industry’s vision for the future.",
+    tips: "Click to view the PDF document"   
+  }
 }

@@ -96,6 +96,10 @@ var webpackConfig = merge(baseWebpackConfig, {
         from: path.resolve(__dirname, '../project.json'),
         to: config.build.assetsSubDirectory,
         // ignore: ['.json']
+      },
+      {
+        from: path.resolve(__dirname, '../favicon.png'),
+        to: config.dev.assetsSubDirectory
       }
     ])
   ]

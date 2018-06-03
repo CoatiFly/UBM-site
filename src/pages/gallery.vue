@@ -82,7 +82,8 @@ export default {
         notNextTick: true,
         paginationClickable: true,
         loop: false,
-        initialSlide: 1,
+        initialSlide: 0,
+        autoHeight: true,
         pagination: {
           el: '.swiper-pagination',
           type: 'fraction'

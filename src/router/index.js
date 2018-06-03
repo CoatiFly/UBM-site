@@ -15,6 +15,8 @@ import Stand from '../pages/stand' // 展位预定
 import Register from '../pages/register' // 注册页面
 import News from '../pages/news' // 新闻详情
 import Gallery from '../pages/gallery' // 相册
+import Plan from '../pages/plan' // 展位图
+import Sponsor from '../pages/sponsor' // 成为赞助商
 
 Vue.use(Router)
 
@@ -92,6 +94,16 @@ let router = new Router({
       path: '/gallery',
       name: 'Gallery',
       component: Gallery
+    },
+    {
+      path: '/plan',
+      name: 'Plan',
+      component: Plan
+    },
+    {
+      path: '/sponsor',
+      name: 'Sponsor',
+      component: Sponsor
     }
   ]
 })
