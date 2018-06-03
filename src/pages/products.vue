@@ -5,13 +5,13 @@
     <!-- 内容 -->
     <div class="page_content products">
       <div class="text_box">
-        <p class="title">2018 PRODUCTS</p>
+        <p class="title">{{$t("product.title")}}</p>
       </div>
       <!-- 搜索组件 -->
       <div class="search_box">
-        <input class="search_ipt" type="text" v-model="searchName" placeholder="Product Name">
+        <input class="search_ipt" type="text" v-model="searchName" :placeholder="$t('product.placeholder')">
         <div class="serach_bth" v-on:click="getProductList">
-          <p class="texts">Search</p>
+          <p class="texts">{{$t("product.button")}}</p>
         </div>
       </div>
       <!-- products 列表 -->

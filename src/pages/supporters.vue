@@ -5,7 +5,7 @@
     <!-- 内容 -->
     <div class="page_content supporters">
       <div class="text_box">
-        <p class="title">2018 SUPPORTERS</p>
+        <p class="title">{{$t("supporters.title")}}</p>
       </div>
       <!-- supporters 列表 -->
       <ul class="supporters_list">

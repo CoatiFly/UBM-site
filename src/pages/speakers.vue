@@ -5,7 +5,7 @@
     <!-- 内容 -->
     <div class="page_content speakers">
       <div class="text_box">
-        <p class="title">2018 SPEAKERS</p>
+        <p class="title">{{$t("speakers.title")}}</p>
       </div>
       <!-- speakers 列表 -->
       <ul class="speakers_list" v-if="isPC">

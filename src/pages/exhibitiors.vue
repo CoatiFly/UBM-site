@@ -5,13 +5,13 @@
     <!-- 内容 -->
     <div class="page_content products">
       <div class="text_box">
-        <p class="title">2018 EXHIBITORS</p>
+        <p class="title">{{$t("exhibit.title")}}</p>
       </div>
       <!-- 搜索组件 -->
       <div class="search_box">
         <div class="duble_input">
-          <input type="text" class="text_ipt fl" v-model="componyName" placeholder="Compony Name">
-          <input type="text" class="text_ipt fr" v-model="exhibitNumber" placeholder="Exhibit Number">
+          <input type="text" class="text_ipt fl" v-model="componyName" :placeholder="$t('exhibit.placeholder_compony')">
+          <input type="text" class="text_ipt fr" v-model="exhibitNumber" :placeholder="$t('exhibit.placeholder_exhibit')">
         </div>
         <select class="search_ipt" v-model="selected">
           <option v-for="option in typeList" v-bind:value="option.value">
@@ -19,7 +19,7 @@
           </option>
         </select>
         <div class="serach_bth" v-on:click="getExhibitorList">
-          <p class="texts">Search</p>
+          <p class="texts">{{$t("exhibit.button")}}</p>
         </div>
       </div>
       <!-- visit 列表 -->

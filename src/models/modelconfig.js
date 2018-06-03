@@ -89,7 +89,12 @@ var modelsConfig = {
     submitOrderFormModel: {
         // 展位预约单提交
         url: 'submitOrderForm'
-    }
+    },
+    submitNewsSubscribeModel: {
+        // 订阅展会
+        url: 'submitNewsSubscribe'
+    },
+    
 
 }
 

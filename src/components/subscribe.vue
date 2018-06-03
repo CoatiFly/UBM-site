@@ -41,7 +41,7 @@
 <script>
 import { MessageBox } from "mint-ui";
 import getModel from "../models/model";
-let submitOrderFormModel = getModel("submitOrderFormModel");
+let submitNewsSubscribeModel = getModel("submitNewsSubscribeModel");
 
 export default {
   name: "subscribe",
@@ -53,7 +53,7 @@ export default {
       sexCheckStatus: false,
       SexName: [{ename: 'Mr',cname: '先生'},{ename: 'Mrs',cname: '女士'}],
       rssForm: {
-        sex: 'Mr',
+        sex: '',
         last: '',
         given: '',
         email: ''
@@ -108,24 +108,18 @@ export default {
       // 订阅表单
       let that = this;
       let params = {
-        title: this.rssForm.sex,
-        last_name: this.rssForm.last,
-        given_name: this.rssForm.given,
+        gender: this.rssForm.sex,
+        first_name: this.rssForm.last,
+        last_name: this.rssForm.given,
         email: this.rssForm.email,
       };
 
-      if (this.language == "en") {
-        params.language_version = "english";
-      }else{
-        params.language_version = "chinese";     
-      };
-
-      submitOrderFormModel.$post(params).then(info => {
+      submitNewsSubscribeModel.$post(params).then(info => {
         if (info.status == 1) {
           that.rssLayouStatus = false;
           let message = this.language == "en" ? "Your reservation has been successfully submitted." : "您的订阅已成功提交！"
           MessageBox('', message);
-          console.log("提交成功");
+          console.log("订阅表单提交成功");
         }
       });      
     }

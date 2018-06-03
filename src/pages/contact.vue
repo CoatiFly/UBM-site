@@ -5,35 +5,32 @@
     <!-- 内容 -->
     <div class="page_content contact">
       <div class="text_box">
-        <p class="title">CONTACT US</p>
-        <p class="fonts">THE VENUE</p>
+        <p class="title">{{$t("contact.title")}}</p>
+        <p class="fonts">{{$t("contact.second")}}</p>
       </div>
       <div class="center_box">
         <div class="fonts_list_pc">
-          <p class="fonts_left mt30">Food & Drink Expo 2020 takes place at the National Exhibition Centre (NEC), Birmingham, UK in Hall 2. The NEC is the UK's premier exhibition centre and is conveniently located with easy access from the whole of UK, Europe and the rest of the world.</p>
-          <p class="fonts mt40">National Exhibition Centre (NEC)</p>
-          <p class="fonts mt25">Birmingham</p>
-          <p class="fonts mt25">West Midlands</p>
-          <p class="fonts mt25">B40 1NT</p>
-          <p class="fonts line_26 mt50">Tel: +44 (0) 121 780 4141</p>
-          <p class="fonts line_26">Email: info@necgroup.co.uk</p>          
+          <p class="fonts_left mt30">{{$t("contact.three")}}</p>
+          <p class="fonts mt40">{{$t("contact.add_one")}}</p>
+          <p class="fonts mt25">{{$t("contact.add_two")}}</p>
+          <p class="fonts mt25">{{$t("contact.add_thr")}}</p>
+          <p class="fonts mt25">{{$t("contact.add_four")}}</p>
+          <p class="fonts line_26 mt50">{{$t("contact.add_five")}}</p>
+          <p class="fonts line_26">{{$t("contact.add_six")}}</p>          
         </div>
         <div class="fonts_list_mobile">
-          <p class="fonts">Food & Drink Expo 2020 takes place at the National Exhibi-  </p>
-          <p class="fonts">tion Centre (NEC), Birming,</p>
-          <p class="fonts">heniently located with easy access from the whole of UK,</p>
-          <p class="fonts">Europe and the rest of the world.</p>
-          <p class="fonts margin">National Exhibition Centre (NEC)</p>
-          <p class="fonts">Birmingham</p>
-          <p class="fonts">West Midlands</p>
-          <p class="fonts">B40 1NT</p>
-          <p class="fonts">Tel: +44 (0) 121 780 4141</p>
-          <p class="fonts">Email: info@necgroup.co.uk</p>          
+          <p class="fonts">{{$t("contact.three")}}</p>
+          <p class="fonts margin">{{$t("contact.add_one")}}</p>
+          <p class="fonts">{{$t("contact.add_two")}}</p>
+          <p class="fonts">{{$t("contact.add_thr")}}</p>
+          <p class="fonts">{{$t("contact.add_four")}}</p>
+          <p class="fonts">{{$t("contact.add_five")}}</p>
+          <p class="fonts">{{$t("contact.add_six")}}</p>          
         </div>
         <div class="map_box"></div>
-        <div class="texts">Providing the number one route to the UK food and drink market. Join the UK’s most progressive food and drink professionals on 30th March- 1st April 2020 for five shows covering the complete supply chain. Food & Drink Expo will run alongside Foodex, The Ingredients Show, National Convenience Show and Farm Shop & Deli Show. The UK Food Shows attract buyers and decision makers from across the whole industry, who will converge to uncover the hottest trends, latest product launches and the industry’s vision for the future. </div>
+        <div class="texts">{{$t("contact.text_one")}}</div>
         <div class="map_box"></div>
-        <div class="texts">Providing the number one route to the UK food and drink market. Join the UK’s most progressive food and drink professionals on 30th March- 1st April 2020 for five shows covering the complete supply chain. Food & Drink Expo will run alongside Foodex, The Ingredients Show, National Convenience Show and Farm Shop & Deli Show. The UK Food Shows attract buyers and decision makers from across the whole industry, who will converge to uncover the hottest trends, latest product launches and the industry’s vision for the future. </div>
+        <div class="texts">{{$t("contact.text_two")}}</div>
       </div>
     </div> 
   </div>    
@@ -43,10 +40,6 @@
 </template>
 
 <script>
-
-// import getModel from "../models/model";
-// let monitorLoginModel = getModel("monitorLoginModel");
-// let sendPhoneMsgModel = getModel("sendPhoneMsgModel");
 
 export default {
   name: "Contact",

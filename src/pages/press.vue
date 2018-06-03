@@ -6,9 +6,9 @@
     <div class="page_content press">
       <div class="press_left">
         <div class="text_box">
-          <p class="title">PRESS</p>
-          <p class="fonts">THE VENUE</p>
-          <p class="fonts fonts_left mt30">Food & Drink Expo 2020 takes place at the National Exhibition Centre (NEC), Birmingham, UK in Hall 2. The NEC is the UK's premier exhibition centre and is conveniently located with easy access from the whole of UK, Europe and the rest of the world.</p>
+          <p class="title">{{$t("press.title")}}</p>
+          <p class="fonts">{{$t("press.second")}}</p>
+          <p class="fonts fonts_left mt30">{{$t("press.three")}}</p>
         </div>
         <!-- press 列表 -->
         <ul class="press_list">
