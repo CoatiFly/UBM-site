@@ -14,6 +14,7 @@ import Supporters from '../pages/supporters' // 支持机构
 import Stand from '../pages/stand' // 展位预定
 import Register from '../pages/register' // 注册页面
 import News from '../pages/news' // 新闻详情
+import Gallery from '../pages/gallery' // 相册
 
 Vue.use(Router)
 
@@ -86,6 +87,11 @@ let router = new Router({
       path: '/news/:newsId',
       name: 'News',
       component: News
+    },
+    {
+      path: '/gallery',
+      name: 'Gallery',
+      component: Gallery
     }
   ]
 })

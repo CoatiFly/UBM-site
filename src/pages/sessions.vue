@@ -5,15 +5,15 @@
     <!-- 内容 -->
     <div class="page_content sessions">
       <div class="text_box">
-        <p class="title">2018 SESSIONS</p>
-        <p class="second_title">WELCOME TO THE UK FOOD SHOWS</p>
-        <p class="details">Providing the number one route to the UK food and drink market. Join the UK’s most  five shows covering the complete supply cex, The Ingredients Show, National Convenience Show and Farm Shop & Deli Show. The UK Food Shows attract buyers and decision makers from across the whole industry, who will converge to uncover the hottest trends, latest product launches and the industry’s vision for the future.</p>
+        <p class="title">{{$t("sessions.title")}}</p>
+        <p class="second_title">{{$t("sessions.second")}}</p>
+        <p class="details">{{$t("sessions.three")}}</p>
       </div>
       <!-- sessions 列表 -->
       <ul class="sessions_list">
-        <li class="item" :class="{cur: currentTab == 19}" v-on:click="SwitchTab(19)">September 19</li>
-        <li class="item" :class="{cur: currentTab == 20}" v-on:click="SwitchTab(20)">September 20</li>
-        <li class="item" :class="{cur: currentTab == 21}" v-on:click="SwitchTab(21)">September 21</li>
+        <li class="item" :class="{cur: currentTab == 19}" v-on:click="SwitchTab(19)">{{$t("sessions.date_one")}}</li>
+        <li class="item" :class="{cur: currentTab == 20}" v-on:click="SwitchTab(20)">{{$t("sessions.date_two")}}</li>
+        <li class="item" :class="{cur: currentTab == 21}" v-on:click="SwitchTab(21)">{{$t("sessions.date_thr")}}</li>
       </ul>
       <div class="sessions_box">
         <p class="tips">Wednesday, September {{currentTab}}</p>

@@ -6,11 +6,13 @@ import MintUI from 'mint-ui'
 import VueI18n from 'vue-i18n'
 import en from './i18n/en'
 import zh from './i18n/zh'
-import store from './store/index.js'
+import store from './store/index.js';
 import utils from './common/util.js';
-import 'mint-ui/lib/style.css'
+import 'mint-ui/lib/style.css';
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+import 'swiper/dist/css/swiper.css';
 import ('./scss/main.scss');
-
+Vue.use(VueAwesomeSwiper);
 Vue.use(MintUI);
 Vue.use(countup);
 

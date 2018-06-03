@@ -158,5 +158,18 @@ module.exports={
     title: "REGISTER INTEREST",
     texts: "Providing the number one route to the UK food and drink market. Join the UK’s most progressive food and drink professionals on 30th March- 1st April 2020 for five shows covering the complete supply chain. Food & Drink Expo will run alongside Foodex, The Ingredients Show, National Convenience Show and Farm Shop & Deli Show. The UK Food Shows attract buyers and decision makers from across the whole industry, who will converge to uncover the hottest trends, latest product launches and the industry’s vision for the future.",
     button: "REGISTER"    
-  }
+  },
+  sessions: {
+    // 会议日程
+    title: "2018 SESSIONS",
+    second: "WELCOME TO THE UK FOOD SHOWS",
+    three: "Providing the number one route to the UK food and drink market. Join the UK’s most five shows covering the complete supply cex, The Ingredients Show, National Convenience Show and Farm Shop & Deli Show. The UK Food Shows attract buyers and decision makers from across the whole industry, who will converge to uncover the hottest trends, latest product launches and the industry’s vision for the future.",
+    date_one: "September 19",
+    date_two: "September 20",
+    date_thr: "September 21"
+  },
+  gallery: {
+    // 精彩时刻
+    title: "2018 GALLERY"
+  },
 }
