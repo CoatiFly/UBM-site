@@ -60,6 +60,17 @@ export default {
       }
     };
   },
+  computed: {
+    getUserlanguage() {
+      return this.$store.state.language;
+    }
+  },
+  watch: {
+    getUserlanguage(val) {
+      this.language = val;
+      this.selectSexName(0);
+    }
+  },
   mounted() {
     this.isPC = this.$store.state.isPC;
     this.language = this.$store.state.language;

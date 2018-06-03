@@ -12,8 +12,8 @@
         <div class="center_box">
           <div class="bth_pdf">
             <div class="tips">{{$t("sponsor.tips")}}</div>
-            <a :href="pdfUrl" class="block" target="_blank" v-if="isPC"></a>
-            <a :href="pdfUrl" class="block" download="Become _sponsor.pdf" v-else></a>
+            <a href="static/Become_sponsor.pdf" class="block" target="_blank" v-if="isPC"></a>
+            <a href="static/Become_sponsor.pdf" class="block" download="Become _sponsor.pdf" v-else></a>
           </div>
         </div>    
       </div>
@@ -59,8 +59,7 @@ export default {
     return {
       language: '',
       isPC: '',  
-      SliderList: [],
-      pdfUrl: '../assets/Become_sponsor.pdf'
+      SliderList: []
     };
   },
   components: {
