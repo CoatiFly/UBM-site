@@ -11,9 +11,9 @@
       </div>
       <div class="list_block">
         <ul class="shell">
-          <li class="item title_list visit" v-on:click="goPage('travel')">{{$t("index.visit")}}</li>
-          <li class="item title_list exhibit" v-on:click="goPage('travel')">{{$t("index.exhibit")}}</li>
-          <li class="item title_list fsa" v-on:click="goPage('sessions')">{{$t("index.fsa")}}</li>
+          <li class="item title_list visit center" v-on:click="goPage('travel')"><p>{{$t("index.visit")}}</p></li>
+          <li class="item title_list exhibit center" v-on:click="goPage('travel')"><p>{{$t("index.exhibit")}}</p></li>
+          <li class="item title_list fsa center" v-on:click="goPage('sessions')"><p>{{$t("index.fsa")}}</p></li>
           <li class="item red_bg mobile_full">
             <div class="open_time">
               <p class="title">{{$t("index.times")}}</p>

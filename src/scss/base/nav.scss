@@ -1,15 +1,15 @@
 // nav style
-.top_nav{
+.top_nav {
     width: 100%;
     height: 68px;
     line-height: 68px;
     background-color: #e50011;
     position: relative;
-    .nav_center{
+    .nav_center {
         width: 1248px;
         margin: 0 auto;
     }
-    .nav_list{
+    .nav_list {
         height: 38px;
         line-height: 38px;
         color: #fff;
@@ -17,20 +17,20 @@
         padding: 15px 0;
         position: relative;
         float: left;
-        .list{
+        .list {
             display: block;
             padding: 0 10px;
             position: relative;
             float: left;
             cursor: pointer;
-            .second_list{
+            .second_list {
                 display: none;
             }
-            .pull_down{
+            .pull_down {
                 padding-right: 14px;
                 position: relative;
             }
-            .pull_down:after{
+            .pull_down:after {
                 content: '';
                 width: 8px;
                 height: 4px;
@@ -41,8 +41,8 @@
                 background: url("../assets/index_04.png") center no-repeat;
             }
         }
-        .second:hover{
-            .second_list{
+        .second:hover {
+            .second_list {
                 display: block;
                 width: 186px;
                 padding-bottom: 15px;
@@ -52,12 +52,12 @@
                 top: 37px;
                 left: 0;
                 z-index: 9;
-                .red_bg{
+                .red_bg {
                     width: 100%;
                     height: 16px;
                     margin-bottom: 15px;
                 }
-                .item{
+                .item {
                     padding: 0 15px;
                     height: 40px;
                     line-height: 40px;
@@ -66,13 +66,13 @@
                     text-align: left;
                     cursor: pointer;
                 }
-                .item:hover{
+                .item:hover {
                     background-color: #fff;
                 }
             }
         }
     }
-    .right_nav{
+    .right_nav {
         height: 48px;
         line-height: 48px;
         font-size: 14px;
@@ -80,7 +80,7 @@
         color: #fff;
         text-align: center;
         float: right;
-        .interesr{
+        .interesr {
             width: 176px;
             height: 48px;
             background-color: #aa010e;
@@ -88,7 +88,7 @@
             cursor: pointer;
             float: right;
         }
-        .stand{
+        .stand {
             width: 140px;
             height: 48px;
             background-color: #053a7a;
@@ -96,49 +96,49 @@
             cursor: pointer;
             float: right;
         }
-        .language{
+        .language {
             width: 48px;
             height: 48px;
             background-color: #3e3a39;
-            margin-left: 10px; 
-            cursor: pointer; 
-            float: right;          
+            margin-left: 10px;
+            cursor: pointer;
+            float: right;
         }
-        .language.cur{
+        .language.cur {
             color: #e50011;
             background-color: #fff;
         }
-        .logo_list{
+        .logo_list {
             width: 80px;
             height: 48px;
-            background-color: #fff;  
+            background-color: #fff;
             overflow: hidden;
             position: relative;
             z-index: 9;
-            float: right;   
-            .logo_box{
+            float: right;
+            .logo_box {
                 width: 100%;
                 padding: 4px 15px;
                 box-sizing: border-box;
-                .list{
+                .list {
                     display: block;
                     width: 100%;
                     height: 40px;
                     margin-top: 10px;
                     cursor: pointer;
-                    img{
+                    img {
                         width: 100%;
                     }
                 }
-                .list:first-child{
+                .list:first-child {
                     margin-top: 0;
                 }
-            }         
+            }
         }
-        .logo_list:hover{
+        .logo_list:hover {
             height: auto;
         }
-        .logo_list:after{
+        .logo_list:after {
             content: '';
             width: 8px;
             height: 4px;
@@ -150,32 +150,33 @@
         }
     }
 }
+
 // logo+倒计时
-.count_logo_box{
+.count_logo_box {
     width: 100%;
     height: 168px;
     overflow: hidden;
-    .center_box{
+    .center_box {
         width: 1248px;
         height: 168px;
         margin: 0 auto;
         position: relative;
         overflow: hidden;
     }
-    .time_left{
+    .time_left {
         width: 620px;
         height: 128px;
         padding: 20px 0;
         text-align: center;
         overflow: hidden;
         float: left;
-        .logo{
+        .logo {
             width: 128px;
             height: 128px;
             overflow: hidden;
             float: left;
         }
-        .title{
+        .title {
             width: 250px;
             height: 128px;
             padding-top: 40px;
@@ -183,7 +184,7 @@
             text-align: center;
             overflow: hidden;
             float: left;
-            .text{
+            .text {
                 font-size: 20px;
                 height: 26px;
                 line-height: 26px;
@@ -191,14 +192,14 @@
                 font-weight: 600;
             }
         }
-        .time_count{
+        .time_count {
             width: 240px;
             height: 128px;
             padding: 47px 0 0 23px;
             box-sizing: border-box;
             overflow: hidden;
             float: left;
-            .time{
+            .time {
                 width: 95px;
                 height: 34px;
                 line-height: 34px;
@@ -211,23 +212,23 @@
                 border-right: 2px solid #ebebeb;
                 float: left;
             }
-            .day{
+            .day {
                 margin-left: 10px;
                 line-height: 34px;
                 font-size: 18px;
                 color: #000;
                 float: left;
-            }   
+            }
         }
     }
-    .logo_right{
+    .logo_right {
         width: 628px;
         height: 128px;
         padding: 20px 0;
         text-align: center;
         overflow: hidden;
         float: right;
-        .title{
+        .title {
             width: 100%;
             height: 38px;
             line-height: 38px;
@@ -235,48 +236,49 @@
             text-align: left;
             overflow: hidden;
         }
-        .logo_list{
+        .logo_list {
             width: 100%;
-            height: 90px;                  
+            height: 90px;
             overflow: hidden;
-            .item{
-                height: 100%;                
+            .item {
+                height: 100%;
                 overflow: hidden;
                 float: left;
-                a{
+                a {
                     display: flex;
-                    justify-content:center; 
-                    align-items: center;  
+                    justify-content: center;
+                    align-items: center;
                 }
             }
-            .left{
+            .left {
                 width: 70px;
             }
-            .center{
+            .center {
                 width: 358px;
-                a{
+                a {
                     width: 70px;
-                    margin:  0 auto;
+                    margin: 0 auto;
                 }
             }
-            .right{
+            .right {
                 width: 200px;
                 float: right;
             }
         }
-    }    
+    }
 }
+
 // mobile nav style
-.mobile_nav_box{
+.mobile_nav_box {
     // 默认nav
-    .mobile_nav{
+    .mobile_nav {
         width: 100%;
         height: 1rem;
         padding: 0.2rem;
         background-color: #e50011;
         box-sizing: border-box;
         position: relative;
-        .nav_bth{
+        .nav_bth {
             width: 0.6rem;
             height: 0.6rem;
             background: url(../assets/m-nav.png) center no-repeat;
@@ -284,44 +286,44 @@
             overflow: hidden;
             float: left;
         }
-        .right_nav{
+        .right_nav {
             height: 0.6rem;
             line-height: 0.6rem;
             font-size: .18rem;
             color: #fff;
             text-align: center;
             float: right;
-            .interesr{
-                width: 2.2rem;
+            .interesr {
+                width: 2rem;
                 height: .6rem;
                 background-color: #aa010e;
                 margin-left: .2rem;
                 float: left;
             }
-            .stand{
-                width: 1.8rem;
+            .stand {
+                width: 2rem;
                 height: .6rem;
                 background-color: #053a7a;
                 margin-left: .2rem;
                 float: left;
             }
-            .language{
+            .language {
                 width: 0.6rem;
                 height: 0.6rem;
                 line-height: 0.6rem;
                 font-size: .18rem;
                 background-color: #3e3a39;
-                margin-left: .2rem; 
-                float: left;          
+                margin-left: .2rem;
+                float: left;
             }
-            .language.cur{
+            .language.cur {
                 color: #e50011;
                 background-color: #fff;
             }
         }
-    } 
+    }
     // 弹层
-    .nav_list_popup{
+    .nav_list_popup {
         width: 100%;
         height: 100%;
         background-color: #fff;
@@ -330,24 +332,24 @@
         top: 0;
         left: 0;
         z-index: 99;
-        .nav_list{
+        .nav_list {
             width: 100%;
             margin-top: 1rem;
             color: #000;
             font-size: .28rem;
             position: relative;
-            .list{
+            .list {
                 display: block;
                 width: 100%;
                 line-height: .68rem;
                 font-weight: 600;
                 text-align: center;
                 position: relative;
-                .pull_down{
+                .pull_down {
                     padding-right: 14px;
                     position: relative;
                 }
-                .pull_down:after{
+                .pull_down:after {
                     content: '';
                     width: 8px;
                     height: 4px;
@@ -356,11 +358,11 @@
                     top: 6px;
                     z-index: 2;
                     background: url("../assets/index_05.png") center no-repeat;
-                }              
+                }
             }
-            .cur{
+            .cur {
                 color: #ff0000;
-                .pull_down:after{
+                .pull_down:after {
                     content: '';
                     width: 8px;
                     height: 4px;
@@ -369,14 +371,14 @@
                     top: 6px;
                     z-index: 2;
                     background: url("../assets/index_02.png") center no-repeat;
-                }                 
+                }
             }
-            .second_list{
+            .second_list {
                 display: block;
                 width: 100%;
                 font-size: .26rem;
                 overflow: hidden;
-                .item{
+                .item {
                     display: block;
                     width: 100%;
                     line-height: .68rem;
@@ -385,13 +387,13 @@
                     text-align: center;
                     position: relative;
                 }
-            }  
+            }
         }
-        .other_list{
+        .other_list {
             width: 100%;
             overflow: hidden;
-            .bth_list{
-                .bth{
+            .bth_list {
+                .bth {
                     width: 3rem;
                     height: .78rem;
                     line-height: .78rem;
@@ -404,35 +406,35 @@
                     margin-top: .5rem;
                     background-color: #053a7a;
                 }
-                .interesr{
+                .interesr {
                     background-color: #aa010e;
                 }
             }
-        } 
-        .popup_list{
+        }
+        .popup_list {
             width: 1.6rem;
             padding: .5rem 0;
             margin: 0 auto;
             overflow: hidden;
-            .item{
+            .item {
                 width: .6rem;
                 height: .6rem;
                 overflow: hidden;
             }
-            .wechat{
+            .wechat {
                 background: url("../assets/index_51.png") center no-repeat;
                 background-size: .4rem .36rem;
                 background-color: #a4a4a4;
                 float: left;
             }
-            .facebook{
+            .facebook {
                 background: url("../assets/index_52.png") center no-repeat;
                 background-size: .2rem .4rem;
                 background-color: #a4a4a4;
                 float: right;
-            }            
+            }
         }
-        .close{
+        .close {
             width: .36rem;
             height: .36rem;
             background: url("../assets/close.png") center no-repeat;
@@ -440,30 +442,30 @@
             top: .32rem;
             right: .4rem;
             z-index: 2;
-        }        
-    }    
+        }
+    }
     // logo+倒计时
-    .count_logo_box{
+    .count_logo_box {
         width: 100%;
         padding: .4rem .6rem 0;
         box-sizing: border-box;
         height: auto;
         overflow: hidden;
-        .time_top{
+        .time_top {
             width: 4rem;
             text-align: center;
             overflow: hidden;
             margin: 0 auto;
-            .logo{
+            .logo {
                 width: 1.28rem;
                 height: 1.28rem;
                 overflow: hidden;
                 float: left;
-                img{
+                img {
                     width: 100%;
                 }
             }
-            .title{
+            .title {
                 width: 2.5rem;
                 height: 1.28rem;
                 padding-top: .4rem;
@@ -471,7 +473,7 @@
                 text-align: center;
                 overflow: hidden;
                 float: right;
-                .text{
+                .text {
                     font-size: .26rem;
                     height: .26rem;
                     line-height: .26rem;
@@ -480,12 +482,12 @@
                 }
             }
         }
-        .time_number{
-            width: 1.8rem;
+        .time_number {
+            width: 2rem;
             padding-top: .4rem;
             overflow: hidden;
             margin: 0 auto;
-            .time{
+            .time {
                 width: 1rem;
                 height: .36rem;
                 line-height: .36rem;
@@ -498,57 +500,57 @@
                 border-right: 2px solid #ebebeb;
                 float: left;
             }
-            .day{
+            .day {
                 margin-left: 10px;
                 line-height: .36rem;
                 font-size: .18rem;
                 color: #000;
                 float: right;
-            }   
-        }    
-        .logo_bottom{
-            width: 100%;  
-            padding-top: .3rem;           
+            }
+        }
+        .logo_bottom {
+            width: 100%;
+            padding-top: .3rem;
             overflow: hidden;
-            .title{
+            .title {
                 width: 100%;
                 line-height: .38rem;
                 font-size: .28rem;
                 text-align: center;
                 overflow: hidden;
-            }            
-            .logo_list{
+            }
+            .logo_list {
                 width: 100%;
                 margin: .2rem 0;
                 overflow: hidden;
-                .item{      
-                    height: .6rem;      
+                .item {
+                    height: .6rem;
                     overflow: hidden;
                     float: left;
-                    a{
+                    a {
                         display: flex;
-                        justify-content:center; 
-                        align-items: center;  
+                        justify-content: center;
+                        align-items: center;
                     }
-                    img{
+                    img {
                         width: 100%;
                     }
                 }
-                .left{
+                .left {
                     width: .6rem;
                 }
-                .center{
+                .center {
                     width: calc(100% - 2.3rem);
-                    a{
+                    a {
                         width: .6rem;
-                        margin:  0 auto;
+                        margin: 0 auto;
                     }
                 }
-                .right{
+                .right {
                     width: 1.7rem;
                     float: right;
                 }
             }
-        }    
-    } 
+        }
+    }
 }

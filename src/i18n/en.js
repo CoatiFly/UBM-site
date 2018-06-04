@@ -9,7 +9,7 @@ module.exports = {
         day: "DAYS",
         site: 'SNIEC SHANGHAI',
         date: '19-21 SEP.',
-        title: '"OSCAR" EVENT OF GLOBAL ADVERTISING & SIGN INDUSTRY'
+        title: "\"OSCAR\" EVENT OF GLOBAL ADVERTISING & SIGN INDUSTRY"
     },
     footing: {
         // 页尾
