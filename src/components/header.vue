@@ -28,7 +28,7 @@
                         <li class="list">
                             <a :href="ledChinaUrl" target="_blank"><img src="../assets/index_09.png" alt=""></a>
                         </li>
-                        <li class="list height50">
+                        <li class="list">
                             <a :href="digitalUrl" target="_blank"><img src="../assets/index_08.png" alt=""></a>
                         </li>
                     </ul>
@@ -67,7 +67,7 @@
                 </li>
                 <li class="item right">
                     <a :href="digitalUrl" target="_blank">
-                    <img src="../assets/index_08.png" alt="">
+                    <img src="../assets/index_14.png" alt="">
                     </a>            
                     </li>
                 </ul>
@@ -147,7 +147,7 @@
                 </li>
                 <li class="item right">
                     <a :href="digitalUrl" target="_blank">
-                    <img src="../assets/index_08.png" alt="">
+                    <img src="../assets/index_14.png" alt="">
                     </a>            
                 </li>
             </ul>
