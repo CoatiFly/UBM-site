@@ -3,13 +3,23 @@
   <!-- pc -->
   <div class="pc_banner_box" v-if="isPC">
     <div class="center" >
-      <img src="../assets/index_26.png" alt="">
+      <div class="video__container" style="background-image: url('static/video.png');">
+        <video class="video" autoplay="autoplay" loop="loop" poster="static/video.png">
+          <source src="static/public.mp4" type="video/mp4">
+          <!-- <source src="static/public.webm" type="video/webm"> -->
+        </video>
+      </div>
     </div>
   </div>
   <!-- moblie -->
   <div class="mobile_banner_box" v-else>
     <div class="center">
-      <img src="../assets/banner750.png" alt="">
+      <div class="video__container" style="background-image: url('static/video.png');">
+        <video class="video"  autoplay="autoplay" loop="loop" poster="static/video.png">
+          <source src="static/public.mp4" type="video/mp4">
+          <!-- <source src="static/public.webm" type="video/webm"> -->
+        </video>
+      </div>
     </div>
   </div>      
 

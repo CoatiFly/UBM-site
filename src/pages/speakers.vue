@@ -9,22 +9,22 @@
       </div>
       <!-- speakers 列表 -->
       <ul class="speakers_list" v-if="isPC">
-        <li class="item" v-for="(item, index) in speakerList" v-on:click="SwitchLayou(index)">
+        <li class="item" v-for="(item, index) in speakerList" :key="item.id" v-on:click="SwitchLayou(index)">
           <div class="logo_box" v-bind:style="{backgroundImage: 'url(' + item.photo + ')'}"></div>
           <div class="fonts_box">
             <p class="title line1">{{language == "en" ? item.english_name : item.chinese_name}}</p>
-            <p class="tips line1">{{language == "en" ? item.expert_field : item.expert_field}}</p>
+            <p class="tips line1">{{language == "en" ? item.exhibitor_category_ename : item.exhibitor_category_cname}}</p>
             <p class="details line2">{{language == "en" ? item.company_name_english : item.company_name_chinese}}</p>
           </div>          
         </li>
       </ul>
       <!-- speakers 列表 -->
       <ul class="speakers_list" v-else>
-        <li class="item" v-for="(item, index) in speakerList" v-on:click="SwitchLayou(index)">
+        <li class="item" v-for="(item, index) in speakerList" :key="item.id" v-on:click="SwitchLayou(index)">
           <div class="logo_box" v-bind:style="{backgroundImage: 'url(' + item.photo + ')'}"></div>
           <div class="fonts_box">
             <p class="title line1">{{language == "en" ? item.english_name : item.chinese_name}}</p>
-            <p class="tips line2">{{language == "en" ? item.expert_field : item.expert_field}}</p>
+            <p class="tips line2">{{language == "en" ? item.exhibitor_category_ename : item.exhibitor_category_cname}}</p>
             <p class="details line2">{{language == "en" ? item.company_name_english : item.company_name_chinese}}</p>
           </div>          
         </li>

@@ -155,14 +155,60 @@ class Tokyo {
         return this.getPlatForm() == "PC";
     }
     getPlatForm() {
-        var userAgentInfo = navigator.userAgent;
-        var Agents = ["Android", "IOS", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
-        for (var v = 0; v < Agents.length; v++) {
-            if (userAgentInfo.toLowerCase().indexOf(Agents[v].toLowerCase()) > 0) {
-                return Agents[v];
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "IOS", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.toLowerCase().indexOf(Agents[v].toLowerCase()) > 0) {
+                    return Agents[v];
+                }
             }
+            return "PC";
         }
-        return "PC";
+        //日期格式转换为通用格式
+    dateSwitchCommon(date) {
+            var str = date.replace((/-|\./g), "/");
+            return str;
+        }
+        // 格式化日期 返回年月日 
+    FormatDateLack(dates) {
+            const arr = this.dateToArray(dates);
+            const date = arr[0] + "/" + arr[1] + "/" + arr[2];
+            return date;
+        }
+        // 把日期分割成数组
+    dateToArray(date) {
+        var myArray = Array();
+        myArray[0] = date.getFullYear();
+        myArray[1] = date.getMonth() + 1;
+        myArray[2] = date.getDate();
+        myArray[3] = date.getHours();
+        myArray[4] = date.getMinutes();
+        myArray[5] = date.getSeconds();
+        if (myArray[1] < 10) {
+            myArray[1] = "0" + myArray[1];
+        };
+        if (myArray[2] < 10) {
+            myArray[2] = "0" + myArray[2];
+        };
+        if (myArray[3] < 10) {
+            myArray[3] = "0" + myArray[3];
+        };
+        if (myArray[4] < 10) {
+            myArray[4] = "0" + myArray[4];
+        };
+        if (myArray[5] < 10) {
+            myArray[5] = "0" + myArray[5];
+        };
+        return myArray;
     }
+    NuberBetween(start, end) {
+        let s = this.dateSwitchCommon(start);
+        let e = this.dateSwitchCommon(end);
+        let sms = (Number(new Date(e).getTime()) - Number(new Date(s).getTime()));
+        let day = 24 * 60 * 60 * 1000;
+        console.log(start, end);
+        return Math.round(sms / day);
+    };
+
 }
 export default new Tokyo()

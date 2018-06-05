@@ -22,9 +22,15 @@
                 <div class="language" :class="{cur: language == 'zh'}" v-on:click="switchLanguage('zh')">{{$t("header.zh")}}</div>
                 <div class="logo_list">
                     <ul class="logo_box">
-                        <li class="list"><img src="../assets/index_07.png" alt=""></li>
-                        <li class="list"><img src="../assets/index_09.png" alt=""></li>
-                        <li class="list"><img src="../assets/index_08.png" alt=""></li>
+                        <li class="list">
+                            <a :href="signChinaUrl" target="_blank"><img src="../assets/index_07.png" alt=""></a>
+                        </li>
+                        <li class="list">
+                            <a :href="ledChinaUrl" target="_blank"><img src="../assets/index_09.png" alt=""></a>
+                        </li>
+                        <li class="list height50">
+                            <a :href="digitalUrl" target="_blank"><img src="../assets/index_08.png" alt=""></a>
+                        </li>
                     </ul>
                 </div>
             </div>    
@@ -42,7 +48,7 @@
                     <p class="text">{{$t("header.date")}}</p>
                 </div>
                 <div class="time_count">
-                    <p class="time">152</p>
+                    <p class="time">{{ExhibitionData.count}}</p>
                     <p class="day">{{$t("header.day")}}</p>
                 </div>
             </div>
@@ -61,7 +67,7 @@
                 </li>
                 <li class="item right">
                     <a :href="digitalUrl" target="_blank">
-                    <img src="../assets/index_16.png" alt="">
+                    <img src="../assets/index_08.png" alt="">
                     </a>            
                     </li>
                 </ul>
@@ -123,7 +129,7 @@
             </div>
         </div> 
         <div class="time_number">
-            <p class="time">152</p>
+            <p class="time">{{ExhibitionData.count}}</p>
             <p class="day">{{$t("header.day")}}</p>
         </div>       
         <div class="logo_bottom">
@@ -141,7 +147,7 @@
                 </li>
                 <li class="item right">
                     <a :href="digitalUrl" target="_blank">
-                    <img src="../assets/index_16.png" alt="">
+                    <img src="../assets/index_08.png" alt="">
                     </a>            
                 </li>
             </ul>
@@ -157,6 +163,7 @@ import tokyo from "../common/util";
 import weChat from "../components/wechat";
 import getModel from "../models/model";
 let getNavTreeModel = getModel("getNavTreeModel");
+let getExhibitionByIdModel = getModel("getExhibitionByIdModel");
 
 export default {
   name: "myHeader",
@@ -167,7 +174,7 @@ export default {
       ledChinaUrl: "http://www.ledchina-sh.com/en-us/",
       facebookUrl: "http://new.facebook.com/",
       navList: [],
-      countNum: 152,
+      ExhibitionData: {},
       navPopupState: false,
       secondState: "",
       language: "en",
@@ -180,9 +187,13 @@ export default {
   mounted() {
     this.language = this.$store.state.language;
     this.isPC = this.$store.state.isPC;
-    this.getNavList();
+    this.init();
   },
   methods: {
+    init: function() {
+      this.getNavList();
+      this.getExhibition();
+    },
     goPage: function(name) {
       // 跳转页面
       this.navPopupState = false;
@@ -195,7 +206,7 @@ export default {
       this.language = name;
     },
     openNavList: function(name) {
-        console.log(name);
+      console.log(name);
       // mobile 打开二级菜单
       if (this.secondState == name) {
         this.secondState = "";
@@ -220,6 +231,24 @@ export default {
           console.log("导航树", info.data);
         }
       });
+    },
+    getExhibition: function() {
+      // 获取展会信息
+      let params = {};
+      getExhibitionByIdModel.$post(params).then(info => {
+        if (info.status == 1) {
+            let data = info.data;
+            data.count = this.getCurrentDay(data.start_time);
+            this.ExhibitionData = data;
+            console.log("展会信息", info.data);
+        }
+      });
+    },
+    getCurrentDay: function(end) {
+      // 获取当前距展会开始的天数
+      let cur = tokyo.FormatDateLack(new Date());
+      let num = tokyo.NuberBetween(cur, end);
+      return num;
     }
   }
 };

@@ -130,6 +130,9 @@
                         width: 100%;
                     }
                 }
+                .height50 {
+                    height: 50px;
+                }
                 .list:first-child {
                     margin-top: 0;
                 }
@@ -248,6 +251,9 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    img {
+                        width: 70px;
+                    }
                 }
             }
             .left {
@@ -540,14 +546,14 @@
                     width: .6rem;
                 }
                 .center {
-                    width: calc(100% - 2.3rem);
+                    width: calc(100% - 1.2rem);
                     a {
                         width: .6rem;
                         margin: 0 auto;
                     }
                 }
                 .right {
-                    width: 1.7rem;
+                    width: 0.6rem;
                     float: right;
                 }
             }

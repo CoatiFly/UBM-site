@@ -1,32 +1,61 @@
 // pc
-.pc_banner_box{
+.pc_banner_box {
     width: 100%;
     height: 400px;
-    background-color: #e50012;
+    background-color: #fbfbfb;
     overflow: hidden;
     position: relative;
-    .center{
-        width: 1920px;
+    .center {
+        width: 100%;
         height: 100%;
-        margin-left: -960px;
         position: absolute;
         left: 50%;
         top: 0;
         z-index: 2;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        .video__container {
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        .video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 }
+
 // mobile
-.mobile_banner_box{
+.mobile_banner_box {
     width: 100%;
     height: 4rem;
-    background-color: #e50012;
+    background-color: #fbfbfb;
     overflow: hidden;
     position: relative;
-    .center{
+    .center {
         width: 100%;
-        height: 100%;            
+        height: 100%;
+        .video__container {
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        .video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
-    img{
+    img {
         width: 100%;
         height: 100%;
     }
