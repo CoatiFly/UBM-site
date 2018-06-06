@@ -1,22 +1,22 @@
 // contact page scss
-.pc_box{
-    .products{
+.pc_box {
+    .products {
         position: relative;
         padding-bottom: 70px;
-        .text_box{
+        .text_box {
             padding-bottom: 50px;
         }
-        .search_box{
+        .search_box {
             width: 100%;
             font-size: 20px;
             color: #000;
             overflow: hidden;
-            .duble_input{
+            .duble_input {
                 width: 1086px;
                 margin-left: 80px;
                 margin-bottom: 20px;
                 overflow: hidden;
-                .text_ipt{
+                .text_ipt {
                     width: 526px;
                     height: 58px;
                     line-height: 58px;
@@ -25,7 +25,7 @@
                     overflow: hidden;
                 }
             }
-            .search_ipt{
+            .search_ipt {
                 width: 1084px;
                 height: 58px;
                 line-height: 58px;
@@ -34,7 +34,7 @@
                 text-indent: 10px;
                 overflow: hidden;
             }
-            .serach_bth{
+            .serach_bth {
                 width: 530px;
                 height: 68px;
                 background-color: #aa010e;
@@ -42,7 +42,7 @@
                 margin: 0 auto;
                 margin-top: 20px;
                 cursor: pointer;
-                .texts{
+                .texts {
                     width: 140px;
                     height: 100%;
                     font-size: 24px;
@@ -54,16 +54,16 @@
                 }
             }
         }
-        .products_list{
+        .products_list {
             width: 100%;
             overflow: hidden;
-            .item{
+            .item {
                 width: 224px;
                 margin-top: 70px;
                 margin-right: 32px;
                 overflow: hidden;
                 float: left;
-                .logo_box{
+                .logo_box {
                     width: 100%;
                     height: 224px;
                     background-color: #bebebe;
@@ -71,44 +71,51 @@
                     background-size: 100%;
                     background-repeat: no-repeat;
                     background-position: center;
-                    img{
+                    img {
                         width: 100%;
                     }
                 }
-                .fonts_box{
+                .fonts_box {
                     width: 100%;
                     color: #000;
                     font-size: 16px;
                     overflow: hidden;
                 }
-                .title{
+                .title {
                     margin-top: 12px;
                     height: 24px;
                     line-height: 24px;
                 }
-                .details{
+                .details {
                     font-size: 14px;
-                    line-height: 18px;            
+                    line-height: 18px;
                 }
-                .number{
+                .number {
                     font-size: 12px;
-                    line-height: 18px;  
-                }             
+                    line-height: 18px;
+                }
             }
-            .item:nth-of-type(5n+0){
+            .item:nth-of-type(5n+0) {
                 margin-right: 0;
             }
         }
-        .visit_list{
+        .visit_list {
             width: 100%;
             overflow: hidden;
-            .item{
+            .item {
                 width: 224px;
                 margin-top: 70px;
                 margin-right: 32px;
                 overflow: hidden;
+                position: relative;
                 float: left;
-                .logo_box{
+                .logo_link {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                }
+                .logo_box {
                     width: 100%;
                     height: 90px;
                     background-color: #bebebe;
@@ -116,55 +123,55 @@
                     background-size: 100%;
                     background-repeat: no-repeat;
                     background-position: center;
-                    img{
+                    img {
                         width: 100%;
                     }
                 }
-                .fonts_box{
+                .fonts_box {
                     width: 100%;
                     color: #000;
                     font-size: 14px;
                     overflow: hidden;
                 }
-                .title{
+                .title {
                     margin-top: 12px;
                     line-height: 18px;
                 }
-                .tips{
+                .tips {
                     font-size: 12px;
-                    line-height: 18px; 
-                    color: #727171;           
+                    line-height: 18px;
+                    color: #727171;
                 }
-                .number{
+                .number {
                     font-size: 12px;
-                    line-height: 24px;  
-                }             
+                    line-height: 24px;
+                }
             }
-            .item:nth-of-type(5n+0){
+            .item:nth-of-type(5n+0) {
                 margin-right: 0;
             }
         }
-    
     }
 }
+
 // mobile
-.mobile_box{
-    .products{
+.mobile_box {
+    .products {
         position: relative;
         padding: 0 .2rem .9rem;
         box-sizing: border-box;
-        .text_box{
+        .text_box {
             padding-bottom: 0;
         }
-        .search_box{
+        .search_box {
             width: 100%;
             font-size: .26rem;
             color: #000;
             overflow: hidden;
-            .duble_input{
+            .duble_input {
                 width: 100%;
                 overflow: hidden;
-                .text_ipt{
+                .text_ipt {
                     width: 100%;
                     height: .68rem;
                     line-height: .68rem;
@@ -175,7 +182,7 @@
                     overflow: hidden;
                 }
             }
-            .search_ipt{
+            .search_ipt {
                 width: 100%;
                 height: .68rem;
                 line-height: .68rem;
@@ -184,13 +191,13 @@
                 box-sizing: border-box;
                 overflow: hidden;
             }
-            .serach_bth{
+            .serach_bth {
                 width: 100%;
                 height: .78rem;
                 background-color: #aa010e;
                 overflow: hidden;
                 margin-top: .4rem;
-                .texts{
+                .texts {
                     width: 1.6rem;
                     height: 100%;
                     font-size: .3rem;
@@ -203,18 +210,18 @@
                 }
             }
         }
-        .products_list{
+        .products_list {
             width: 100%;
             padding-top: .1rem;
             overflow: hidden;
-            .item{
+            .item {
                 width: 50%;
                 margin-top: .7rem;
                 padding-right: .15rem;
                 box-sizing: border-box;
                 overflow: hidden;
                 float: left;
-                .logo_box{
+                .logo_box {
                     width: 100%;
                     height: 3.4rem;
                     line-height: 3.4rem;
@@ -224,47 +231,47 @@
                     background-size: 100%;
                     background-repeat: no-repeat;
                     background-position: center;
-                    img{
+                    img {
                         width: 100%;
                     }
                 }
-                .fonts_box{
+                .fonts_box {
                     width: 100%;
                     color: #000;
                     font-size: .26rem;
                     overflow: hidden;
                 }
-                .title{
+                .title {
                     margin-top: .15rem;
                     height: .32rem;
-                    line-height: .32rem; 
+                    line-height: .32rem;
                 }
-                .details{
+                .details {
                     font-size: .24rem;
-                    line-height: .28rem; 
-                    margin: .1rem 0;           
+                    line-height: .28rem;
+                    margin: .1rem 0;
                 }
-                .number{
+                .number {
                     font-size: .22rem;
-                    line-height: .26rem;   
-                }             
+                    line-height: .26rem;
+                }
             }
-            .item:nth-of-type(2n+0){
+            .item:nth-of-type(2n+0) {
                 padding-left: .15rem;
                 padding-right: 0;
             }
         }
-        .visit_list{
+        .visit_list {
             width: 100%;
             overflow: hidden;
-            .item{
+            .item {
                 width: 50%;
                 margin-top: .7rem;
                 padding-right: .15rem;
                 box-sizing: border-box;
                 overflow: hidden;
                 float: left;
-                .logo_box{
+                .logo_box {
                     width: 100%;
                     height: 1.36rem;
                     line-height: 1.36rem;
@@ -274,35 +281,34 @@
                     background-size: 100%;
                     background-repeat: no-repeat;
                     background-position: center;
-                    img{
+                    img {
                         width: 100%;
                     }
                 }
-                .fonts_box{
+                .fonts_box {
                     width: 100%;
                     color: #000;
                     font-size: .24rem;
                     overflow: hidden;
                 }
-                .title{
+                .title {
                     margin-top: .15rem;
                     line-height: .3rem;
                 }
-                .tips{
+                .tips {
                     font-size: .22rem;
-                    line-height: .24rem; 
-                    color: #727171;           
+                    line-height: .24rem;
+                    color: #727171;
                 }
-                .number{
+                .number {
                     font-size: .22rem;
-                    line-height: .44rem;  
-                }             
+                    line-height: .44rem;
+                }
             }
-            .item:nth-of-type(2n+0){
+            .item:nth-of-type(2n+0) {
                 padding-left: .15rem;
                 padding-right: 0;
             }
         }
-    
     }
 }
