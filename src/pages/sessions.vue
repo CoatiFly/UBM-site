@@ -35,7 +35,7 @@
           <p class="time">10:00 a.m. - 11:30 a.m.</p>
           <p class="text">White Paper Release of SIGN and Advertising Industry</p>
           <ul class="speaker_list">
-            <li class="item" v-for="(item, index) in items" v-on:click="SwitchLayou(index)">
+            <li class="item" v-for="(item, index) in items" :key="item.id" v-on:click="SwitchLayou(index)">
               <div class="img"></div>
               <div class="recommend">
                 <p class="name line1">Speaker's name</p>
@@ -50,7 +50,7 @@
           <p class="time">13:00 p.m. - 15:30 p.m.</p>
           <p class="text">White Paper Release of SIGN and Advertising Industry</p>
           <ul class="speaker_list">
-            <li class="item" v-for="(item, index) in items" v-on:click="SwitchLayou(index)">
+            <li class="item" v-for="(item, index) in items" :key="item.id" v-on:click="SwitchLayou(index)">
               <div class="img"></div>
               <div class="recommend">
                 <p class="name line1">Speaker's name</p>

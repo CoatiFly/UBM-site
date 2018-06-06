@@ -204,6 +204,7 @@ export default {
       this.$store.commit("setLanguage", name);
       this.$i18n.locale = name;
       this.language = name;
+      console.log("language: ",name);
     },
     openNavList: function(name) {
       console.log(name);

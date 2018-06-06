@@ -216,6 +216,9 @@ export default {
             title: "",
             confirmButtonText: this.language == "en" ? "Confirm" : "确认",
           };
+      let regExp_phone = /^[1][3,4,5,7,8,9][0-9]{9}$/;
+      let regExp_mail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+
       if(!this.stand.name.replace(/\s+/g, "")){
           params.message = this.language == "en" ? "The company name cannot be empty." : "公司名称不能为空!";
           MessageBox(params);
@@ -228,8 +231,14 @@ export default {
       }else if(!this.stand.mobile.replace(/\s+/g, "")){
           params.message = this.language == "en" ? "Cell phone Numbers cannot be empty." : "手机号码不能为空!"
           MessageBox(params);
+      }else if(this.language == 'zh' && !regExp_phone.test(this.stand.mobile)){
+          params.message =  "手机号码格式错误!";
+          MessageBox(params);
       }else if(!this.stand.email.replace(/\s+/g, "")){
           params.message = this.language == "en" ? "Email cannot not by empty." : "电子邮箱不能为空!"
+          MessageBox(params);
+      }else if(!regExp_mail.test(this.stand.email)){
+          params.message = this.language == "en" ? "Email format error." : "电子邮箱格式错误!"
           MessageBox(params);
       }else if(!this.stand.website.replace(/\s+/g, "")){
           params.message = this.language == "en" ? "website cannot not by empty." : "网址不能为空!"
@@ -267,7 +276,10 @@ export default {
       submitOrderFormModel.$post(params).then(info => {
         if (info.status == 1) {
           let message = this.language == "en" ? "Your reservation has been successfully submitted." : "您的预订已成功提交，我们会尽快与您联络，谢谢！"
-          MessageBox('', message);
+          // MessageBox('', message);
+          MessageBox.alert(message,'').then(action => {
+            this.cleanForm();
+          });
           console.log("提交成功");
         }
       });
@@ -302,6 +314,13 @@ export default {
 
       return str.substring(0,str.length - 1) + ohter;
     },
+    clearSelected:function(source){
+      // 清理选中表单
+        let data = source.forEach(item => {
+          item.isSelected = false;
+        }); 
+        return data;     
+    },
     resetOrder: function() {
       // 重置表
       let that = this;
@@ -327,8 +346,10 @@ export default {
       this.stand = this.initObject(this.stand);
       this.proOthersState = false;
       this.proOthers = "";
+      this.clearSelected(this.product_type);
       this.cliOthersState = false;
       this.cliOthers = "";
+      this.clearSelected(this.target_type);
       this.boothClassType = 0;
     },
     initObject: function(obj) {
