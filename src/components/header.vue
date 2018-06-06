@@ -55,17 +55,17 @@
             <div class="logo_right">
                 <div class="title">{{$t("header.title")}}</div>
                 <ul class="logo_list">
-                <li class="item left">
+                <li class="item">
                     <a :href="signChinaUrl" target="_blank">
                     <img src="../assets/index_10.png" alt="">
                     </a>
                 </li>
-                <li class="item center">
+                <li class="item">
                     <a :href="ledChinaUrl" target="_blank">
                     <img src="../assets/index_13.png" alt="">
                     </a>
                 </li>
-                <li class="item right">
+                <li class="item">
                     <a :href="digitalUrl" target="_blank">
                     <img src="../assets/index_14.png" alt="">
                     </a>            

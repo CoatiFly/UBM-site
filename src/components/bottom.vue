@@ -19,7 +19,7 @@
           <img src="../assets/index_46.png" alt="">
         </li>
         <li class="item red_right">
-          <span class="bth red_bg" v-on:click="goPage('register')">{{$t("header.register")}}</span>
+          <span class="bth red_bg_aa" v-on:click="goPage('register')">{{$t("header.register")}}</span>
         </li>        
       </ul>
       <ul class="link_list">
