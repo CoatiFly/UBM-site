@@ -22,9 +22,9 @@
           <p class="texts">{{$t("exhibit.button")}}</p>
         </div>
       </div>
-      <!-- visit 列表 -->
+      <!-- Exhibitor 列表 -->
       <ul class="visit_list">
-        <li class="item" v-for="item in expoList">
+        <li class="item" v-for="item in expoList" :key="item.id">
           <div class="logo_box" v-bind:style="{backgroundImage: 'url(' + item.exhibitor_picture_url + ')'}"></div>
           <div class="fonts_box">
             <p class="title line2">{{language == "en" ? item.company_name_english : item.company_name_chinese}}</p>

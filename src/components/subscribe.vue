@@ -11,7 +11,7 @@
           <div class="pill_box">
             <p class="input_box pull_icon" v-on:click="SwitchLayou('sexCheckStatus')">{{rssForm.sex}}</p>
             <div class="pull_down" v-if="sexCheckStatus" v-on:mouseleave="SwitchLayou('sexCheckStatus')">
-              <ul class="box" v-for="(item,index) in SexName">
+              <ul class="box" v-for="(item,index) in SexName" :key="item.cname">
                 <li class="sex" v-on:click="selectSexName(index)">{{language == "en" ? item.ename : item.cname}}</li>
               </ul>
             </div>            
@@ -98,10 +98,12 @@ export default {
     },
     checkOrderConter: function(){
       // 检查提交表单是否为空
+      let regExp_mail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;      
       let params = {
             title: "",
             confirmButtonText: this.language == "en" ? "Confirm" : "确认",
           };
+
       if(!this.rssForm.last.replace(/\s+/g, "")){
           params.message = this.language == "en" ? "Last names cannot be empty." : "姓氏不能为空!";
           MessageBox(params);
@@ -110,6 +112,9 @@ export default {
           MessageBox(params);
       }else if(!this.rssForm.email.replace(/\s+/g, "")){
           params.message = this.language == "en" ? "Email cannot not by empty." : "电子邮箱不能为空!"
+          MessageBox(params);
+      }else if(!regExp_mail.test(this.rssForm.email)){
+          params.message = this.language == "en" ? "Email format error." : "电子邮箱格式错误!"
           MessageBox(params);
       }else{
         this.submitSubscribe();
@@ -130,9 +135,19 @@ export default {
           that.rssLayouStatus = false;
           let message = this.language == "en" ? "Your reservation has been successfully submitted." : "您的订阅已成功提交！"
           MessageBox('', message);
+          this.initObject(this.rssForm);
+          this.selectSexName(0);
           console.log("订阅表单提交成功");
         }
       });      
+    },
+    initObject: function(obj) {
+      // 初始化对象
+      for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          obj[key] = "";
+        }
+      }
     }
   }
 };

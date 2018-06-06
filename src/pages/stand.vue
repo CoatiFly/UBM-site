@@ -212,12 +212,12 @@ export default {
     },
     checkOrderConter: function(){
       // 检查提交表单是否为空
+      let regExp_phone = /^[1][3,4,5,7,8,9][0-9]{9}$/;
+      let regExp_mail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;     
       let params = {
             title: "",
             confirmButtonText: this.language == "en" ? "Confirm" : "确认",
           };
-      let regExp_phone = /^[1][3,4,5,7,8,9][0-9]{9}$/;
-      let regExp_mail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
       if(!this.stand.name.replace(/\s+/g, "")){
           params.message = this.language == "en" ? "The company name cannot be empty." : "公司名称不能为空!";
