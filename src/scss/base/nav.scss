@@ -20,7 +20,6 @@
         .list {
             display: block;
             padding: 0 10px;
-            font-weight: 600;
             position: relative;
             float: left;
             cursor: pointer;
@@ -30,6 +29,9 @@
             .pull_down {
                 padding-right: 14px;
                 position: relative;
+            }
+            .strong {
+                font-weight: 600;
             }
             .pull_down:after {
                 content: '';

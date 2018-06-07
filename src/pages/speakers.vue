@@ -35,7 +35,7 @@
       <div class="speaker_qrcode fixed_pos">
         <div class="close" v-on:click="SwitchLayou"></div>
         <div class="title">{{language == "en" ? popupData.english_name : popupData.chinese_name}}</div>
-        <div class="text">{{language == "en" ? popupData.introduction_english : popupData.introduction_chinese}}</div>
+        <div class="text" v-html="language == 'en' ? popupData.introduction_english : popupData.introduction_chinese"></div>
       </div>
     </div>
   </div>
