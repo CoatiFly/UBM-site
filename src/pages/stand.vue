@@ -46,7 +46,7 @@
           <ul class="check_list">
             <li class="item" v-for="(item,index) in product_type" :key="item.value">
               <span :class="[item.isSelected ? 'selected' : 'unselected']"  v-on:click="switchProduct(item,index)"></span>
-              <span class="text">{{language == "en" ? item.ename : item.name}}</span>
+              <span class="text">{{language == "en" ? item.ename.replace("amp;",'') : item.name}}</span>
             </li> 
             <li class="item" v-show="proOthersState">
               <input type="text" v-model="proOthers">
@@ -314,27 +314,33 @@ export default {
       }
 
       if (language == "en") {
-        source.forEach(item => {
-          if (item.isSelected) {
-            str += item.ename + ",";
+        for (const key in source) {
+          if (source.hasOwnProperty(key)) {
+            if(source[key].isSelected){
+              str += source[key].ename + ",";
+            }
           }
-        });
+        }        
       } else {
-        source.forEach(item => {
-          if (item.isSelected) {
-            str += item.name + ",";
+        for (const item in source) {
+          if (source.hasOwnProperty(key)) {
+            if(source[key].isSelected){
+              str += source[key].name + ",";
+            }
           }
-        });
+        }  
       }
-
       return str.substring(0,str.length - 1) + ohter;
     },
     clearSelected:function(source){
       // 清理选中表单
-        let data = source.forEach(item => {
-          item.isSelected = false;
-        }); 
-        return data;     
+        let obj = source;
+        for (const key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            obj[key].isSelected = false;
+          }
+        }
+        return obj;     
     },
     resetOrder: function() {
       // 重置表
