@@ -28,10 +28,12 @@
           <li class="item mobile_full">
             <ul class="new_list">
               <li class="list" v-for="item in newsList" :key="item.id">
-                <div class="img" v-bind:style="{backgroundImage: 'url(' + item.picture + ')'}"></div>
-                <div class="text">
-                  <p class="title">{{language == "en" ? item.caption_english : item.caption}}</p>
-                  <p class="fonts">{{language == "en" ? item.description_english : item.description}}</p>
+                <div class="news_wall" v-on:click="goDetailsPage(item.id)">
+                  <div class="img" v-bind:style="{backgroundImage: 'url(' + item.picture + ')'}"></div>
+                  <div class="text">
+                    <p class="title">{{language == "en" ? item.caption_english : item.caption}}</p>
+                    <p class="fonts">{{language == "en" ? item.description_english : item.description}}</p>
+                  </div>
                 </div>
               </li>           
             </ul>
@@ -103,6 +105,10 @@ export default {
     goPage: function(name) {
       // 跳转页面
       tokyo.go(name);
+    },
+    goDetailsPage: function(id){
+      // 跳转新闻详情
+      tokyo.go('news/'+ id);
     },
     openWechatLayou: function() {
       // 显示微信二维码弹层

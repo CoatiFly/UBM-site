@@ -21,91 +21,97 @@ import Sponsor from '../pages/sponsor' // 成为赞助商
 Vue.use(Router)
 
 let router = new Router({
-  routes: [{
-      path: '/',
-      redirect: '/index' // 默认路由重定向
-    },
-    {
-      path: '/index',
-      name: 'Index',
-      component: Index
-    },
-    {
-      path: '/contact',
-      name: 'Contact',
-      component: Contact
-    },
-    {
-      path: '/press',
-      name: 'Press',
-      component: Press
-    },
-    {
-      path: '/products',
-      name: 'Products',
-      component: Products
-    },
-    {
-      path: '/exhibitiors',
-      name: 'Exhibitiors',
-      component: Exhibitiors
-    },
-    {
-      path: '/speakers',
-      name: 'Speakers',
-      component: Speakers
-    },
-    {
-      path: '/sessions',
-      name: 'Sessions',
-      component: Sessions
-    },
-    {
-      path: '/travel',
-      name: 'Travel',
-      component: Travel
-    },
-    {
-      path: '/supporters',
-      name: 'Supporters',
-      component: Supporters
-    },
-    {
-      path: '/stand',
-      name: 'Stand',
-      component: Stand
-    },
-    {
-      path: '/awards',
-      name: 'Awards',
-      component: Awards
-    },
-    {
-      path: '/register',
-      name: 'Register',
-      component: Register
-    },
-    {
-      path: '/news/:newsId',
-      name: 'News',
-      component: News
-    },
-    {
-      path: '/gallery',
-      name: 'Gallery',
-      component: Gallery
-    },
-    {
-      path: '/plan',
-      name: 'Plan',
-      component: Plan
-    },
-    {
-      path: '/sponsor',
-      name: 'Sponsor',
-      component: Sponsor
+    routes: [{
+            path: '/',
+            redirect: '/index' // 默认路由重定向
+        },
+        {
+            path: '/index',
+            name: 'Index',
+            component: Index
+        },
+        {
+            path: '/contact',
+            name: 'Contact',
+            component: Contact
+        },
+        {
+            path: '/press',
+            name: 'Press',
+            component: Press
+        },
+        {
+            path: '/products',
+            name: 'Products',
+            component: Products
+        },
+        {
+            path: '/exhibitiors',
+            name: 'Exhibitiors',
+            component: Exhibitiors
+        },
+        {
+            path: '/speakers',
+            name: 'Speakers',
+            component: Speakers
+        },
+        {
+            path: '/sessions',
+            name: 'Sessions',
+            component: Sessions
+        },
+        {
+            path: '/travel',
+            name: 'Travel',
+            component: Travel
+        },
+        {
+            path: '/supporters',
+            name: 'Supporters',
+            component: Supporters
+        },
+        {
+            path: '/stand',
+            name: 'Stand',
+            component: Stand
+        },
+        {
+            path: '/awards',
+            name: 'Awards',
+            component: Awards
+        },
+        {
+            path: '/register',
+            name: 'Register',
+            component: Register
+        },
+        {
+            path: '/news/:newsId',
+            name: 'News',
+            component: News
+        },
+        {
+            path: '/gallery',
+            name: 'Gallery',
+            component: Gallery
+        },
+        {
+            path: '/plan',
+            name: 'Plan',
+            component: Plan
+        },
+        {
+            path: '/sponsor',
+            name: 'Sponsor',
+            component: Sponsor
+        }
+    ],
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        }
+        return { x: 0, y: 0 }
     }
-  ]
 })
 
 

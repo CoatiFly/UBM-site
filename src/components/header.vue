@@ -23,7 +23,7 @@
                 <div class="interesr" v-on:click="goPage('register')">{{$t("header.register")}}</div>
                 <div class="stand" v-on:click="goPage('stand')">{{$t("header.stand")}}</div>  
                 <div class="language" :class="{cur: language == 'en'}" v-on:click="switchLanguage('en')">{{$t("header.en")}}</div>
-                <div class="language" :class="{cur: language == 'zh'}" v-on:click="switchLanguage('zh')">{{$t("header.zh")}}</div>
+                <div class="language" :class="{cur: language == 'zh'}" v-on:click="switchLanguage('zh')">{{$t("header.zh")}}</div>        
                 <div class="logo_list">
                     <ul class="logo_box">
                         <li class="list">
@@ -181,7 +181,7 @@ export default {
       ExhibitionData: {},
       navPopupState: false,
       secondState: "",
-      language: "en",
+      language: "",
       isPC: ""
     };
   },
