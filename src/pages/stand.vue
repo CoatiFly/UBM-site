@@ -4,9 +4,9 @@
   <div :class="isPC ? 'pc_box' : 'mobile_box'">
     <div class="page_content stand">
       <div class="text_box">
-        <p class="title">{{$t("stand.title")}}</p>
-        <p class="fonts">{{$t("stand.second")}}</p>
-        <p class="fonts mt20">{{$t("stand.three")}}<span class="red"> * </span>{{$t("stand.four")}}</p>
+        <p class="title">{{language == "en" ? standData.caption_english : standData.caption}}</p>
+        <p class="fonts">{{language == "en" ? standData.description_english : standData.description}}</p>
+        <p class="fonts mt20" v-html="language == 'en' ? standData.content_english : standData.content"></p>        
       </div>
       <div class="center_box">
         <!-- 基础信息 -->
@@ -110,6 +110,7 @@ import getModel from "../models/model";
 import tokyo from "../common/util";
 let submitOrderFormModel = getModel("submitOrderFormModel");
 let getEnumListModel = getModel("getEnumListModel");
+let getNewsByIdModel = getModel("getNewsByIdModel");
 
 export default {
   name: "Stand",
@@ -130,6 +131,7 @@ export default {
         width: ""
       },
       proOthersState: false,
+      standData: '',
       proOthers: "",
       cliOthersState: false,
       cliOthers: "",
@@ -163,6 +165,7 @@ export default {
     init: function() {
       this.getProductConfig();
       this.getTargetConfig();
+      this.getPageContent();
     },
     getProductConfig: function() {
       // 获取配置数据
@@ -187,6 +190,18 @@ export default {
           console.log("目标客户：", info.data);
         }
       });
+    },
+    getPageContent: function(){
+      // 获取页面内容
+      let params = {
+        id: 14,
+      }
+      getNewsByIdModel.$post(params).then((info) => {
+        if (info.status == 1) {
+          this.standData = info.data;
+          console.log("关于我们",info.data);
+        }
+      });      
     },
     switchProduct: function(item, index) {
       // 产品切换选中状态

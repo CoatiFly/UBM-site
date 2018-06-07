@@ -20,7 +20,7 @@
       <!-- 广告列表 -->
       <div class="press_right" v-if="isPC">
         <ul class="adver_list">
-          <li class="item" v-for="item in SliderList">
+          <li class="item" v-for="item in SliderList" :key="item.id">
             <a class="blank_box" :href="item.linker" target="_blank">
               <div class="logo_box"><img :src="item.picture" alt="广告图片"></div>
               <p class="title line2">{{item.caption}}</p>
@@ -32,7 +32,7 @@
       <div class="press_right" v-else>
         <div class="over_x">
           <ul class="adver_list" :style="{width: SliderList.length * 2.24 + 0.2 + 'rem'}">
-            <li class="item" v-for="item in SliderList">
+            <li class="item" v-for="item in SliderList" :key="item.id">
               <a class="blank_box" :href="item.linker" target="_blank">
                 <div class="logo_box"><img :src="item.picture" alt="广告图片"></div>
                 <p class="title line2">{{item.caption}}</p>

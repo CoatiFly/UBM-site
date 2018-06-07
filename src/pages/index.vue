@@ -5,13 +5,13 @@
     <!-- 内容 -->
     <div class="page_content">
       <div class="text_box">
-        <p class="title">{{$t("index.title")}}</p>
-        <p class="fonts">{{$t("index.second")}}</p>
-        <p class="fonts mt20">{{$t("index.three")}}</p>
+        <p class="title">{{language == "en" ? indexData.caption_english : indexData.caption}}</p>
+        <p class="fonts">{{language == "en" ? indexData.description_english : indexData.description}}</p>
+        <p class="fonts mt20" v-html="language == 'en' ? indexData.content_english : indexData.content"></p>
       </div>
       <div class="list_block">
         <ul class="shell">
-          <li class="item title_list visit center" v-if="!isPC && language == 'en'" v-on:click="goPage('travel')"><p>WHY<br/>VISIT</p></li>
+          <li class="item title_list visit center" v-if="!isPC && language == 'en'" v-on:click="goPage('travel')"><p>WHY<br/>>VISIT</p></li>
           <li class="item title_list visit center" v-else v-on:click="goPage('travel')"><p>{{$t("index.visit")}}</p></li>
           <li class="item title_list exhibit center" v-on:click="goPage('travel')"><p>{{$t("index.exhibit")}}</p></li>
           <li class="item title_list fsa center" v-on:click="goPage('sessions')"><p>{{$t("index.fsa")}}</p></li>
@@ -63,6 +63,7 @@ import weChat from "../components/wechat";
 import tokyo from "../common/util";
 import getModel from "../models/model";
 let getNewsListModel = getModel("getNewsListModel");
+let getNewsByIdModel = getModel("getNewsByIdModel");
 
 export default {
   name: "Index",
@@ -74,7 +75,8 @@ export default {
       ledChinaUrl: "http://www.ledchina-sh.com/en-us/",
       language: '',
       isPC: '',
-      newsList: []
+      newsList: [],
+      indexData: ''
     };
   },
   components: {
@@ -95,6 +97,7 @@ export default {
     this.isPC = this.$store.state.isPC;
     console.log(this.language,this.isPC);
     this.getNewsList();
+    this.getPageContent();
   },
   methods: {
     goPage: function(name) {
@@ -118,6 +121,18 @@ export default {
           console.log("新闻列表",info.data.data);
         }
       });
+    },
+    getPageContent: function(){
+      // 获取页面内容
+      let params = {
+        id: 16,
+      }
+      getNewsByIdModel.$post(params).then((info) => {
+        if (info.status == 1) {
+          this.indexData = info.data;
+          console.log("关于我们",info.data);
+        }
+      });      
     }
   }
 };

@@ -16,7 +16,7 @@
       </div>
       <!-- products 列表 -->
       <ul class="products_list">
-        <li class="item" v-for="item in productList">
+        <li class="item" v-for="item in productList" :key="item.id">
           <div class="logo_box" v-bind:style="{backgroundImage: 'url(' + item.picture + ')'}"></div>
           <div class="fonts_box">
             <p class="title line1">{{language == "en" ? item.title_english : item.title_chinese}}</p>

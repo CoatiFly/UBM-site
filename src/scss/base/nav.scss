@@ -45,7 +45,7 @@
         .second:hover {
             .second_list {
                 display: block;
-                width: 230px;
+                width: 235px;
                 padding-bottom: 15px;
                 background-color: #ebebeb;
                 overflow: hidden;
@@ -66,6 +66,9 @@
                     color: #000;
                     text-align: left;
                     cursor: pointer;
+                    .pdf_block {
+                        color: #000;
+                    }
                 }
                 .item:hover {
                     background-color: #fff;

@@ -6,9 +6,9 @@
     <div class="page_content press">
       <div class="press_left">
         <div class="text_box">
-          <p class="title">{{$t("press.title")}}</p>
-          <p class="fonts">{{$t("press.second")}}</p>
-          <p class="fonts fonts_left mt30">{{$t("press.three")}}</p>
+          <p class="title">{{language == "en" ? pressData.caption_english : pressData.caption}}</p>
+          <p class="fonts">{{language == "en" ? pressData.description_english : pressData.description}}</p>
+          <p class="fonts fonts_left mt30" v-html="language == 'en' ? pressData.content_english : pressData.content"></p>          
         </div>
         <!-- press 列表 -->
         <ul class="press_list">
@@ -60,6 +60,7 @@ import tokyo from "../common/util";
 import getModel from "../models/model";
 let getNewsListModel = getModel("getNewsListModel");
 let getSlideByGroupModel = getModel("getSlideByGroupModel");
+let getNewsByIdModel = getModel("getNewsByIdModel");
 
 export default {
   name: "Press",
@@ -68,7 +69,8 @@ export default {
       language: '',
       isPC: '',     
       SliderList: [],
-      newsList: []
+      newsList: [],
+      pressData: ''
     };
   },
   components: {
@@ -94,6 +96,7 @@ export default {
     init: function(){
       this.getNewsList();
       this.getSliderList();
+      this.getPageContent();
     },
     goDetailsPage: function(id){
       // 跳转新闻详情
@@ -122,6 +125,18 @@ export default {
         if (info.status == 1) {
           this.SliderList = info.data;
           console.log("广告列表",info.data);
+        }
+      });      
+    },
+    getPageContent: function(){
+      // 获取页面内容
+      let params = {
+        id: 15,
+      }
+      getNewsByIdModel.$post(params).then((info) => {
+        if (info.status == 1) {
+          this.pressData = info.data;
+          console.log("关于我们",info.data);
         }
       });      
     }

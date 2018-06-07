@@ -9,7 +9,10 @@
                         <span class="pull_down">{{language == "en" ? item.title_english : item.title}}</span>
                         <ul class="second_list">
                             <li class="red_bg"></li>
-                            <li class="item" v-for="option in item._child" :key="option.id" v-on:click="goPage(option.page)">{{language == "en" ? option.title_english.replace("amp;",'') : option.title}}</li>
+                            <li class="item" v-for="option in item._child" :key="option.id">
+                                <p class="click" v-if="option.link_type ==1" v-on:click="goPage(option.page)">{{language == "en" ? option.title_english.replace("amp;",'') : option.title}}</p>
+                                <a :href="option.page" class="pdf_block" target="_blank" v-else>{{language == "en" ? option.title_english.replace("amp;",'') : option.title}}</a>
+                            </li>
                         </ul>  
                     </div>
                     <div class="bth" v-else v-on:click="goPage(item.page)">{{language == "en" ? item.title_english : item.title}}</div>
@@ -44,8 +47,8 @@
                     <img src="../assets/index_03.png" alt="">
                 </div>
                 <div class="title">
-                    <p class="text">{{$t("header.site")}}</p>
-                    <p class="text">{{$t("header.date")}}</p>
+                    <p class="text">{{language == "en" ? ExhibitionData.short_title_en : ExhibitionData.short_title_cn}}</p>
+                    <p class="text">{{language == "en" ? ExhibitionData.short_date_en : ExhibitionData.short_date_cn}}</p>
                 </div>
                 <div class="time_count">
                     <p class="time">{{ExhibitionData.count}}</p>

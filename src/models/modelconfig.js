@@ -94,7 +94,11 @@ var modelsConfig = {
         // 订阅展会
         url: 'submitNewsSubscribe'
     },
-    
+    getNewsByIdModel: {
+        // 获取页面内容
+        url: 'getNewsById'
+    }
+
 
 }
 
