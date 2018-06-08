@@ -101,7 +101,7 @@ export default {
         name: this.componyName +"",
         pno: this.exhibitNumber +"",
         page: '1',
-        rownum: 10
+        rownum: 99999
       }
       getExhibitorListModel.$post(params).then((info) => {
         if (info.status == 1) {

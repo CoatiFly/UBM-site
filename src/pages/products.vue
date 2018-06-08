@@ -73,7 +73,7 @@ export default {
       let params = {
         name: this.searchName + "",
         page: '1',
-        rownum: 10
+        rownum: 99999
       }
       getProductListModel.$post(params).then((info) => {
         if (info.status == 1) {

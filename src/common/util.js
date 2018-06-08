@@ -5,8 +5,6 @@ class Tokyo {
     go(path) {
         // 跳转页面
         // router.push("/" + path);
-        // let baseUrl = window.location;
-        // console.log(herf);
         let href = this.getUrlPath(path);
         window.open(href, '_blank');
     }

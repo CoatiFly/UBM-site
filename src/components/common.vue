@@ -10,7 +10,7 @@
           <p class="tips">{{$t("common.day")}}</p>
         </li>
         <li class="item att">
-          <p class="num"><v-countup :end-value="32650"></v-countup></p>
+          <p class="num"><v-countup :end-value="45000"></v-countup></p>
           <p class="tips">{{$t("common.present")}}</p>
         </li>
         <li class="item exh">
@@ -22,7 +22,7 @@
           <p class="tips">{{$t("common.guest")}}</p>
         </li>
         <li class="item ses">
-          <p class="num"><v-countup :end-value="60"></v-countup></p>
+          <p class="num"><v-countup :end-value="48"></v-countup></p>
           <p class="tips">{{$t("common.show")}}</p>
         </li>
         <li class="item are" v-if="language == 'en'">
