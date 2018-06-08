@@ -4,7 +4,29 @@ import router from '../router/index'
 class Tokyo {
     go(path) {
         // 跳转页面
-        router.push("/" + path);
+        // router.push("/" + path);
+        // let baseUrl = window.location;
+        // console.log(herf);
+        let href = this.getUrlPath(path);
+        window.open(href, '_blank');
+    }
+    getUrlPath(path) {
+        // 获取URL地址
+        // 这部分代码就是处理标题兼容问题的。
+        // 由于在window.location.origin Chrome支持，IE11不支持。
+        let loc = window.location;
+        let portStr = ":" + loc.port;
+        let pathName = "/" + path;
+        return loc.protocol + "//" + loc.hostname + portStr + pathName;
+    }
+    getUrlType(type) {
+        // 获取URL地址
+        // 中文 '', 英文'en'
+        let loc = window.location;
+        let portStr = ":" + loc.port;
+        let fileName = "/" + type;
+        let pathName = loc.pathname.replace("/en", '');
+        return loc.protocol + "//" + loc.hostname + portStr + fileName + pathName;
     }
     toast(msg) {
         // 弹窗
@@ -17,10 +39,10 @@ class Tokyo {
         });
     }
     closeIndicator() {
-            Indicator.close();
-        }
-        //localStorage 操作
+        Indicator.close();
+    }
     setLocalItem(key, val) {
+        //localStorage 操作
         if (val instanceof Object) {
             val = JSON.stringify(val);
         } else {

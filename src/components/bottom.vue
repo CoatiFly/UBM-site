@@ -5,8 +5,8 @@
     <div class="bottom_center">
       <ul class="nav_list">
         <li class="item"><span v-on:click="goPage('index')">{{$t("footing.home")}}</span></li>
-        <li class="item long"><span v-on:click="goPage('travel')">{{$t("footing.exhibit")}}</span></li>
-        <li class="item"><span v-on:click="goPage('travel')">{{$t("footing.visit")}}</span></li>
+        <li class="item long"><span v-on:click="goPage('exhibit')">{{$t("footing.exhibit")}}</span></li>
+        <li class="item"><span v-on:click="goPage('visit')">{{$t("footing.visit")}}</span></li>
         <li class="item red"><span v-on:click="goPage('sessions')">{{$t("footing.fsa")}}</span></li>
         <li class="item long"><span v-on:click="goPage('travel')">{{$t("footing.travel")}}</span></li>
         <li class="item"><span v-on:click="goPage('contact')">{{$t("footing.contact")}}</span></li>

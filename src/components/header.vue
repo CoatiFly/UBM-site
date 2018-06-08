@@ -22,8 +22,14 @@
             <div class="right_nav">
                 <div class="interesr" v-on:click="goPage('register')">{{$t("header.register")}}</div>
                 <div class="stand" v-on:click="goPage('stand')">{{$t("header.stand")}}</div>  
-                <div class="language" :class="{cur: language == 'en'}" v-on:click="switchLanguage('en')">{{$t("header.en")}}</div>
-                <div class="language" :class="{cur: language == 'zh'}" v-on:click="switchLanguage('zh')">{{$t("header.zh")}}</div>        
+                <div class="language_box" v-if="language == 'en'">
+                    <div class="language cur" >{{$t("header.en")}}</div>
+                    <a :href="zhUrl" class="language" target="_blank">{{$t("header.zh")}}</a>
+                </div>
+                <div class="language_box" v-if="language == 'zh'">
+                    <a :href="enUrl" class="language" target="_blank">{{$t("header.en")}}</a>
+                    <div class="language cur">{{$t("header.zh")}}</div> 
+                </div>
                 <div class="logo_list">
                     <ul class="logo_box">
                         <li class="list">
@@ -86,8 +92,14 @@
         <div class="right_nav">
             <div class="stand" v-on:click="goPage('stand')">{{$t("header.stand")}}</div>  
             <div class="interesr" v-on:click="goPage('register')">{{$t("header.register")}}</div>
-            <div class="language" :class="{cur: language == 'zh'}" v-on:click="switchLanguage('zh')">{{$t("header.zh")}}</div>
-            <div class="language" :class="{cur: language == 'en'}" v-on:click="switchLanguage('en')">{{$t("header.en")}}</div>
+            <div class="language_box" v-if="language == 'en'">
+                <div class="language cur" >{{$t("header.en")}}</div>
+                <a :href="zhUrl" class="language" target="_blank">{{$t("header.zh")}}</a>
+            </div>
+            <div class="language_box" v-if="language == 'zh'">
+                <a :href="enUrl" class="language" target="_blank">{{$t("header.en")}}</a>
+                <div class="language cur">{{$t("header.zh")}}</div> 
+            </div>
         </div>           
     </div> 
     <!-- nav 弹层 -->
@@ -182,7 +194,9 @@ export default {
       navPopupState: false,
       secondState: "",
       language: "",
-      isPC: ""
+      isPC: "",
+      zhUrl: '',
+      enUrl: ''
     };
   },
   components: {
@@ -197,6 +211,11 @@ export default {
     init: function() {
       this.getNavList();
       this.getExhibition();
+    },
+    getTypeUrl: function(){
+        // 获取中英文站点url
+        this.zhUrl = tokyo.getUrlType();
+        this.enUrl = tokyo.getUrlType('en');
     },
     goPage: function(name) {
       // 跳转页面

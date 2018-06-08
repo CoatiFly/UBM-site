@@ -102,17 +102,22 @@
             cursor: pointer;
             float: right;
         }
-        .language {
-            width: 48px;
-            height: 48px;
-            background-color: #3e3a39;
-            margin-left: 10px;
-            cursor: pointer;
+        .language_box {
             float: right;
-        }
-        .language.cur {
-            color: #e50011;
-            background-color: #fff;
+            overflow: hidden;
+            .language {
+                width: 48px;
+                height: 48px;
+                color: #fff;
+                background-color: #3e3a39;
+                margin-left: 10px;
+                cursor: pointer;
+                float: right;
+            }
+            .language.cur {
+                color: #e50011;
+                background-color: #fff;
+            }
         }
         .logo_list {
             width: 80px;
@@ -320,18 +325,23 @@
                 margin-left: .2rem;
                 float: left;
             }
-            .language {
-                width: 0.6rem;
-                height: 0.6rem;
-                line-height: 0.6rem;
-                font-size: .18rem;
-                background-color: #3e3a39;
-                margin-left: .2rem;
+            .language_box {
+                overflow: hidden;
                 float: left;
-            }
-            .language.cur {
-                color: #e50011;
-                background-color: #fff;
+                .language {
+                    width: 0.6rem;
+                    height: 0.6rem;
+                    line-height: 0.6rem;
+                    font-size: .18rem;
+                    color: #fff;
+                    background-color: #3e3a39;
+                    margin-left: .2rem;
+                    float: left;
+                }
+                .language.cur {
+                    color: #e50011;
+                    background-color: #fff;
+                }
             }
         }
     }

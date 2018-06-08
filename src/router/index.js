@@ -17,10 +17,13 @@ import News from '../pages/news' // 新闻详情
 import Gallery from '../pages/gallery' // 相册
 import Plan from '../pages/plan' // 展位图
 import Sponsor from '../pages/sponsor' // 成为赞助商
+import Visit from '../pages/visit' // 为何参观
+import Exhibit from '../pages/exhibit' // 为何参展
 
 Vue.use(Router)
 
 let router = new Router({
+    mode: 'history', // "hash" | "history" 
     routes: [{
             path: '/',
             redirect: '/index' // 默认路由重定向
@@ -104,6 +107,16 @@ let router = new Router({
             path: '/sponsor',
             name: 'Sponsor',
             component: Sponsor
+        },
+        {
+            path: '/visit',
+            name: 'Visit',
+            component: Visit
+        },
+        {
+            path: '/exhibit',
+            name: 'Exhibit',
+            component: Exhibit
         }
     ],
     scrollBehavior(to, from, savedPosition) {
