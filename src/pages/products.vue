@@ -77,8 +77,8 @@ export default {
       }
       getProductListModel.$post(params).then((info) => {
         if (info.status == 1) {
-          this.productList = info.data.data;
-          console.log("展品列表",info.data.data);
+          this.productList = info.data;
+          console.log("展品列表",info.data);
         }
       });      
     }

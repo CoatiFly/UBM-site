@@ -12,19 +12,18 @@ class Tokyo {
         // 获取URL地址
         // 这部分代码就是处理标题兼容问题的。
         // 由于在window.location.origin Chrome支持，IE11不支持。
+        let href = window.location.href;
         let loc = window.location;
         let portStr = ":" + loc.port;
         let pathName = "/" + path;
         return loc.protocol + "//" + loc.hostname + portStr + pathName;
     }
-    getUrlType(type) {
+    getUrlType() {
         // 获取URL地址
         // 中文 '', 英文'en'
         let loc = window.location;
         let portStr = ":" + loc.port;
-        let fileName = "/" + type;
-        let pathName = loc.pathname.replace("/en", '');
-        return loc.protocol + "//" + loc.hostname + portStr + fileName + pathName;
+        return loc.protocol + "//" + loc.hostname + portStr;
     }
     toast(msg) {
         // 弹窗

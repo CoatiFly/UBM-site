@@ -23,7 +23,7 @@ import Exhibit from '../pages/exhibit' // 为何参展
 Vue.use(Router)
 
 let router = new Router({
-    mode: 'history', // "hash" | "history" 
+    mode: 'hash', // "hash" | "history" 
     routes: [{
             path: '/',
             redirect: '/index' // 默认路由重定向
