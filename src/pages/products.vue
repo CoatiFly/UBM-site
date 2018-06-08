@@ -21,7 +21,7 @@
           <div class="logo_box" v-bind:style="{backgroundImage: 'url(' + item.picture + ')'}"></div>
           <div class="fonts_box">
             <p class="title line1">{{language == "en" ? item.title_english : item.title_chinese}}</p>
-            <p class="details line3">{{language == "en" ? item.company_name_english : item.company_name_chinese}} </p>
+            <p class="details line2">{{language == "en" ? item.company_name_english : item.company_name_chinese}} </p>
             <p class="number">{{item.position_no}}</p>
           </div>          
         </li>
