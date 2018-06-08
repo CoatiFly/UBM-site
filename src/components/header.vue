@@ -216,7 +216,7 @@ export default {
     getTypeUrl: function(){
         // 获取中英文站点url
         this.zhUrl = tokyo.getUrlType();
-        this.enUrl = tokyo.getUrlType() + "/en";
+        this.enUrl = tokyo.getUrlType() + "/en/";
     },
     goPage: function(name) {
       // 跳转页面
