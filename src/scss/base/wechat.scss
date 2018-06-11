@@ -1,10 +1,10 @@
 // wechat qrcode
-.wechat_qrcode{
+.wechat_qrcode {
     width: 420px;
     height: 420px;
     padding: 30px;
     background-color: #fff;
-    .close{
+    .close {
         width: 32px;
         height: 32px;
         background: url("../assets/close.png") center no-repeat;
@@ -14,28 +14,32 @@
         z-index: 2;
         cursor: pointer;
     }
-    .qrcode{
+    .qrcode {
         width: 100%;
-        height: 300px;
-        padding-top: 30px;
+        height: 258px;
+        padding-top: 60px;
         text-align: center;
         overflow: hidden;
+        img {
+            width: 258px;
+        }
     }
-    .tips{
+    .tips {
         width: 100%;
-        height: 60px;
-        line-height: 60px;
+        height: 40px;
+        line-height: 40px;
         font-size: 24px;
         color: #000;
         text-align: center;
     }
 }
-.mobile_wechat_qrcode{
+
+.mobile_wechat_qrcode {
     width: 4.5rem;
     height: 4.5rem;
     padding: .3rem;
     background-color: #fff;
-    .close{
+    .close {
         width: .32rem;
         height: .32rem;
         background: url("../assets/close.png") center no-repeat;
@@ -45,24 +49,24 @@
         right: .3rem;
         z-index: 2;
     }
-    .qrcode{
+    .qrcode {
         width: 3rem;
         height: 3rem;
-        padding-top: .82rem;
+        padding-top: .6rem;
         text-align: center;
         overflow: hidden;
         margin: 0 auto;
-        img{
+        img {
             width: 100%;
             float: left;
         }
     }
-    .tips{
+    .tips {
         width: 100%;
-        height: .6rem;
-        line-height: .6rem;
+        height: .4rem;
+        line-height: .4rem;
         font-size: .24rem;
         color: #000;
         text-align: center;
-    }   
+    }
 }

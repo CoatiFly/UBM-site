@@ -31,11 +31,12 @@ module.exports = {
         guest: 'SPEAKERS',
         show: 'SESSIONS',
         number: 'EXHIBITION AREA',
-        botTitle: '...THE "OSCAR”EVENT IN THE SIGN AND ADVERTISING INDUSTRY.'
+        botTitle: '...THE \"OSCAR\" EVENT IN THE SIGN AND ADVERTISING INDUSTRY.'
     },
     wechat: {
         // 微信弹层
-        text: 'FOLLOW US'
+        text: 'FOLLOW US',
+        wechatTips: '',
     },
     subscribe: {
         // 订阅弹层

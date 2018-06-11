@@ -12,14 +12,14 @@ module.exports = {
     },
     common: {
         // 公共部分
-        topTitle: '五个展涵盖了英国食品供应链预期…',
+        topTitle: '展会覆盖广告标识行业全产业链...',
         day: '天',
         present: '专业观众',
         exhibitor: '优质展商',
         guest: '演讲嘉宾',
         show: '主题演讲',
         number: '展出面积',
-        botTitle: '... 无与伦比的领导人在英国食品工业活动日程'
+        botTitle: '...全球广告标识行业 \"奥斯卡\" 年度盛会'
     },
     footing: {
         // 页尾
@@ -34,7 +34,8 @@ module.exports = {
     },
     wechat: {
         // 微信弹层
-        text: '扫一扫 关注我'
+        text: '扫一扫',
+        wechatTips: "关注官方微信公众号"
     },
     subscribe: {
         // 订阅弹层
