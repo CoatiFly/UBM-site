@@ -12,7 +12,8 @@ class Tokyo {
         // 获取URL地址
         // 这部分代码就是处理标题兼容问题的。
         // 由于在window.location.origin Chrome支持，IE11不支持。
-        let href = window.location.href.replace(/[a-z]{1,}$/, path);
+        let str = "#/" + path;
+        let href = window.location.href.replace(/#[\S]+/, str);
         return href;
     }
     getUrlType() {

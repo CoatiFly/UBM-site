@@ -25,13 +25,13 @@ if (utils.isPC()) {
 
 Vue.use(VueI18n);
 const i18n = new VueI18n({
-    locale: 'en',
+    locale: 'zh',
     messages: {
         'en': en,
         'zh': zh
     }
 });
-store.commit("setLanguage", 'en');
+store.commit("setLanguage", 'zh');
 
 new Vue({
     el: '#app',
