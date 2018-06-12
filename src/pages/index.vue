@@ -11,9 +11,9 @@
       </div>
       <div class="list_block">
         <ul class="shell">
-          <li class="item title_list visit center" v-if="!isPC && language == 'en'" v-on:click="goPage('travel')"><p>WHY<br/>>VISIT</p></li>
-          <li class="item title_list visit center" v-else v-on:click="goPage('travel')"><p>{{$t("index.visit")}}</p></li>
-          <li class="item title_list exhibit center" v-on:click="goPage('travel')"><p>{{$t("index.exhibit")}}</p></li>
+          <li class="item title_list visit center" v-if="!isPC && language == 'en'" v-on:click="goPage('visit')"><p>WHY<br/>>VISIT</p></li>
+          <li class="item title_list visit center" v-else v-on:click="goPage('visit')"><p>{{$t("index.visit")}}</p></li>
+          <li class="item title_list exhibit center" v-on:click="goPage('exhibit')"><p>{{$t("index.exhibit")}}</p></li>
           <li class="item title_list fsa center" v-on:click="goPage('sessions')"><p>{{$t("index.fsa")}}</p></li>
           <li class="item red_bg mobile_full">
             <div class="open_time">

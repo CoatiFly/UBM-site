@@ -7,7 +7,7 @@
                 <li class="list" v-for="item in navList" :key="item.id" :class="{second: !!item._child}">
                     <div class="bth" v-if="item._child">
                         <span class="pull_down strong" v-if="item.title_english == 'FSA'">{{language == "en" ? item.title_english : item.title}}</span>
-                        <span class="pull_down" v-else v-on:click="goPage(item.page)">{{language == "en" ? item.title_english : item.title}}</span>
+                        <span class="pull_down" v-else>{{language == "en" ? item.title_english : item.title}}</span>
                         <ul class="second_list">
                             <li class="red_bg"></li>
                             <li class="item" v-for="option in item._child" :key="option.id">
@@ -215,8 +215,8 @@ export default {
     },
     getTypeUrl: function(){
         // 获取中英文站点url
-        this.zhUrl = tokyo.getUrlType();
-        this.enUrl = tokyo.getUrlType() + "/en/";
+        this.zhUrl = tokyo.getUrlType() + "/ubm/index.html";
+        this.enUrl = tokyo.getUrlType() + "/ubm/en/index.html";
     },
     goPage: function(name) {
       // 跳转页面

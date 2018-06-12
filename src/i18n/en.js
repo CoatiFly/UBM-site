@@ -14,10 +14,10 @@ module.exports = {
     footing: {
         // 页尾
         home: 'HOME',
-        exhibit: 'EXHIBIT',
-        visit: 'VISIT',
+        exhibit: 'WHY EXHIBIT',
+        visit: 'WHY VISIT',
         fsa: 'FSA',
-        travel: 'TRAVEL',
+        travel: 'TRAVEL SERVICE',
         contact: 'CONTACT US',
         copyright: '隐私政策 | Copyright 2011 by UBM Trust Co Ltd (All Rights Reserved) ',
         records: '粤ICP备16120933号-2 粤公网安备 44010602002114号'
@@ -31,7 +31,8 @@ module.exports = {
         guest: 'SPEAKERS',
         show: 'SESSIONS',
         number: 'EXHIBITION AREA',
-        botTitle: '...THE \"OSCAR\" EVENT IN THE SIGN AND ADVERTISING INDUSTRY.'
+        botTitle: '... \"OSCAR\" EVENT OF GLOBAL ADVERTISING & SIGN INDUSTRY'
+
     },
     wechat: {
         // 微信弹层
@@ -55,11 +56,11 @@ module.exports = {
         visit: 'WHY VISIT',
         exhibit: 'WHY EXHIBIT',
         fsa: 'FSA',
-        times: 'OPENING TIMES',
+        times: '2018 OPENING TIME',
         connect: 'CONNECT WITH US',
-        times1: 'Monday 30th March 2020: 10am – 5pm',
-        times2: 'Tuesday 31st March 2020: 10am – 5pm',
-        times3: 'Wednesday 1st April 2020: 10am – 4pm'
+        times1: 'Wednesday, 19 SEP. 10 a.m. - 5 p.m.',
+        times2: 'Thursday, 20 SEP. 10 a.m. - 5 p.m.',
+        times3: 'Friday, 21 SEP. 10 a.m. - 4 p.m.'
     },
     press: {
         // 新闻列表
