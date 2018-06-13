@@ -215,8 +215,9 @@ export default {
     },
     getTypeUrl: function(){
         // 获取中英文站点url
-        this.zhUrl = tokyo.getUrlType() + "/ubm/index.html";
-        this.enUrl = tokyo.getUrlType() + "/ubm/en/index.html";
+        let hash = tokyo.getUrlHash();
+        this.zhUrl = tokyo.getUrlType() + "/ubm/index.html" + hash;
+        this.enUrl = tokyo.getUrlType() + "/ubm/en/index.html" +hash;
     },
     goPage: function(name) {
       // 跳转页面

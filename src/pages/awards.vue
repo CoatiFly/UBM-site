@@ -11,27 +11,9 @@
         </div>
         <div class="center_box">
           <div class="fonts_list_pc" v-if="isPC" v-html="language == 'en' ? awardsData.content_english : awardsData.content">
-            <!-- <p class="fonts_left mt30">{{$t("awards.three")}}</p>
-            <p class="fonts mt40">{{$t("awards.add_one")}}</p>
-            <p class="fonts mt25">{{$t("awards.add_two")}}</p>
-            <p class="fonts mt25">{{$t("awards.add_thr")}}</p>
-            <p class="fonts mt25">{{$t("awards.add_four")}}</p>
-            <p class="fonts line_26 mt50">{{$t("awards.add_five")}}</p>
-            <p class="fonts line_26">{{$t("awards.add_six")}}</p>           -->
           </div>
           <div class="fonts_list_mobile" v-else v-html="language == 'en' ? awardsData.content_english : awardsData.content">
-            <!-- <p class="fonts">{{$t("awards.three")}}</p>
-            <p class="fonts margin">{{$t("awards.add_one")}}</p>
-            <p class="fonts mt30">{{$t("awards.add_two")}}</p>
-            <p class="fonts mt30">{{$t("awards.add_thr")}}</p>
-            <p class="fonts mt30">{{$t("awards.add_four")}}</p>
-            <p class="fonts mt30">{{$t("awards.add_five")}}</p>
-            <p class="fonts">{{$t("awards.add_six")}}</p>           -->
           </div>
-          <!-- <div class="map_box"></div>
-          <div class="texts">{{$t("awards.text_one")}}</div>
-          <div class="map_box"></div>
-          <div class="texts">{{$t("awards.text_two")}}</div> -->
         </div>    
       </div> 
       <!-- 广告列表 -->

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@/store/index.js';
 
 import Index from '../pages/index' // 首页
 import Contact from '../pages/contact' // 关于我们
@@ -31,17 +32,29 @@ let router = new Router({
         {
             path: '/index',
             name: 'Index',
-            component: Index
+            component: Index,
+            meta: {
+                zhTitle: '首页 -- 第十六届上海国际广告标识展 SIGN CHINA 2018 ',
+                enTitle: 'Index -- SIGN CHINA 2018 | September 19-21 '
+            }
         },
         {
             path: '/contact',
             name: 'Contact',
-            component: Contact
+            component: Contact,
+            meta: {
+                zhTitle: '关于我们 -- 第十六届上海国际广告标识展 SIGN CHINA 2018 ',
+                enTitle: 'Contact -- SIGN CHINA 2018 | September 19-21 '
+            }
         },
         {
             path: '/press',
             name: 'Press',
-            component: Press
+            component: Press,
+            meta: {
+                zhTitle: '新闻列表 -- 第十六届上海国际广告标识展 SIGN CHINA 2018 ',
+                enTitle: 'Press -- SIGN CHINA 2018 | September 19-21 '
+            }            
         },
         {
             path: '/products',
@@ -71,7 +84,11 @@ let router = new Router({
         {
             path: '/supporters',
             name: 'Supporters',
-            component: Supporters
+            component: Supporters,
+            meta: {
+                zhTitle: '支持机构 -- 第十六届上海国际广告标识展 SIGN CHINA 2018 ',
+                enTitle: 'Supporters -- SIGN CHINA 2018 | September 19-21 '
+            } 
         },
         {
             path: '/stand',
@@ -96,7 +113,11 @@ let router = new Router({
         {
             path: '/gallery',
             name: 'Gallery',
-            component: Gallery
+            component: Gallery,
+            meta: {
+                zhTitle: '精彩瞬间 -- 第十六届上海国际广告标识展 SIGN CHINA 2018 ',
+                enTitle: 'Gallery -- SIGN CHINA 2018 | September 19-21 '
+            } 
         },
         {
             path: '/plan',
@@ -126,6 +147,15 @@ let router = new Router({
         return { x: 0, y: 0 }
     }
 })
-
+router.beforeEach((to, from, next) => {
+    /* 路由发生变化修改页面title */
+    let language = store.state.language;
+    let title = '';
+    if (to.meta) {
+        language == 'en' ?  title = to.meta.enTitle : title = to.meta.zhTitle;
+        document.title = title;
+    }
+    next();
+})
 
 export default router

@@ -21,6 +21,10 @@ class Tokyo {
         let loc = window.location;
         return loc.protocol + "//" + loc.hostname;
     }
+    getUrlHash(){
+        // 获取URL地址 hash
+        return window.location.hash;       
+    }
     toast(msg) {
         // 弹窗
         Toast(msg)
