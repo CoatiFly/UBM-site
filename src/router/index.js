@@ -34,8 +34,8 @@ let router = new Router({
             name: 'Index',
             component: Index,
             meta: {
-                zhTitle: '首页 -- 第十六届上海国际广告标识展 SIGN CHINA 2018 ',
-                enTitle: 'Index -- SIGN CHINA 2018 | September 19-21 '
+                zhTitle: '首页',
+                enTitle: 'Index'
             }
         },
         {
@@ -43,8 +43,8 @@ let router = new Router({
             name: 'Contact',
             component: Contact,
             meta: {
-                zhTitle: '关于我们 -- 第十六届上海国际广告标识展 SIGN CHINA 2018 ',
-                enTitle: 'Contact -- SIGN CHINA 2018 | September 19-21 '
+                zhTitle: '联系我们',
+                enTitle: 'Contact'
             }
         },
         {
@@ -52,71 +52,107 @@ let router = new Router({
             name: 'Press',
             component: Press,
             meta: {
-                zhTitle: '新闻列表 -- 第十六届上海国际广告标识展 SIGN CHINA 2018 ',
-                enTitle: 'Press -- SIGN CHINA 2018 | September 19-21 '
+                zhTitle: '新闻列表',
+                enTitle: 'Press'
             }            
         },
         {
             path: '/products',
             name: 'Products',
-            component: Products
+            component: Products,
+            meta: {
+                zhTitle: '展品列表',
+                enTitle: 'Products'
+            }
         },
         {
             path: '/exhibitiors',
             name: 'Exhibitiors',
-            component: Exhibitiors
+            component: Exhibitiors,
+            meta: {
+                zhTitle: '展商列表',
+                enTitle: 'Exhibitiors'
+            }
         },
         {
             path: '/speakers',
             name: 'Speakers',
-            component: Speakers
+            component: Speakers,
+            meta: {
+                zhTitle: '演讲嘉宾',
+                enTitle: 'Speakers'
+            }
         },
         {
             path: '/sessions',
             name: 'Sessions',
-            component: Sessions
+            component: Sessions,
+            meta: {
+                zhTitle: '会议日程',
+                enTitle: 'Sessions'
+            }
         },
         {
             path: '/travel',
             name: 'Travel',
-            component: Travel
+            component: Travel,
+            meta: {
+                zhTitle: '商旅服务',
+                enTitle: 'Travel'
+            }
         },
         {
             path: '/supporters',
             name: 'Supporters',
             component: Supporters,
             meta: {
-                zhTitle: '支持机构 -- 第十六届上海国际广告标识展 SIGN CHINA 2018 ',
-                enTitle: 'Supporters -- SIGN CHINA 2018 | September 19-21 '
+                zhTitle: '支持机构',
+                enTitle: 'Supporters'
             } 
         },
         {
             path: '/stand',
             name: 'Stand',
-            component: Stand
+            component: Stand,
+            meta: {
+                zhTitle: '展位预定',
+                enTitle: 'Stand'
+            }     
         },
         {
             path: '/awards',
             name: 'Awards',
-            component: Awards
+            component: Awards,
+            meta: {
+                zhTitle: '荣誉',
+                enTitle: 'Awards'
+            }   
         },
         {
             path: '/register',
             name: 'Register',
-            component: Register
+            component: Register,
+            meta: {
+                zhTitle: '观众预登记',
+                enTitle: 'Register'
+            }
         },
         {
             path: '/news/:newsId',
             name: 'News',
-            component: News
+            component: News,
+            meta: {
+                zhTitle: '新闻详情',
+                enTitle: 'News'
+            }
         },
         {
             path: '/gallery',
             name: 'Gallery',
             component: Gallery,
             meta: {
-                zhTitle: '精彩瞬间 -- 第十六届上海国际广告标识展 SIGN CHINA 2018 ',
-                enTitle: 'Gallery -- SIGN CHINA 2018 | September 19-21 '
+                zhTitle: '精彩瞬间',
+                enTitle: 'Gallery'
             } 
         },
         {
@@ -132,12 +168,20 @@ let router = new Router({
         {
             path: '/visit',
             name: 'Visit',
-            component: Visit
+            component: Visit,
+            meta: {
+                zhTitle: '为何参观',
+                enTitle: 'Visit'
+            } 
         },
         {
             path: '/exhibit',
             name: 'Exhibit',
-            component: Exhibit
+            component: Exhibit,
+            meta: {
+                zhTitle: '为何参展',
+                enTitle: 'Exhibit'
+            } 
         }
     ],
     scrollBehavior(to, from, savedPosition) {
@@ -152,8 +196,9 @@ router.beforeEach((to, from, next) => {
     let language = store.state.language;
     let title = '';
     if (to.meta) {
-        language == 'en' ?  title = to.meta.enTitle : title = to.meta.zhTitle;
-        document.title = title;
+        language == 'en' ?  title = to.meta.enTitle + " | SIGN CHINA 2018 | September 19-21 | Shanghai, China"
+        : title = to.meta.zhTitle + " | 第十六届上海国际广告标识展 SIGN CHINA 2018";
+        document.title = title ;
     }
     next();
 })
