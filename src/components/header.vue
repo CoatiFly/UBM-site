@@ -24,10 +24,10 @@
                 <div class="stand" v-on:click="goPage('stand')">{{$t("header.stand")}}</div>  
                 <div class="language_box" v-if="language == 'en'">
                     <div class="language cur" >{{$t("header.en")}}</div>
-                    <a :href="zhUrl" class="language" target="_blank">{{$t("header.zh")}}</a>
+                    <div class="language" v-on:click="getTypeUrl('zh')">{{$t("header.zh")}}</div>
                 </div>
                 <div class="language_box" v-if="language == 'zh'">
-                    <a :href="enUrl" class="language" target="_blank">{{$t("header.en")}}</a>
+                    <div class="language" v-on:click="getTypeUrl('en')">{{$t("header.en")}}</div>
                     <div class="language cur">{{$t("header.zh")}}</div> 
                 </div>
                 <div class="logo_list">
@@ -94,10 +94,10 @@
             <div class="interesr" v-on:click="goPage('register')">{{$t("header.register")}}</div>
             <div class="language_box" v-if="language == 'en'">
                 <div class="language cur" >{{$t("header.en")}}</div>
-                <a :href="zhUrl" class="language" target="_blank">{{$t("header.zh")}}</a>
+                <div class="language" v-on:click="getTypeUrl('zh')">{{$t("header.zh")}}</div>
             </div>
             <div class="language_box" v-if="language == 'zh'">
-                <a :href="enUrl" class="language" target="_blank">{{$t("header.en")}}</a>
+                <div class="language" v-on:click="getTypeUrl('en')">{{$t("header.en")}}</div>
                 <div class="language cur">{{$t("header.zh")}}</div> 
             </div>
         </div>           
@@ -211,13 +211,18 @@ export default {
     init: function() {
       this.getNavList();
       this.getExhibition();
-      this.getTypeUrl();
     },
-    getTypeUrl: function(){
+    getTypeUrl: function(language){
         // 获取中英文站点url
-        let hash = tokyo.getUrlHash();
-        this.zhUrl = tokyo.getUrlType() + "/ubm/index.html" + hash;
-        this.enUrl = tokyo.getUrlType() + "/ubm/en/index.html" +hash;
+        let href = "",hash = tokyo.hash;
+        console.log("当前页面：",hash,language);
+        if (language == "en") {
+          href = tokyo.getUrlType() + "/ubm/en/index.html#/" + hash;
+          window.open(href, '_self');
+        }else{
+          href = tokyo.getUrlType() + "/ubm/index.html#/" + hash;
+          window.open(href, '_self');
+        };
     },
     goPage: function(name) {
       // 跳转页面

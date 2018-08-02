@@ -50,6 +50,9 @@
                 overflow: hidden;
                 cursor: pointer;
                 transition: background-size 2s ease;
+                .double_fonts{
+                    line-height: 42px;
+                }
             }
             .visit {
                 background-image: url(../assets/index_29.png);
@@ -218,7 +221,7 @@
             }
             .title_list {
                 line-height: 0.4rem;
-                font-size: .36rem;
+                font-size: .28rem;
                 color: #fff;
                 text-align: center;
                 overflow: hidden;

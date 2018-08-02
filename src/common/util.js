@@ -2,8 +2,12 @@ import Vue from 'vue'
 import { Toast, Indicator } from 'mint-ui'
 import router from '../router/index'
 class Tokyo {
+    constructor(addr) {
+        this.hash = "index";
+    }
     go(path) {
         // 跳转页面
+        this.hash = path;
         router.push("/" + path);
         // let href = this.getUrlPath(path);
         // window.open(href, '_blank');
