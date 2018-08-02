@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="logo_right">
-                <div class="title">{{$t("header.title")}}</div>
+                <div class="title weight">{{$t("header.title")}}</div>
                 <ul class="logo_list">
                 <li class="item">
                     <a :href="signChinaUrl" target="_blank">

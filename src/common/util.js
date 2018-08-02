@@ -4,9 +4,9 @@ import router from '../router/index'
 class Tokyo {
     go(path) {
         // 跳转页面
-        // router.push("/" + path);
-        let href = this.getUrlPath(path);
-        window.open(href, '_blank');
+        router.push("/" + path);
+        // let href = this.getUrlPath(path);
+        // window.open(href, '_blank');
     }
     getUrlPath(path) {
         // 获取URL地址

@@ -55,7 +55,7 @@ module.exports = {
         three: 'International buyers and industry professionals gather here annually to look for Original Equipment Manufacturers (OEM) or solution providers for outdoor advertising, high-end conferencing or interactive digital signage.',
         visit: 'WHY VISIT',
         exhibit: 'WHY EXHIBIT',
-        fsa: 'FSA',
+        fsa: 'FUTURE SIGN ACADEMY',
         times: '2018 OPENING TIME',
         connect: 'CONNECT WITH US',
         times1: 'Wednesday, 19 SEP. 10 a.m. - 5 p.m.',
@@ -158,7 +158,7 @@ module.exports = {
         // 注册
         title: "REGISTER INTEREST",
         texts: "Providing the number one route to the UK food and drink market. Join the UK’s most progressive food and drink professionals on 30th March- 1st April 2020 for five shows covering the complete supply chain. Food & Drink Expo will run alongside Foodex, The Ingredients Show, National Convenience Show and Farm Shop & Deli Show. The UK Food Shows attract buyers and decision makers from across the whole industry, who will converge to uncover the hottest trends, latest product launches and the industry’s vision for the future.",
-        button: "REGISTER"
+        button: "REGISTER NOW"
     },
     sessions: {
         // 会议日程

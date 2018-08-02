@@ -10,11 +10,11 @@
           <p class="tips">{{$t("common.day")}}</p>
         </li>
         <li class="item att">
-          <p class="num"><v-countup duration="20" :end-value="45000"></v-countup></p>
+          <p class="num"><v-countup delay="10" duration="4" :end-value="45000"></v-countup></p>
           <p class="tips">{{$t("common.present")}}</p>
         </li>
         <li class="item exh">
-          <p class="num"><v-countup duration="20" :end-value="1200"></v-countup></p>
+          <p class="num"><v-countup delay="10" duration="4" :end-value="1200"></v-countup></p>
           <p class="tips">{{$t("common.exhibitor")}}</p>
         </li>
         <li class="item spe">
@@ -26,18 +26,18 @@
           <p class="tips">{{$t("common.show")}}</p>
         </li>
         <li class="item are" v-if="language == 'en'">
-          <p class="num"><v-countup duration="20" :end-value="42000"></v-countup></p>
+          <p class="num"><v-countup delay="10" duration="4" :end-value="42000"></v-countup></p>
           <p class="tips">{{$t("common.number")}}</p>
         </li>
         <li class="item are" v-else>
-          <p class="num"><v-countup duration="20" :end-value="100000"></v-countup></p>
+          <p class="num"><v-countup delay="10" duration="4" :end-value="100000"></v-countup></p>
           <p class="tips">{{$t("common.number")}}</p>
         </li>
       </ul>
       <p class="title mar_other">{{$t("common.botTitle")}}</p>
     </div>
     <div class="with_logo_box" v-for="option in EnumList" :key="option.cate_id">
-      <p class="title">{{language == "en" ? option.cate_ename : option.cate_cname}}</p>
+      <p class="title blue">{{language == "en" ? option.cate_ename : option.cate_cname}}</p>
       <ul class="logo_list" v-if="option.data">
         <li class="item" v-for="item in option.data" :key="item.id">
           <a :href="item.url" target="_blank" class="bg_box" v-bind:style="{backgroundImage: 'url(' + item.logo + ')'}">

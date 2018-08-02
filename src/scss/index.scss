@@ -30,7 +30,7 @@
             overflow: hidden;
             .item {
                 width: 400px;
-                height: 400px;
+                height: 312px;
                 margin-left: 24px;
                 margin-bottom: 24px;
                 float: left;
@@ -42,7 +42,7 @@
                 margin-left: 0;
             }
             .title_list {
-                line-height: 400px;
+                line-height: 312px;
                 font-size: 36px;
                 text-align: center;
                 font-weight: 600;
@@ -75,7 +75,7 @@
             .open_time,
             .link_us {
                 width: 100%;
-                padding-top: 90px;
+                padding-top: 50px;
                 color: #fff;
                 text-align: center;
                 overflow: hidden;
@@ -97,7 +97,7 @@
                 overflow: hidden;
                 .list {
                     width: 100%;
-                    padding: 38px 0;
+                    padding: 28px 0 10px;
                     cursor: pointer;
                     overflow: hidden;
                     .news_wall{
@@ -205,7 +205,7 @@
             overflow: hidden;
             .item {
                 width: 2.2rem;
-                height: 2.2rem;
+                height: 1.72rem;
                 margin-left: .25rem;
                 margin-bottom: .25rem;
                 float: left;
@@ -244,12 +244,12 @@
             .mobile_full {
                 width: 100%;
                 margin-left: 0;
-                height: 7.1rem;
+                height: 5.5rem;
             }
             .open_time,
             .link_us {
                 width: 100%;
-                padding-top: 1.7rem;
+                padding-top: 1rem;
                 color: #fff;
                 text-align: center;
                 overflow: hidden;
@@ -270,14 +270,14 @@
                 overflow: hidden;
                 .list {
                     width: 100%;
-                    padding: .7rem 0;
+                    padding: .4rem 0 .3rem;
                     overflow: hidden;
                     .news_wall{
                         overflow: hidden;
                     }                   
                     .img {
-                        width: 2.15rem;
-                        height: 2.15rem;
+                        width: 2rem;
+                        height: 2rem;
                         overflow: hidden;
                         float: left;
                         background-size: 100%;

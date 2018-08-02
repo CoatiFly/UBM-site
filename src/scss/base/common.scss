@@ -17,9 +17,12 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
     }
+    .blue{
+        color: #053a7a;
+    }
     .show_number {
         width: 100%;
-        padding-bottom: 44px;
+        padding-bottom: 100px;
         overflow: hidden;
         .number_list {
             padding: 15px 0 20px;
@@ -111,6 +114,9 @@
         font-weight: 600;
         overflow: hidden;
     }
+    .blue{
+        color: #053a7a;
+    }
     .show_number {
         width: 100%;
         overflow: hidden;
@@ -158,7 +164,7 @@
             }
         }
         .mar_other {
-            padding: .4rem 0 .3rem;
+            padding: .4rem 0 1rem;
         }
     }
     .with_logo_box {
