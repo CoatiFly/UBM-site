@@ -21,7 +21,7 @@ export default {
   name: "suspension",
   data() {
     return {
-      facebookUrl: 'http://new.facebook.com/'
+      facebookUrl: 'https://www.facebook.com/ubmTrust/'
     };
   },
   components: {

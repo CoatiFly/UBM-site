@@ -72,7 +72,7 @@ export default {
   name: "Index",
   data() {
     return {
-      facebookUrl: "http://new.facebook.com/",
+      facebookUrl: "https://www.facebook.com/ubmTrust/",
       signChinaUrl: "http://www.signchina-sh.com/en-us/",
       digitalUrl: "http://www.digitalsignage-sh.com/en-us",
       ledChinaUrl: "http://www.ledchina-sh.com/en-us/",

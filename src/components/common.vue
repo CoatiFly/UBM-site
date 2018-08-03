@@ -6,7 +6,7 @@
       <p class="title">{{$t("common.topTitle")}}</p>
       <ul class="number_list">
         <li class="item day">
-          <p class="num"><v-countup :end-value="3"></v-countup></p>
+          <p class="num"><v-countup delay="10" duration="4" :end-value="3"></v-countup></p>
           <p class="tips">{{$t("common.day")}}</p>
         </li>
         <li class="item att">
@@ -18,11 +18,11 @@
           <p class="tips">{{$t("common.exhibitor")}}</p>
         </li>
         <li class="item spe">
-          <p class="num"><v-countup :end-value="53"></v-countup></p>
+          <p class="num"><v-countup delay="10" duration="4" :end-value="53"></v-countup></p>
           <p class="tips">{{$t("common.guest")}}</p>
         </li>
         <li class="item ses">
-          <p class="num"><v-countup :end-value="48"></v-countup></p>
+          <p class="num"><v-countup delay="10" duration="4" :end-value="48"></v-countup></p>
           <p class="tips">{{$t("common.show")}}</p>
         </li>
         <li class="item are" v-if="language == 'en'">

@@ -30,16 +30,19 @@
                     <div class="language" v-on:click="getTypeUrl('en')">{{$t("header.en")}}</div>
                     <div class="language cur">{{$t("header.zh")}}</div> 
                 </div>
-                <div class="logo_list">
+                <div class="logo_list" style="display:none;">
                     <ul class="logo_box">
                         <li class="list">
-                            <a :href="signChinaUrl" target="_blank"><img src="../assets/index_07.png" alt=""></a>
+                            <a :href="signChinaUrl" target="_blank"><img src="../assets/index_07.jpg" alt=""></a>
+                        </li>
+                        <li class="list" v-if="language == 'zh'">
+                            <a :href="ledChinaUrl" target="_blank"><img src="../assets/index_09.jpg" alt=""></a>
+                        </li>
+                        <li class="list" v-else>
+                            <a :href="ledChinaUrl" target="_blank"><img src="../assets/index_09EN.jpg" alt=""></a>
                         </li>
                         <li class="list">
-                            <a :href="ledChinaUrl" target="_blank"><img src="../assets/index_09.png" alt=""></a>
-                        </li>
-                        <li class="list">
-                            <a :href="digitalUrl" target="_blank"><img src="../assets/index_08.png" alt=""></a>
+                            <a :href="digitalUrl" target="_blank"><img src="../assets/index_08.jpg" alt=""></a>
                         </li>
                     </ul>
                 </div>
@@ -65,21 +68,26 @@
             <div class="logo_right">
                 <div class="title weight">{{$t("header.title")}}</div>
                 <ul class="logo_list">
-                <li class="item">
-                    <a :href="signChinaUrl" target="_blank">
-                    <img src="../assets/index_10.png" alt="">
-                    </a>
-                </li>
-                <li class="item">
-                    <a :href="ledChinaUrl" target="_blank">
-                    <img src="../assets/index_13.png" alt="">
-                    </a>
-                </li>
-                <li class="item">
-                    <a :href="digitalUrl" target="_blank">
-                    <img src="../assets/index_14.png" alt="">
-                    </a>            
-                    </li>
+                  <li class="item">
+                      <a :href="signChinaUrl" target="_blank">
+                      <img src="../assets/index_10.jpg" alt="">
+                      </a>
+                  </li>
+                  <li class="item" v-if="language == 'zh'">
+                      <a :href="ledChinaUrl" target="_blank">
+                      <img src="../assets/index_13.jpg" alt="">
+                      </a>
+                  </li>
+                  <li class="item" v-else>
+                      <a :href="ledChinaUrl" target="_blank">
+                      <img src="../assets/index_13EN.jpg" alt="">
+                      </a>
+                  </li>                
+                  <li class="item">
+                      <a :href="digitalUrl" target="_blank">
+                      <img src="../assets/index_14.jpg" alt="">
+                      </a>            
+                  </li>
                 </ul>
             </div>
         </div>
@@ -111,7 +119,10 @@
                         <span class="pull_down">{{language == "en" ? item.title_english : item.title}}</span>
                     </div>
                     <ul class="second_list" v-if="secondState == item.page">
-                        <li class="item" v-for="option in item._child" :key="option.id" v-on:click="goPage(option.page)">{{language == "en" ? option.title_english.replace("amp;",'') : option.title}}</li>
+                        <li class="item" v-for="option in item._child" :key="option.id">
+                          <p class="click" v-if="option.link_type ==1" v-on:click="goPage(option.page)">{{language == "en" ? option.title_english.replace("amp;",'') : option.title}}</p>
+                          <a :href="option.page" class="pdf_block" target="_blank" v-else>{{language == "en" ? option.title_english.replace("amp;",'') : option.title}}</a>
+                        </li>
                     </ul>  
                 </div>
                 <div class="bth" v-else v-on:click="goPage(item.page)">{{language == "en" ? item.title_english : item.title}}</div>
@@ -153,20 +164,25 @@
             <ul class="logo_list">
                 <li class="item left">
                     <a :href="signChinaUrl" target="_blank">
-                    <img src="../assets/index_10.png" alt="">
+                    <img src="../assets/index_10.jpg" alt="">
                     </a>
                 </li>
-                <li class="item center">
+                <li class="item center" v-if="language == 'zh'">
                     <a :href="ledChinaUrl" target="_blank">
-                    <img src="../assets/index_13.png" alt="">
+                    <img src="../assets/index_13.jpg" alt="">
                     </a>
                 </li>
+                <li class="item center" v-else>
+                    <a :href="ledChinaUrl" target="_blank">
+                    <img src="../assets/index_13EN.jpg" alt="">
+                    </a>
+                </li>               
                 <li class="item right">
                     <a :href="digitalUrl" target="_blank">
-                    <img src="../assets/index_14.png" alt="">
+                    <img src="../assets/index_14.jpg" alt="">
                     </a>            
                 </li>
-            </ul>
+            </ul>           
         </div>
     </div> 
     <!-- wechat 弹层组件 -->
@@ -188,7 +204,7 @@ export default {
       signChinaUrl: "http://www.signchina-sh.com/en-us/",
       digitalUrl: "http://www.digitalsignage-sh.com/en-us",
       ledChinaUrl: "http://www.ledchina-sh.com/en-us/",
-      facebookUrl: "http://new.facebook.com/",
+      facebookUrl: "https://www.facebook.com/ubmTrust/",
       navList: [],
       ExhibitionData: {},
       navPopupState: false,

@@ -11,9 +11,13 @@
           <p class="fonts mt30" v-html="language == 'en' ? registerData.content_english : registerData.content"></p>
         </div>
         <div class="center_box">
-          <div class="bth_register">
-            <a :href="pcUrl" class="block" target="_blank" v-if="isPC">{{$t("register.button")}}</a>
-            <a :href="mobileUrl" class="block" target="_blank" v-if="!isPC">{{$t("register.button")}}</a>
+          <div class="bth_register" v-if="language == 'en'">
+            <a :href="enUrl" class="block" target="_blank" v-if="isPC">{{$t("register.button")}}</a>
+            <a :href="enMurl" class="block" target="_blank" v-if="!isPC">{{$t("register.button")}}</a>
+          </div>
+          <div class="bth_register" v-else>
+            <a :href="zhUrl" class="block" target="_blank" v-if="isPC">{{$t("register.button")}}</a>
+            <a :href="zhMurl" class="block" target="_blank" v-if="!isPC">{{$t("register.button")}}</a>
           </div>
         </div>    
       </div>
@@ -62,8 +66,10 @@ export default {
       isPC: '',  
       SliderList: [],
       registerData: '',
-      pcUrl: 'http://www.ubmtrust.com?class=pc',
-      mobileUrl: 'http://www.ubmtrust.com?class=mobile'
+      enUrl: "https://onlinereg.ubmasia.com/registration.aspx?EventID=SIG2018&Lang=en&class=pc",
+      enMurl: "https://onlinereg.ubmasia.com/registration.aspx?EventID=SIG2018&Lang=en&class=mobile",
+      zhUrl: "https://onlinereg.ubmasia.com/registration.aspx?EventID=SIG2018&Lang=sc&class=pc",
+      zhMurl: "https://onlinereg.ubmasia.com/registration.aspx?EventID=SIG2018&Lang=sc&class=mobile"
     };
   },
   components: {
