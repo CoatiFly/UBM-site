@@ -323,9 +323,9 @@ export default {
         }        
       } else {
         for (const item in source) {
-          if (source.hasOwnProperty(key)) {
-            if(source[key].isSelected){
-              str += source[key].name + ",";
+          if (source.hasOwnProperty(item)) {
+            if(source[item].isSelected){
+              str += source[item].name + ",";
             }
           }
         }  

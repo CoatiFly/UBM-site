@@ -9,28 +9,8 @@
         <p class="fonts">{{language == "en" ? contactData.description_english : contactData.description}}</p>
       </div>
       <div class="center_box">
-        <div class="fonts_list_pc" v-html="language == 'en' ? contactData.content_english : contactData.content">
-          <!-- <p class="fonts_left mt30">{{$t("contact.three")}}</p>
-          <p class="fonts mt40">{{$t("contact.add_one")}}</p>
-          <p class="fonts mt25">{{$t("contact.add_two")}}</p>
-          <p class="fonts mt25">{{$t("contact.add_thr")}}</p>
-          <p class="fonts mt25">{{$t("contact.add_four")}}</p>
-          <p class="fonts line_26 mt50">{{$t("contact.add_five")}}</p>
-          <p class="fonts line_26">{{$t("contact.add_six")}}</p>           -->
-        </div>
-        <div class="fonts_list_mobile" v-html="language == 'en' ? contactData.content_english : contactData.content">
-          <!-- <p class="fonts">{{$t("contact.three")}}</p>
-          <p class="fonts margin">{{$t("contact.add_one")}}</p>
-          <p class="fonts">{{$t("contact.add_two")}}</p>
-          <p class="fonts">{{$t("contact.add_thr")}}</p>
-          <p class="fonts">{{$t("contact.add_four")}}</p>
-          <p class="fonts">{{$t("contact.add_five")}}</p>
-          <p class="fonts">{{$t("contact.add_six")}}</p>       -->
-        </div>
-        <!-- <div class="map_box"></div>
-        <div class="texts">{{$t("contact.text_one")}}</div>
-        <div class="map_box"></div>
-        <div class="texts">{{$t("contact.text_two")}}</div> -->
+        <div class="fonts_list_pc" v-html="language == 'en' ? contactData.content_english : contactData.content"></div>
+        <div class="fonts_list_mobile" v-html="language == 'en' ? contactData.content_english : contactData.content"></div>
       </div>
     </div> 
   </div>    
